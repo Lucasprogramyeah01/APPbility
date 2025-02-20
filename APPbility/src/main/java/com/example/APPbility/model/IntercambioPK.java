@@ -1,33 +1,28 @@
-package com.example.APPbility.model.clases;
+package com.example.APPbility.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.Embeddable;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.io.Serializable;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Entity
-public class Valoracion {
+@Embeddable
+public class IntercambioPK implements Serializable {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private static final long serialVersionUID = 1L;
 
-    private int valoracion;
+        private UUID usuarioId1;
 
-    private String titulo;
+        private UUID usuarioId2;
 
-    private String resenha;
-
-    //EQUALS & HASHCODE
+    //EQUALS & HASHCODE ----------------------------------------------------------------------------------
 
     @Override
     public final boolean equals(Object o) {
@@ -36,12 +31,14 @@ public class Valoracion {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Valoracion that = (Valoracion) o;
-        return getId() != null && Objects.equals(getId(), that.getId());
+        IntercambioPK that = (IntercambioPK) o;
+        return getUsuarioId1() != null && Objects.equals(getUsuarioId1(), that.getUsuarioId1())
+                && getUsuarioId2() != null && Objects.equals(getUsuarioId2(), that.getUsuarioId2());
     }
 
     @Override
     public final int hashCode() {
-        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+        return Objects.hash(usuarioId1, usuarioId2);
     }
+
 }

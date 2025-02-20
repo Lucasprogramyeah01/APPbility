@@ -1,13 +1,14 @@
-package com.example.APPbility.model.clases;
+package com.example.APPbility.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import com.example.APPbility.user.model.User;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 
 @Getter
 @Setter
@@ -27,8 +28,18 @@ public class Talento {
     @Lob
     private String descripcion;
 
+    @ElementCollection
     private List<String> listaImagenes = new ArrayList<>();
 
+    //ASOCIACIONES ----------------------------------------------------------------------------------
+
+    //Con USER (MT - 1U).
+    @ManyToOne
+    @JoinColumn(
+            name="talento_id",
+            foreignKey = @ForeignKey(name="fk_talento_usuario")
+    )
+    private User usuario;
 
     //EQUALS & HASHCODE ----------------------------------------------------------------------------------
 
