@@ -44,8 +44,6 @@ public class Usuario implements UserDetails {
 
     private Long puntosPopularidad;
 
-    //private int numerosIntercambiosRealizados;
-
     private String idiomas;
 
     private String conocimientos;
