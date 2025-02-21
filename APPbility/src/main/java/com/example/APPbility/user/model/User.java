@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "user_entity")
 public class User implements UserDetails {
 
     @Id
@@ -121,7 +122,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "marca_como_favorito",
-            joinColumns = @JoinColumn(name = "usuarioId_relacion_usuarioFavoritoId"),
+            joinColumns = @JoinColumn(name = "usuarioId_que_marca_usuarioFavoritoId"),
             inverseJoinColumns = @JoinColumn(name = "usuarioFavoritoId_relacion_usuarioId"),
             foreignKey = @ForeignKey(name = "fk_usuario_usuarioFavorito"),
             inverseForeignKey = @ForeignKey(name = "fk_usuarioFavorito_usuario")
