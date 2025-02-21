@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Builder
 @Entity
 @Table(name = "user_entity")
-public class User implements UserDetails {
+public class User implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
