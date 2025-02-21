@@ -1,6 +1,8 @@
 package com.example.APPbility.user.model;
 
-public class Usuario {
+public enum UserRole {
 
+    USER,
+    ADMIN
 
 }
