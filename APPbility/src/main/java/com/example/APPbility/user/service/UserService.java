@@ -5,6 +5,7 @@ import com.example.APPbility.user.error.ActivationExpiredException;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.model.UserRole;
 import com.example.APPbility.user.repository.UserRepository;
+import com.example.APPbility.util.SendGridMailSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final SendGridMailSender mailSender;
-    //private final ResendMailSender mailSender;
-
 
     @Value("${activation.duration}")
     private int activationDuration;

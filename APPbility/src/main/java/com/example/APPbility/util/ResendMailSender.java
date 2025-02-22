@@ -1,4 +1,4 @@
-package com.example.APPbility.util;
+/*package com.example.APPbility.util;
 
 import com.resend.Resend;
 import com.resend.core.exception.ResendException;
@@ -30,4 +30,4 @@ public class ResendMailSender {
         CreateEmailResponse data = resend.emails().send(params);
     }
 
-}
+}*/
