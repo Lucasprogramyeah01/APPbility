@@ -1,7 +1,7 @@
 package com.example.APPbility.security.jwt.refresh;
 
 import com.example.APPbility.security.jwt.access.JwtService;
-import com.example.APPbility.user.dto.UserResponse;
+import com.example.APPbility.user.dto.seguridad.UserResponse;
 import com.example.APPbility.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

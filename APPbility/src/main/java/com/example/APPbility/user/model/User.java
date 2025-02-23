@@ -63,7 +63,9 @@ public class User implements UserDetails{
 
     private Long puntosPopularidad;
 
-    private String idiomas;
+    private String idiomaNativo;
+
+    private String otrosIdiomas;
 
     private String conocimientos;
 

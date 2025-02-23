@@ -1,6 +1,6 @@
 package com.example.APPbility.user.service;
 
-import com.example.APPbility.user.dto.CreateUserRequest;
+import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.error.ActivationExpiredException;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.model.UserRole;
@@ -41,6 +41,8 @@ public class UserService {
                 .fechaNacimiento(createUserRequest.fechaNacimiento())
                 .lugarNacimiento(createUserRequest.lugarNacimiento())
                 .lugarResidencia(createUserRequest.lugarResidencia())
+                .idiomaNativo(createUserRequest.idiomaNativo())
+                .puntosPopularidad(0L)
                 .roles(Set.of(UserRole.USER))
                 .activationToken(generateRandomActivationCode())
                 .build();
