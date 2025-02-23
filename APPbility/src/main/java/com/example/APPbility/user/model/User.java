@@ -51,6 +51,8 @@ public class User implements UserDetails{
 
     private Sexo sexo;
 
+    private String numTelefono;
+
     private String imagenPerfil;
 
     private LocalDate fechaNacimiento;
