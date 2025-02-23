@@ -75,11 +75,11 @@
 			<version>4.10.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.resend/resend-java -->
-		<dependency>
+		<!--dependency>
 			<groupId>com.resend</groupId>
 			<artifactId>resend-java</artifactId>
 			<version>4.1.1</version>
-		</dependency>
+		</dependency-->
 
 		<!--POSTGRESQL-->
 		<dependency>

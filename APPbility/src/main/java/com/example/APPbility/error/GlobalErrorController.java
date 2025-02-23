@@ -9,13 +9,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GlobalErrorController  extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
+    /*@ExceptionHandler(RuntimeException.class)
     public ProblemDetail handleEntityNotFound(RuntimeException ex){
         ProblemDetail result = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
         result.setTitle("Entidad no encontrada.");
         result.setProperty("author", "Lucas Falla Urtiaga");
 
         return result;
-    }
+    }*/
 
 }

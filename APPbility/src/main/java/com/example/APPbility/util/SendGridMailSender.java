@@ -7,11 +7,8 @@ import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.java.Log;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +23,7 @@ public class SendGridMailSender {
 
     @Async
     public void sendMail(String to, String subject, String message) throws IOException {
-        Email from = new Email("vascotremendo@gmail.com");
+        Email from = new Email("falla.urluc24@triana.salesianos.edu");
         Email emailTo = new Email(to);
         Content content = new Content("text/plain", message);
         Mail mail = new Mail(from, subject, emailTo, content);
