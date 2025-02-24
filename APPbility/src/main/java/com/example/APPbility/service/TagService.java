@@ -8,6 +8,8 @@ import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,8 +32,8 @@ public class TagService {
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
     //Listar todos los Tags.
-    public List<GetTagDTO> findAll(){
-        List<GetTagDTO> result = tagRepository.findAllTagDTO();
+    public Page<GetTagDTO> findAll(Pageable pageable){
+        Page<GetTagDTO> result = tagRepository.findAllTagDTO(pageable);
 
         if(result.isEmpty())
             throw new TagNotFoundException();
