@@ -19,6 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @EnableWebSecurity
 @RequiredArgsConstructor
 @Configuration
@@ -56,7 +58,7 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(csrf -> csrf.disable());
-        http.cors(Customizer.withDefaults());
+        http.cors(withDefaults());
         http.sessionManagement((session) -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.exceptionHandling(excepz -> excepz
@@ -66,11 +68,13 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authz -> authz
                 .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
-                    "/activate/account/","/error", "/tag/").permitAll()
+                    "/activate/account/","/error").permitAll()
+                .requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
                 .requestMatchers("/me").hasRole("USER")
                 .requestMatchers("/me/admin").hasRole("ADMIN")
                 .requestMatchers("/h2-console/**").permitAll()
-                .anyRequest().authenticated());
+                .anyRequest().authenticated())
+                .httpBasic(withDefaults()); // Habilita Basic Auth
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

@@ -1,5 +1,6 @@
 package com.example.APPbility.service;
 
+import com.example.APPbility.dto.tag.EditTagCmd;
 import com.example.APPbility.dto.tag.GetTagDTO;
 import com.example.APPbility.error.TagNotFoundException;
 import com.example.APPbility.model.Tag;
@@ -47,6 +48,28 @@ public class TagService {
         if(tagOptional.isPresent())
             return tagOptional.get();
         throw new TagNotFoundException(id);
+    }
+
+    //Crear Tag.
+    public Tag save(EditTagCmd nuevo){
+        return tagRepository.save(Tag.builder()
+                .nombre(nuevo.nombre())
+                .build());
+    }
+
+    public Tag edit(EditTagCmd editTagCmd, Long id){
+        Optional<Tag> tagOptional = tagRepository.findById(id);
+
+        if(tagOptional.isPresent()){
+            return tagOptional
+                .map(old -> {
+                    old.setNombre(editTagCmd.nombre());
+
+                    return tagRepository.save(old);
+                }).get();
+        }else{
+            throw new TagNotFoundException("No se ha encontrado ningún Tag con ID: "+id+".");
+        }
     }
 
 
