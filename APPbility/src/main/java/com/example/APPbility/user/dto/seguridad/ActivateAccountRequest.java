@@ -1,4 +1,4 @@
-package com.example.APPbility.user.dto;
+package com.example.APPbility.user.dto.seguridad;
 
 public record ActivateAccountRequest(
         String token

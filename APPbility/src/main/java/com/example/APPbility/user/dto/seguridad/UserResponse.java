@@ -1,4 +1,4 @@
-package com.example.APPbility.user.dto;
+package com.example.APPbility.user.dto.seguridad;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.example.APPbility.user.model.User;

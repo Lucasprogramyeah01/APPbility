@@ -49,6 +49,7 @@ public class User implements UserDetails{
 
     private String apellidos;
 
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
     private String numTelefono;
@@ -57,17 +58,21 @@ public class User implements UserDetails{
 
     private LocalDate fechaNacimiento;
 
+    @Enumerated(EnumType.STRING)
     private Provincia lugarNacimiento;
 
+    @Enumerated(EnumType.STRING)
     private Provincia lugarResidencia;
 
     private Long puntosPopularidad;
 
-    private String idiomas;
+    private String idiomaNativo;
+
+    private String otrosIdiomas;
 
     private String conocimientos;
 
-    @Lob
+    //@Lob
     private String descripcion;
 
     //-----

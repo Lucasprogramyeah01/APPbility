@@ -64,8 +64,9 @@ public class SecurityConfig {
                 .accessDeniedHandler(accessDeniedHandler)
         );
         http.authorizeHttpRequests(authz -> authz
+                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
-                    "/activate/account/","/error").permitAll()
+                    "/activate/account/","/error", "/tag/").permitAll()
                 .requestMatchers("/me").hasRole("USER")
                 .requestMatchers("/me/admin").hasRole("ADMIN")
                 .requestMatchers("/h2-console/**").permitAll()
