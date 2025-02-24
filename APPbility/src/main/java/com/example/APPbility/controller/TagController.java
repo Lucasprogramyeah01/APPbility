@@ -154,7 +154,7 @@ public class TagController {
                     content = @Content),
     })
     @PutMapping("{id}")
-    public GetTagDTO edit(@RequestBody EditTagCmd editTagCmd, @PathVariable Long id){
+    public GetTagDTO edit(@Valid @RequestBody EditTagCmd editTagCmd, @PathVariable Long id){
         return GetTagDTO.of(tagService.edit(editTagCmd, id));
     }
 

@@ -1,0 +1,19 @@
+package com.example.APPbility.validation.tag;
+
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
+
+import java.lang.annotation.*;
+
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = UniqueNameTagValidator.class)
+public @interface UniqueNameTag {
+
+    String message() default "Ya existe un Tag con ese nombre.";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+
+}

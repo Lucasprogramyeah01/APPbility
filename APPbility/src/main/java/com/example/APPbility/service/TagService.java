@@ -7,13 +7,11 @@ import com.example.APPbility.model.Tag;
 import com.example.APPbility.repository.TagRepository;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 

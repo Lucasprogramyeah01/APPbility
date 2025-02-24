@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
+    boolean existsByNombre(String nombre);
+
     @Query("""
         SELECT new com.example.APPbility.dto.tag.GetTagDTO(
             t.id, t.nombre

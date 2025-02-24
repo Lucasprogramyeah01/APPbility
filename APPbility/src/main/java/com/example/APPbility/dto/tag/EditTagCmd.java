@@ -1,11 +1,13 @@
 package com.example.APPbility.dto.tag;
 
+import com.example.APPbility.validation.tag.UniqueNameTag;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record EditTagCmd(
-        @NotBlank
-        @NotNull
+        @NotBlank(message = "{editTagCmd.nombre.notblank}")
+        @NotNull(message = "{editTagCmd.nombre.notnull}")
+        @UniqueNameTag
         String nombre
 ) {
 }
