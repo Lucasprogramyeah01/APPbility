@@ -20,7 +20,7 @@ public class Valoracion {
     @GeneratedValue
     private Long id;
 
-    private int valoracion;
+    private int puntuacion;
 
     private String titulo;
 
