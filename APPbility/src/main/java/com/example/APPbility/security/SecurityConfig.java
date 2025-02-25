@@ -70,10 +70,12 @@ public class SecurityConfig {
                 //PERMIT ALL
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token", "/activate/account/","/error").permitAll()
+                .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
+                    "/activate/account/","/error").permitAll()
 
                 //ADMIN
                 .requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/tag/{id}").hasRole("ADMIN")
                 .requestMatchers("/me/admin").hasRole("ADMIN")
 
                 //USER

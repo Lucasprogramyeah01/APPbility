@@ -22,26 +22,16 @@ import java.util.Optional;
 @RestControllerAdvice
 public class GlobalErrorController  extends ResponseEntityExceptionHandler {
 
-    /*@ExceptionHandler(RuntimeException.class)
-    public ProblemDetail handleEntityNotFound(RuntimeException ex){
-        ProblemDetail result = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
-        result.setTitle("Entidad no encontrada.");
-        result.setProperty("author", "Lucas Falla Urtiaga");
-
-        return result;
-    }*/
-
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleNotFoundException(NotFoundException ex) {
         HttpStatus status = HttpStatus.NOT_FOUND;
         String errorType = "Recurso no encontrado";
 
-        // Personalizar mensajes usando pattern matching
-        if (ex instanceof TagNotFoundException trabajadorEx) {
+        if (ex instanceof TagNotFoundException tagEx) {
             errorType = "Tag no encontrado";
-        } /*else if (ex instanceof UserNotFoundException userEx) {
-            errorType = "Usuario no encontrado";
-        }*/
+        } else if (ex instanceof TalentoNotFoundException talentoEx) {
+            errorType = "Talento no encontrado";
+        }
 
         Map<String, Object> errorBody = Map.of(
                 "error", errorType,
