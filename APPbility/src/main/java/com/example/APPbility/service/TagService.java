@@ -55,6 +55,7 @@ public class TagService {
                 .build());
     }
 
+    //Editar Tag.
     public Tag edit(EditTagCmd editTagCmd, Long id){
         Optional<Tag> tagOptional = tagRepository.findById(id);
 

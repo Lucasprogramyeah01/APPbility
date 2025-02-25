@@ -25,7 +25,6 @@ public class Talento {
 
     private String titulo;
 
-    @Lob
     private String descripcion;
 
     @ElementCollection
@@ -36,7 +35,7 @@ public class Talento {
     //Con USER (MT - 1U).
     @ManyToOne
     @JoinColumn(
-            name="talento_id",
+            name="usuario_id",
             foreignKey = @ForeignKey(name="fk_talento_usuario")
     )
     private User usuario;

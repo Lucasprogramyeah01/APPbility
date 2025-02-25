@@ -66,13 +66,21 @@ public class SecurityConfig {
                 .accessDeniedHandler(accessDeniedHandler)
         );
         http.authorizeHttpRequests(authz -> authz
-                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
-                    "/activate/account/","/error").permitAll()
-                .requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
-                .requestMatchers("/me").hasRole("USER")
-                .requestMatchers("/me/admin").hasRole("ADMIN")
+
+                //PERMIT ALL
                 .requestMatchers("/h2-console/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}").permitAll()
+                .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token", "/activate/account/","/error").permitAll()
+
+                //ADMIN
+                .requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
+                .requestMatchers("/me/admin").hasRole("ADMIN")
+
+                //USER
+                .requestMatchers("/me").hasRole("USER")
+                .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
+                .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
+
                 .anyRequest().authenticated())
                 .httpBasic(withDefaults()); // Habilita Basic Auth
 
