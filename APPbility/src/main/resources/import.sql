@@ -4,7 +4,7 @@ INSERT INTO user_entity (
     fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas,
     conocimientos, descripcion, activation_token, created_at) VALUES
     ('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL,
-    '1995-01-01', 'MADRID', 'SEVILLA', 0, 'Inglés', 'Alemán', 'Programación', 'Apasionado de la tecnología y los videojuegos.', NULL, NOW()),
+    '1995-01-01', 'MADRID', 'SEVILLA', 0, 'Inglés', 'Alemán', 'Programación', 'Mascota de Java.', NULL, NOW()),
     ('550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'Pérez', 'HOMBRE', '123456789', NULL,
     '1990-01-01', 'MADRID', 'BARCELONA', 100, 'Español', 'Inglés', 'Programación', 'Apasionado de la tecnología y los videojuegos.', NULL, NOW()),
     ('660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'María', 'López', 'MUJER', '987654321', NULL,

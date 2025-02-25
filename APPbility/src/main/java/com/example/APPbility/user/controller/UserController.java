@@ -1,16 +1,23 @@
 package com.example.APPbility.user.controller;
 
+import com.example.APPbility.dto.tag.GetTagDTO;
 import com.example.APPbility.security.jwt.access.JwtService;
 import com.example.APPbility.security.jwt.refresh.RefreshToken;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenRequest;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenService;
+import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.dto.seguridad.ActivateAccountRequest;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.dto.seguridad.LoginRequest;
 import com.example.APPbility.user.dto.seguridad.UserResponse;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,19 +25,27 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user/")
 @RequiredArgsConstructor
+@Tag(name = "Usuario", description = "Controlador de Usuario, para poder realizar sus operaciones de gestión.")
 public class UserController {
 
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final RefreshTokenService refreshTokenService;
+
+    //ENDPOINTS DEL CONTROLADOR --------------------------------------------------------------------------------
+
+    @GetMapping
+    public Page<GetUserDTO> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
+        return userService.findAll(pageable);
+    }
+
+    //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
     @PostMapping("/auth/register")
     public ResponseEntity<UserResponse> register(@RequestBody CreateUserRequest createUserRequest) {

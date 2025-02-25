@@ -1,13 +1,17 @@
 package com.example.APPbility.user.service;
 
+import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.error.ActivationExpiredException;
+import com.example.APPbility.user.error.UserNotFoundException;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.model.UserRole;
 import com.example.APPbility.user.repository.UserRepository;
 import com.example.APPbility.util.SendGridMailSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +32,19 @@ public class UserService {
 
     @Value("${activation.duration}")
     private int activationDuration;
+
+    //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
+
+    //Listar todos los Usuarios.
+    public Page<GetUserDTO> findAll(Pageable pageable){
+        Page<GetUserDTO> result = userRepository.findAllUserDTO(pageable);
+
+        if(result.isEmpty())
+            throw new UserNotFoundException();
+        return result;
+    }
+
+    //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
     public User createUser(CreateUserRequest createUserRequest) {
         User user = User.builder()

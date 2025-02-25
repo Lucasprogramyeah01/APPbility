@@ -68,8 +68,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authz -> authz
 
                 //PERMIT ALL
-                .requestMatchers("/h2-console/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}").permitAll()
+                .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}", "/user/").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 
