@@ -1,5 +1,6 @@
 package com.example.APPbility.error;
 
+import com.example.APPbility.user.error.UserNotFoundException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -28,9 +29,11 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
         String errorType = "Recurso no encontrado";
 
         if (ex instanceof TagNotFoundException tagEx) {
-            errorType = "Tag no encontrado";
+            errorType = "Tag no encontrado.";
         } else if (ex instanceof TalentoNotFoundException talentoEx) {
-            errorType = "Talento no encontrado";
+            errorType = "Talento no encontrado.";
+        } else if (ex instanceof UserNotFoundException usuarioEx) {
+            errorType = "Usuario no encontrado.";
         }
 
         Map<String, Object> errorBody = Map.of(
