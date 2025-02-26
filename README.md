@@ -33,7 +33,10 @@ El sistema está diseñado para facilitar la coordinación entre los 2 tipos de 
 
 ## :warning: Instalación
 
-Para ejecutar el proyecto, no es necesario realizar docker-compose, **esto se hace automáticamente**. Simplemente ejecute el proyecto con normalidad.
+Para ejecutar el proyecto, es necesario ingresar a él e iniciar el programa con la siguiente opción:
+```
+spring-boot:run
+```
 
 ## :pencil2: Proyecto elaborado por...
 
