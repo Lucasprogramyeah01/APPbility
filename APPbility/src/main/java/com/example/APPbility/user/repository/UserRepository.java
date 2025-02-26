@@ -31,6 +31,30 @@ public interface UserRepository extends JpaRepository<User, UUID> {
             u.puntosPopularidad, u.idiomaNativo, u.otrosIdiomas, u.conocimientos,
             u.descripcion
          )
+         FROM User u JOIN u.listaUsuariosFavoritos luf
+         WHERE luf.id = ?1
+    """)
+    Set<GetUserDTO> findListaUsuariosFavoritosByUsuarioID(UUID id);
+
+    @Query("""
+         SELECT NEW com.example.APPbility.user.dto.GetUserDTO(
+            u.id, u.username, u.email, u.nombre, u.apellidos, u.sexo, u.numTelefono,
+            u.imagenPerfil, u.fechaNacimiento, u.lugarNacimiento, u.lugarResidencia,
+            u.puntosPopularidad, u.idiomaNativo, u.otrosIdiomas, u.conocimientos,
+            u.descripcion
+         )
+         FROM User u JOIN u.listaUsuariosSeguidores lus
+         WHERE lus.id = ?1
+    """)
+    Set<GetUserDTO> findListaUsuariosSeguidoresByUsuarioID(UUID id);
+
+    @Query("""
+         SELECT NEW com.example.APPbility.user.dto.GetUserDTO(
+            u.id, u.username, u.email, u.nombre, u.apellidos, u.sexo, u.numTelefono,
+            u.imagenPerfil, u.fechaNacimiento, u.lugarNacimiento, u.lugarResidencia,
+            u.puntosPopularidad, u.idiomaNativo, u.otrosIdiomas, u.conocimientos,
+            u.descripcion
+         )
          FROM User u JOIN u.listaTags lt
          WHERE lt.id = ?1
     """)
