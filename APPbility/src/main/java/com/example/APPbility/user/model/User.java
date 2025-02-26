@@ -108,7 +108,7 @@ public class User implements UserDetails{
     private Set<Tag> listaTags = new HashSet<>();
 
     //Con TALENTO (1U - MT).
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     @Builder.Default
     @ToString.Exclude
     private List<Talento> listaTalentos = new ArrayList<>();

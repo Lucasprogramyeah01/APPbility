@@ -83,8 +83,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
 
-                .anyRequest().authenticated())
-                .httpBasic(withDefaults()); // Habilita Basic Auth
+                .anyRequest().authenticated());
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

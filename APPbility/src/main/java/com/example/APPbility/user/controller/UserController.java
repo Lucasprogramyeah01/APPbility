@@ -34,7 +34,6 @@ import java.util.Set;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/user/")
 @RequiredArgsConstructor
 @Tag(name = "Usuario", description = "Controlador de Usuario, para poder realizar sus operaciones de gestión.")
 public class UserController {
@@ -46,12 +45,12 @@ public class UserController {
 
     //ENDPOINTS DEL CONTROLADOR --------------------------------------------------------------------------------
 
-    @GetMapping
+    @GetMapping("/user/")
     public Page<GetUserDTO> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
         return userService.findAll(pageable);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/user/{id}")
     public GetUserDTOCompleto findByID(@PathVariable UUID id){
         Set<GetTagDTO> listaTags = userService.getListaTagsByUsuarioID(id);
         List<GetTalentoDTO> listaTalentos = userService.getListaTalentosByUsuarioID(id);

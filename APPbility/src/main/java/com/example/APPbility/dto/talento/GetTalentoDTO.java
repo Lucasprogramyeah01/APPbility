@@ -20,4 +20,8 @@ public record GetTalentoDTO(
         );
     }
 
+    public GetTalentoDTO(Long id, String titulo, String descripcion){
+        this(id, titulo, descripcion, null);
+    }
+
 }

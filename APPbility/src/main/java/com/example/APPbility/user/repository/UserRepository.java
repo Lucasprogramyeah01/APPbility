@@ -1,5 +1,6 @@
 package com.example.APPbility.user.repository;
 
+import com.example.APPbility.model.Talento;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.model.User;
 import org.springframework.data.domain.Page;
@@ -7,11 +8,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
+
+    @Query("""
+        SELECT u.listaTalentos
+        FROM User u
+        WHERE u.id = ?1
+    """)
+    List<Talento> findListaTalentosByUsuarioID(UUID id);
 
     @Query("""
         SELECT new com.example.APPbility.user.dto.GetUserDTO(
