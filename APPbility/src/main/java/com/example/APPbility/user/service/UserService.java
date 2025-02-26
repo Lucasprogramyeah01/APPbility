@@ -1,5 +1,13 @@
 package com.example.APPbility.user.service;
 
+import com.example.APPbility.dto.tag.GetTagDTO;
+import com.example.APPbility.dto.talento.GetTalentoDTO;
+import com.example.APPbility.dto.valoracion.GetValoracionDTO;
+import com.example.APPbility.error.TagNotFoundException;
+import com.example.APPbility.model.Tag;
+import com.example.APPbility.repository.TagRepository;
+import com.example.APPbility.repository.TalentoRepository;
+import com.example.APPbility.repository.ValoracionRepository;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.error.ActivationExpiredException;
@@ -19,6 +27,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -30,8 +40,38 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final SendGridMailSender mailSender;
 
+    private final TagRepository tagRepository;
+    private final TalentoRepository talentoRepository;
+    private final ValoracionRepository valoracionRepository;
+
     @Value("${activation.duration}")
     private int activationDuration;
+
+    //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
+
+    public Set<GetTagDTO> getListaTagsByUsuarioID(UUID id){
+        return tagRepository.findListaTagsByUsuarioID(id);
+    }
+
+    public List<GetTalentoDTO> getListaTalentosByUsuarioID(UUID id){
+        return talentoRepository.findListaTalentosByUsuarioID(id);
+    }
+
+    public List<GetValoracionDTO> getListaValoracionesRealizadasByUsuarioID(UUID id){
+        return valoracionRepository.findListaValoracionesRealizadasByUsuarioID(id);
+    }
+
+    public List<GetValoracionDTO> getListaValoracionesRecibidasByUsuarioID(UUID id){
+        return valoracionRepository.findListaValoracionesRecibidasByUsuarioID(id);
+    }
+
+    public Set<GetUserDTO> getListaUsuariosFavoritosByUsuarioID(UUID id){
+        return userRepository.findListaUsuariosFavoritosByUsuarioID(id);
+    }
+
+    public Set<GetUserDTO> getListaUsuariosSeguidoresByUsuarioID(UUID id){
+        return userRepository.findListaUsuariosSeguidoresByUsuarioID(id);
+    }
 
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
@@ -42,6 +82,15 @@ public class UserService {
         if(result.isEmpty())
             throw new UserNotFoundException();
         return result;
+    }
+
+    //Buscar Usuario por ID.
+    public User findById(UUID id){
+        Optional<User> usuarioOptional = userRepository.findById(id);
+
+        if(usuarioOptional.isPresent())
+            return usuarioOptional.get();
+        throw new UserNotFoundException(id);
     }
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------

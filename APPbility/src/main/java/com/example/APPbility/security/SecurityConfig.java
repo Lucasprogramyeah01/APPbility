@@ -69,7 +69,7 @@ public class SecurityConfig {
 
                 //PERMIT ALL
                 .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}", "/user/").permitAll()
+                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}", "/user/", "/user/{id}").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 
@@ -83,8 +83,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
 
-                .anyRequest().authenticated())
-                .httpBasic(withDefaults()); // Habilita Basic Auth
+                .anyRequest().authenticated());
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

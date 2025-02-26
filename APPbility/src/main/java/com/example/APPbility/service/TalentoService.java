@@ -1,7 +1,8 @@
 package com.example.APPbility.service;
 
 import com.example.APPbility.dto.talento.EditTalentoCmd;
-import com.example.APPbility.error.TagNotFoundException;
+import com.example.APPbility.dto.talento.GetTalentoDTO;
+import com.example.APPbility.dto.talento.GetTalentoDTOConUser;
 import com.example.APPbility.error.TalentoNotFoundException;
 import com.example.APPbility.files.model.FileMetadata;
 import com.example.APPbility.files.service.StorageService;
@@ -13,7 +14,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,12 +24,18 @@ public class TalentoService {
 
     private final TalentoRepository talentoRepository;
     private final StorageService storageService;
-    private final UserRepository usuarioRepository;
+    private final UserRepository userRepository;
 
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
+    public boolean existsTalentoByUsuario_Id(UUID id){
+        return talentoRepository.existsTalentoByUsuario_Id(id);
+    }
+
     //Crear Talento.
     public Talento save(User user, EditTalentoCmd nuevo, MultipartFile... listaMultipartFile){
+
+        List<Talento> ut = userRepository.findListaTalentosByUsuarioID(user.getId());
 
         for (MultipartFile imagen : listaMultipartFile) {
             FileMetadata fileMetadata = storageService.store(imagen);
@@ -39,11 +48,15 @@ public class TalentoService {
                 .listaImagenes(nuevo.listaImagenes())
                 .build();
 
-        user.addTalento(t);
+        ut.add(t);
+        t.setUsuario(user);
+
         //talentoRepository.save(t);
 
         //user.addTalento(t);
         //usuarioRepository.save(user);
+
+        talentoRepository.save(t);
 
         return talentoRepository.save(t);
     }

@@ -2,9 +2,11 @@ package com.example.APPbility.user.error;
 
 import com.example.APPbility.error.NotFoundException;
 
+import java.util.UUID;
+
 public class UserNotFoundException extends NotFoundException {
 
-  public UserNotFoundException(Long id){
+  public UserNotFoundException(UUID id){
     super("No existe ningún usuario con ID: %d".formatted(id)+".");
   }
 

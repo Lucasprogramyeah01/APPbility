@@ -1,8 +1,34 @@
 package com.example.APPbility.repository;
 
+import com.example.APPbility.dto.talento.GetTalentoDTO;
+import com.example.APPbility.dto.talento.GetTalentoDTOConUser;
 import com.example.APPbility.model.Talento;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+import java.util.UUID;
 
 public interface TalentoRepository extends JpaRepository<Talento, Long> {
+
+    boolean existsTalentoByUsuario_Id(UUID id);
+
+    @Query("""
+       SELECT new com.example.APPbility.dto.talento.GetTalentoDTO(
+            t.id, t.titulo, t.descripcion
+        )
+        FROM Talento t JOIN t.usuario u
+        WHERE u.id = ?1
+    """)
+    List<GetTalentoDTO> findListaTalentosByUsuarioID(UUID id);
+
+    /*@Query("""
+       SELECT new com.example.APPbility.dto.talento.GetTalentoDTO(
+            t.id, t.titulo, t.descripcion, t.listaImagenes
+        )
+        FROM Talento t JOIN t.usuario u
+        WHERE u.id = ?1
+    """)
+    List<GetTalentoDTO> findListaTalentosByUsuarioID(UUID id);*/
 
 }
