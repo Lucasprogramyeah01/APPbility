@@ -17,7 +17,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Talento {
+public class TalentoPRUEBA {
 
     @Id
     @GeneratedValue
@@ -49,8 +49,8 @@ public class Talento {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Talento talento = (Talento) o;
-        return getId() != null && Objects.equals(getId(), talento.getId());
+        TalentoPRUEBA talentoPRUEBA = (TalentoPRUEBA) o;
+        return getId() != null && Objects.equals(getId(), talentoPRUEBA.getId());
     }
 
     @Override

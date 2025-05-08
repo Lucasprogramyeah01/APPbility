@@ -1,6 +1,6 @@
-package com.example.APPbility.dto.talento;
+package com.example.APPbility.dto.talentoPRUEBA;
 
-import com.example.APPbility.model.Talento;
+import com.example.APPbility.model.TalentoPRUEBA;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public record GetTalentoDTO(
         List<String> listaImagenes
 ) {
 
-    public static GetTalentoDTO of(Talento t){
+    public static GetTalentoDTO of(TalentoPRUEBA t){
         return new GetTalentoDTO(
                 t.getId(),
                 t.getTitulo(),

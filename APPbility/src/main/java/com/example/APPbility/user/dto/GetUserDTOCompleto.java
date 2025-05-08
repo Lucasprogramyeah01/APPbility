@@ -1,7 +1,7 @@
 package com.example.APPbility.user.dto;
 
-import com.example.APPbility.dto.tag.GetTagDTO;
-import com.example.APPbility.dto.talento.GetTalentoDTO;
+import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
+import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO;
 import com.example.APPbility.dto.valoracion.GetValoracionDTO;
 import com.example.APPbility.model.Provincia;
 import com.example.APPbility.model.Sexo;

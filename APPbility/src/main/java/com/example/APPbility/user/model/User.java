@@ -105,13 +105,13 @@ public class User implements UserDetails{
     )
     @Builder.Default
     @ToString.Exclude
-    private Set<Tag> listaTags = new HashSet<>();
+    private Set<TagPRUEBA> listaTags = new HashSet<>();
 
     //Con TALENTO (1U - MT).
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     @Builder.Default
     @ToString.Exclude
-    private List<Talento> listaTalentos = new ArrayList<>();
+    private List<TalentoPRUEBA> listaTalentoPRUEBAS = new ArrayList<>();
 
     //Con VALORACION -> Para Valoraciones realizadas (1U - MV).
     @OneToMany(mappedBy = "usuarioEscritor", fetch = FetchType.LAZY)
@@ -148,25 +148,25 @@ public class User implements UserDetails{
 
         //Con TAG:
 
-        public void addTag(Tag t){
+        public void addTag(TagPRUEBA t){
             this.listaTags.add(t);
             t.getListaUsuarios().add(this);
         }
 
-        public void removeTag(Tag t){
+        public void removeTag(TagPRUEBA t){
             t.getListaUsuarios().remove(this);
             this.listaTags.remove(t);
         }
 
         //Con TALENTO:
 
-        public void addTalento(Talento t){
+        public void addTalento(TalentoPRUEBA t){
             t.setUsuario(this);
-            this.getListaTalentos().add(t);
+            this.getListaTalentoPRUEBAS().add(t);
         }
 
-        public void removeTalento(Talento t){
-            this.getListaTalentos().remove(t);
+        public void removeTalento(TalentoPRUEBA t){
+            this.getListaTalentoPRUEBAS().remove(t);
             t.setUsuario(null);
         }
 

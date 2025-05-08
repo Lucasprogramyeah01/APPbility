@@ -1,6 +1,6 @@
-package com.example.APPbility.dto.tag;
+package com.example.APPbility.dto.tagPRUEBA;
 
-import com.example.APPbility.model.Tag;
+import com.example.APPbility.model.TagPRUEBA;
 import com.example.APPbility.user.dto.GetUserDTO;
 
 import java.util.Set;
@@ -11,7 +11,7 @@ public record GetTagDTOCompleto(
         Set<GetUserDTO> listaUsuarios
 ) {
 
-    public static GetTagDTOCompleto of(Tag t, Set<GetUserDTO> listaUsuarios){
+    public static GetTagDTOCompleto of(TagPRUEBA t, Set<GetUserDTO> listaUsuarios){
         return new GetTagDTOCompleto(
              t.getId(),
              t.getNombre(),

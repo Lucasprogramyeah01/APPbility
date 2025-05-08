@@ -1,10 +1,8 @@
 package com.example.APPbility.controller;
 
-import com.example.APPbility.dto.tag.EditTagCmd;
-import com.example.APPbility.dto.talento.EditTalentoCmd;
-import com.example.APPbility.dto.talento.GetTalentoDTO;
-import com.example.APPbility.dto.talento.GetTalentoDTOConUser;
-import com.example.APPbility.model.Talento;
+import com.example.APPbility.dto.talentoPRUEBA.EditTalentoCmd;
+import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO;
+import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTOConUser;
 import com.example.APPbility.service.TalentoService;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.model.User;
@@ -28,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 @RequestMapping("/talento/")
 @Tag(name = "Talento", description = "Controlador de Talento, para poder realizar sus operaciones de gestión.")
-public class TalentoController {
+public class TalentoPRUEBAController {
 
     private final TalentoService talentoService;
 

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -83,7 +82,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
 
-                .anyRequest().authenticated());
+                .anyRequest().authenticated()).httpBasic(withDefaults()); // Habilita Basic Auth);
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

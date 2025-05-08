@@ -5,9 +5,10 @@ import jakarta.validation.Payload;
 
 import java.lang.annotation.*;
 
-@Target({ElementType.METHOD, ElementType.FIELD})
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = UniqueNameTagValidator.class)
+@Documented
 public @interface UniqueNameTag {
 
     String message() default "Ya existe un Tag con ese nombre.";

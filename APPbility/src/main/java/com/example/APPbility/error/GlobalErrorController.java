@@ -28,9 +28,9 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND;
         String errorType = "Recurso no encontrado";
 
-        if (ex instanceof TagNotFoundException tagEx) {
+        if (ex instanceof TagPRUEBANotFoundException tagEx) {
             errorType = "Tag no encontrado.";
-        } else if (ex instanceof TalentoNotFoundException talentoEx) {
+        } else if (ex instanceof TalentoPRUEBANotFoundException talentoEx) {
             errorType = "Talento no encontrado.";
         } else if (ex instanceof UserNotFoundException usuarioEx) {
             errorType = "Usuario no encontrado.";

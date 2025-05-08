@@ -1,0 +1,1288 @@
+2025-04-01 21:26:40.225917+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_entity ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "INSERT INTO user_entity ([*]"; expected "identifier"; SQL statement:
+INSERT INTO user_entity ( [42001-232]
+2025-04-01 21:26:40.287615+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil,"; expected "INSERT"; SQL statement:
+id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, [42001-232]
+2025-04-01 21:26:40.370000+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas,"
+Syntax error in SQL statement "[*]fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas,"; SQL statement:
+fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, [42000-232]
+2025-04-01 21:26:40.386053+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]conocimientos, descripcion, activation_token, created_at) VALUES"; se esperaba "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"
+Syntax error in SQL statement "[*]conocimientos, descripcion, activation_token, created_at) VALUES"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+conocimientos, descripcion, activation_token, created_at) VALUES [42001-232]
+2025-04-01 21:26:40.415654+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, [42001-232]
+2025-04-01 21:26:40.433845+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"; SQL statement:
+'1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:40.442849+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, [42001-232]
+2025-04-01 21:26:40.609227+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"; SQL statement:
+'1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ­a y los videojuegos.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:40.635171+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ­a', 'LÃ³pez', 'MUJER', '987654321', NULL, [42001-232]
+2025-04-01 21:26:40.863135+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"; SQL statement:
+'1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:40.878804+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, [42001-232]
+2025-04-01 21:26:41.068224+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"; SQL statement:
+'1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:41.111937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ­a', 'MartÃ­nez', 'MUJER', '111222333', NULL, [42001-232]
+2025-04-01 21:26:41.368783+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"; SQL statement:
+'1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ­a', 'FotÃ³grafa freelance con espÃ­ritu viajero.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:41.400543+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, [42001-232]
+2025-04-01 21:26:41.447355+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"; SQL statement:
+'1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:41.478612+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ­a', 'MUJER', '555666777', NULL, [42001-232]
+2025-04-01 21:26:41.525948+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"; SQL statement:
+'1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ­as.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:42.020410+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, [42001-232]
+2025-04-01 21:26:42.023952+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"; SQL statement:
+'1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:42.252720+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, [42001-232]
+2025-04-01 21:26:42.442641+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"; SQL statement:
+'1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:42.449860+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, [42001-232]
+2025-04-01 21:26:42.634475+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"; SQL statement:
+'1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ­a', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()), [42000-232]
+2025-04-01 21:26:42.901492+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ­az', 'MUJER', '666777888', NULL, [42001-232]
+2025-04-01 21:26:42.953648+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"
+Syntax error in SQL statement "[*]'1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"; SQL statement:
+'1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW()) [42000-232]
+2025-04-01 21:26:42.958170+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_roles (user_id, roles) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO user_roles (user_id, roles) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO user_roles (user_id, roles) VALUES [42001-232]
+2025-04-01 21:26:42.994759+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'ADMIN'), [42001-232]
+2025-04-01 21:26:43.045353+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'USER'), [42001-232]
+2025-04-01 21:26:43.070897+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'USER'), [42001-232]
+2025-04-01 21:26:43.125936+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'USER'), [42001-232]
+2025-04-01 21:26:43.558216+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'USER'), [42001-232]
+2025-04-01 21:26:43.605632+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'USER'), [42001-232]
+2025-04-01 21:26:43.621296+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'USER'), [42001-232]
+2025-04-01 21:26:43.636920+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'USER'), [42001-232]
+2025-04-01 21:26:43.698669+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'USER'), [42001-232]
+2025-04-01 21:26:43.719256+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'USER'), [42001-232]
+2025-04-01 21:26:43.742257+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'USER') [42001-232]
+2025-04-01 21:26:43.765261+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO tag (id, nombre) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO tag (id, nombre) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO tag (id, nombre) VALUES [42001-232]
+2025-04-01 21:26:43.789259+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'EmpÃ¡tico/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'EmpÃ¡tico/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'EmpÃ¡tico/a'), [42001-232]
+2025-04-01 21:26:43.812792+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Estudioso/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Estudioso/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Estudioso/a'), [42001-232]
+2025-04-01 21:26:43.838798+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Musical'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Musical'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Musical'), [42001-232]
+2025-04-01 21:26:43.860802+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Sobreviviendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Sobreviviendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Sobreviviendo'), [42001-232]
+2025-04-01 21:26:43.971349+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'Autodidacta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'Autodidacta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'Autodidacta'), [42001-232]
+2025-04-01 21:26:44.248679+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Recto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Recto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Recto/a'), [42001-232]
+2025-04-01 21:26:44.295543+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'EspontÃ¡neo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'EspontÃ¡neo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'EspontÃ¡neo/a'), [42001-232]
+2025-04-01 21:26:44.304589+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'Divertido/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'Divertido/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'Divertido/a'), [42001-232]
+2025-04-01 21:26:44.358991+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'Fluyendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'Fluyendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'Fluyendo'), [42001-232]
+2025-04-01 21:26:44.406298+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Aplicado/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Aplicado/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Aplicado/a'), [42001-232]
+2025-04-01 21:26:44.567866+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Con ganas'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Con ganas'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Con ganas'), [42001-232]
+2025-04-01 21:26:44.734382+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Con ritmo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Con ritmo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Con ritmo'), [42001-232]
+2025-04-01 21:26:44.757083+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Entusiasta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Entusiasta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Entusiasta'), [42001-232]
+2025-04-01 21:26:44.806879+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Dispuesto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Dispuesto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Dispuesto/a'), [42001-232]
+2025-04-01 21:26:44.837099+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'En forma'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'En forma'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'En forma'), [42001-232]
+2025-04-01 21:26:44.856180+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'De hecho'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'De hecho'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'De hecho'), [42001-232]
+2025-04-01 21:26:45.954687+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Tranquilo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Tranquilo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Tranquilo/a'), [42001-232]
+2025-04-01 21:26:45.976218+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Intercultural'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Intercultural'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Intercultural'), [42001-232]
+2025-04-01 21:26:46.003232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Perseverante'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Perseverante'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Perseverante'), [42001-232]
+2025-04-01 21:26:46.021753+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Perfeccionista')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Perfeccionista')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Perfeccionista') [42001-232]
+2025-04-01 21:26:46.060826+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES [42001-232]
+2025-04-01 21:26:46.077819+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-01 21:26:46.241979+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-01 21:26:46.258516+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, '555e8400-e29b-41d4-a716-446655440009'), [42001-232]
+2025-04-01 21:26:46.316473+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '990e8400-e29b-41d4-a716-446655440004'), [42001-232]
+2025-04-01 21:26:46.333472+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-01 21:26:46.350471+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '660e8400-e29b-41d4-a716-446655440001'), [42001-232]
+2025-04-01 21:26:46.355471+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-01 21:26:46.864542+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '880e8400-e29b-41d4-a716-446655440003'), [42001-232]
+2025-04-01 21:26:46.879061+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-01 21:26:46.899075+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-01 21:26:46.913596+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, '555e8400-e29b-41d4-a716-446655440009') [42001-232]
+2025-04-14 12:55:28.998328+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_entity ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "INSERT INTO user_entity ([*]"; expected "identifier"; SQL statement:
+INSERT INTO user_entity ( [42001-232]
+2025-04-14 12:55:29.081449+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil,"; expected "INSERT"; SQL statement:
+id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, [42001-232]
+2025-04-14 12:55:29.139444+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas,"
+Syntax error in SQL statement "[*]fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas,"; SQL statement:
+fecha_nacimiento, lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, [42000-232]
+2025-04-14 12:55:29.174485+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]conocimientos, descripcion, activation_token, created_at) VALUES"; se esperaba "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"
+Syntax error in SQL statement "[*]conocimientos, descripcion, activation_token, created_at) VALUES"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+conocimientos, descripcion, activation_token, created_at) VALUES [42001-232]
+2025-04-14 12:55:29.179486+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, [42001-232]
+2025-04-14 12:55:29.227485+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"; SQL statement:
+'1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:29.235481+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, [42001-232]
+2025-04-14 12:55:29.280011+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"; SQL statement:
+'1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ­a y los videojuegos.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:29.550520+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ­a', 'LÃ³pez', 'MUJER', '987654321', NULL, [42001-232]
+2025-04-14 12:55:29.624504+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"; SQL statement:
+'1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:29.923260+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, [42001-232]
+2025-04-14 12:55:29.954164+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"; SQL statement:
+'1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:29.969825+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ­a', 'MartÃ­nez', 'MUJER', '111222333', NULL, [42001-232]
+2025-04-14 12:55:30.001066+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"; SQL statement:
+'1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ­a', 'FotÃ³grafa freelance con espÃ­ritu viajero.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:30.036381+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, [42001-232]
+2025-04-14 12:55:30.051926+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"; SQL statement:
+'1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:30.083200+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ­a', 'MUJER', '555666777', NULL, [42001-232]
+2025-04-14 12:55:30.144618+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"; SQL statement:
+'1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ­as.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:30.161794+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, [42001-232]
+2025-04-14 12:55:30.287252+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"; SQL statement:
+'1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:30.521960+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, [42001-232]
+2025-04-14 12:55:30.553656+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"; SQL statement:
+'1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:30.574476+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, [42001-232]
+2025-04-14 12:55:30.716415+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"
+Syntax error in SQL statement "[*]'1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"; SQL statement:
+'1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ­a', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()), [42000-232]
+2025-04-14 12:55:30.778957+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL,"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL,"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ­az', 'MUJER', '666777888', NULL, [42001-232]
+2025-04-14 12:55:31.011117+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]'1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"
+Syntax error in SQL statement "[*]'1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"; SQL statement:
+'1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW()) [42000-232]
+2025-04-14 12:55:31.047646+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_roles (user_id, roles) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO user_roles (user_id, roles) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO user_roles (user_id, roles) VALUES [42001-232]
+2025-04-14 12:55:31.083660+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'ADMIN'), [42001-232]
+2025-04-14 12:55:31.117653+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'USER'), [42001-232]
+2025-04-14 12:55:31.154174+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'USER'), [42001-232]
+2025-04-14 12:55:31.219988+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'USER'), [42001-232]
+2025-04-14 12:55:31.653364+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'USER'), [42001-232]
+2025-04-14 12:55:31.665727+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'USER'), [42001-232]
+2025-04-14 12:55:31.703729+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'USER'), [42001-232]
+2025-04-14 12:55:31.732730+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'USER'), [42001-232]
+2025-04-14 12:55:31.738732+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'USER'), [42001-232]
+2025-04-14 12:55:31.760248+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'USER'), [42001-232]
+2025-04-14 12:55:31.764248+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'USER') [42001-232]
+2025-04-14 12:55:31.850818+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO tag (id, nombre) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO tag (id, nombre) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO tag (id, nombre) VALUES [42001-232]
+2025-04-14 12:55:31.854823+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'EmpÃ¡tico/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'EmpÃ¡tico/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'EmpÃ¡tico/a'), [42001-232]
+2025-04-14 12:55:31.883340+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Estudioso/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Estudioso/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Estudioso/a'), [42001-232]
+2025-04-14 12:55:31.890340+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Musical'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Musical'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Musical'), [42001-232]
+2025-04-14 12:55:32.205464+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Sobreviviendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Sobreviviendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Sobreviviendo'), [42001-232]
+2025-04-14 12:55:32.210459+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'Autodidacta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'Autodidacta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'Autodidacta'), [42001-232]
+2025-04-14 12:55:34.393391+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Recto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Recto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Recto/a'), [42001-232]
+2025-04-14 12:55:34.519292+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'EspontÃ¡neo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'EspontÃ¡neo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'EspontÃ¡neo/a'), [42001-232]
+2025-04-14 12:55:34.678898+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'Divertido/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'Divertido/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'Divertido/a'), [42001-232]
+2025-04-14 12:55:34.759242+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'Fluyendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'Fluyendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'Fluyendo'), [42001-232]
+2025-04-14 12:55:34.944496+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Aplicado/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Aplicado/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Aplicado/a'), [42001-232]
+2025-04-14 12:55:35.070397+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Con ganas'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Con ganas'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Con ganas'), [42001-232]
+2025-04-14 12:55:35.166374+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Con ritmo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Con ritmo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Con ritmo'), [42001-232]
+2025-04-14 12:55:35.197643+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Entusiasta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Entusiasta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Entusiasta'), [42001-232]
+2025-04-14 12:55:35.244520+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Dispuesto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Dispuesto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Dispuesto/a'), [42001-232]
+2025-04-14 12:55:35.277598+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'En forma'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'En forma'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'En forma'), [42001-232]
+2025-04-14 12:55:35.767221+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'De hecho'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'De hecho'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'De hecho'), [42001-232]
+2025-04-14 12:55:35.789216+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Tranquilo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Tranquilo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Tranquilo/a'), [42001-232]
+2025-04-14 12:55:35.813217+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Intercultural'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Intercultural'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Intercultural'), [42001-232]
+2025-04-14 12:55:35.846223+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Perseverante'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Perseverante'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Perseverante'), [42001-232]
+2025-04-14 12:55:35.857746+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Perfeccionista')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Perfeccionista')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Perfeccionista') [42001-232]
+2025-04-14 12:55:36.139867+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES [42001-232]
+2025-04-14 12:55:36.160381+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 12:55:36.188381+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 12:55:36.211381+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, '555e8400-e29b-41d4-a716-446655440009'), [42001-232]
+2025-04-14 12:55:36.241380+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '990e8400-e29b-41d4-a716-446655440004'), [42001-232]
+2025-04-14 12:55:36.263906+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 12:55:36.275901+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '660e8400-e29b-41d4-a716-446655440001'), [42001-232]
+2025-04-14 12:55:36.307901+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 12:55:36.344900+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '880e8400-e29b-41d4-a716-446655440003'), [42001-232]
+2025-04-14 12:55:36.386938+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 12:55:36.666078+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 12:55:36.696072+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, '555e8400-e29b-41d4-a716-446655440009') [42001-232]
+2025-04-14 13:00:58.644227+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_entity ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "INSERT INTO user_entity ([*]"; expected "identifier"; SQL statement:
+INSERT INTO user_entity ( [42001-232]
+2025-04-14 13:00:58.685739+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento,"; expected "INSERT"; SQL statement:
+id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento, [42001-232]
+2025-04-14 13:00:58.692743+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion,"
+Syntax error in SQL statement "[*]lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion,"; SQL statement:
+lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion, [42000-232]
+2025-04-14 13:00:58.732279+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]activation_token, created_at) VALUES"; se esperaba "ALTER, ANALYZE"
+Syntax error in SQL statement "[*]activation_token, created_at) VALUES"; expected "ALTER, ANALYZE"; SQL statement:
+activation_token, created_at) VALUES [42001-232]
+2025-04-14 13:00:58.758277+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:58.814799+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ­a y los videojuegos.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:58.851318+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ­a', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:58.971922+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.004522+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ­a', 'MartÃ­nez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ­a', 'FotÃ³grafa freelance con espÃ­ritu viajero.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.050829+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.066449+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ­a', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ­as.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.248542+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.280195+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.305163+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ­a', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()), [42001-232]
+2025-04-14 13:00:59.332822+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ­az', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW()) [42001-232]
+2025-04-14 13:00:59.348445+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_roles (user_id, roles) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO user_roles (user_id, roles) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO user_roles (user_id, roles) VALUES [42001-232]
+2025-04-14 13:00:59.364069+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'ADMIN'), [42001-232]
+2025-04-14 13:00:59.395318+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'USER'), [42001-232]
+2025-04-14 13:00:59.411369+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'USER'), [42001-232]
+2025-04-14 13:00:59.520539+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'USER'), [42001-232]
+2025-04-14 13:00:59.520539+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'USER'), [42001-232]
+2025-04-14 13:00:59.646932+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'USER'), [42001-232]
+2025-04-14 13:00:59.662556+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'USER'), [42001-232]
+2025-04-14 13:00:59.707915+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'USER'), [42001-232]
+2025-04-14 13:00:59.782079+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'USER'), [42001-232]
+2025-04-14 13:00:59.813602+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'USER'), [42001-232]
+2025-04-14 13:00:59.831602+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'USER') [42001-232]
+2025-04-14 13:00:59.856602+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO tag (id, nombre) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO tag (id, nombre) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO tag (id, nombre) VALUES [42001-232]
+2025-04-14 13:00:59.879604+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'EmpÃ¡tico/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'EmpÃ¡tico/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'EmpÃ¡tico/a'), [42001-232]
+2025-04-14 13:00:59.900604+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Estudioso/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Estudioso/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Estudioso/a'), [42001-232]
+2025-04-14 13:00:59.999653+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Musical'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Musical'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Musical'), [42001-232]
+2025-04-14 13:01:00.053716+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Sobreviviendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Sobreviviendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Sobreviviendo'), [42001-232]
+2025-04-14 13:01:00.071712+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'Autodidacta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'Autodidacta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'Autodidacta'), [42001-232]
+2025-04-14 13:01:00.089712+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Recto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Recto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Recto/a'), [42001-232]
+2025-04-14 13:01:00.101712+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'EspontÃ¡neo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'EspontÃ¡neo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'EspontÃ¡neo/a'), [42001-232]
+2025-04-14 13:01:00.138237+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'Divertido/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'Divertido/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'Divertido/a'), [42001-232]
+2025-04-14 13:01:00.158241+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'Fluyendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'Fluyendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'Fluyendo'), [42001-232]
+2025-04-14 13:01:00.208765+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Aplicado/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Aplicado/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Aplicado/a'), [42001-232]
+2025-04-14 13:01:00.232769+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Con ganas'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Con ganas'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Con ganas'), [42001-232]
+2025-04-14 13:01:00.265741+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Con ritmo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Con ritmo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Con ritmo'), [42001-232]
+2025-04-14 13:01:00.309265+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Entusiasta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Entusiasta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Entusiasta'), [42001-232]
+2025-04-14 13:01:00.538406+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Dispuesto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Dispuesto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Dispuesto/a'), [42001-232]
+2025-04-14 13:01:00.560405+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'En forma'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'En forma'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'En forma'), [42001-232]
+2025-04-14 13:01:00.581405+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'De hecho'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'De hecho'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'De hecho'), [42001-232]
+2025-04-14 13:01:00.602404+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Tranquilo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Tranquilo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Tranquilo/a'), [42001-232]
+2025-04-14 13:01:00.621932+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Intercultural'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Intercultural'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Intercultural'), [42001-232]
+2025-04-14 13:01:00.640453+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Perseverante'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Perseverante'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Perseverante'), [42001-232]
+2025-04-14 13:01:00.658455+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Perfeccionista')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Perfeccionista')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Perfeccionista') [42001-232]
+2025-04-14 13:01:00.678460+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES [42001-232]
+2025-04-14 13:01:00.697452+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 13:01:00.735490+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 13:01:00.761726+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, '555e8400-e29b-41d4-a716-446655440009'), [42001-232]
+2025-04-14 13:01:00.982292+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '990e8400-e29b-41d4-a716-446655440004'), [42001-232]
+2025-04-14 13:01:01.069824+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 13:01:01.091818+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '660e8400-e29b-41d4-a716-446655440001'), [42001-232]
+2025-04-14 13:01:01.110347+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 13:01:01.128339+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '880e8400-e29b-41d4-a716-446655440003'), [42001-232]
+2025-04-14 13:01:01.139337+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 13:01:01.154337+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 13:01:01.161336+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, '555e8400-e29b-41d4-a716-446655440009') [42001-232]
+2025-04-14 13:27:19.760329+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_entity ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "INSERT INTO user_entity ([*]"; expected "identifier"; SQL statement:
+INSERT INTO user_entity ( [42001-232]
+2025-04-14 13:27:19.789325+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento,"; expected "INSERT"; SQL statement:
+id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento, [42001-232]
+2025-04-14 13:27:19.802334+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion,"
+Syntax error in SQL statement "[*]lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion,"; SQL statement:
+lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion, [42000-232]
+2025-04-14 13:27:19.808857+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]activation_token, created_at) VALUES"; se esperaba "ALTER, ANALYZE"
+Syntax error in SQL statement "[*]activation_token, created_at) VALUES"; expected "ALTER, ANALYZE"; SQL statement:
+activation_token, created_at) VALUES [42001-232]
+2025-04-14 13:27:19.823854+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.833853+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ­a y los videojuegos.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.846853+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ­a', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.861854+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.880853+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ­a', 'MartÃ­nez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ­a', 'FotÃ³grafa freelance con espÃ­ritu viajero.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.885716+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.900737+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ­a', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ­as.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.905875+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.921504+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.921504+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ­a', 'FotÃ³grafo de naturaleza y aventura.', NULL, NOW()), [42001-232]
+2025-04-14 13:27:19.936656+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW())"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ­az', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, NOW()) [42001-232]
+2025-04-14 13:27:19.952289+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_roles (user_id, roles) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO user_roles (user_id, roles) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO user_roles (user_id, roles) VALUES [42001-232]
+2025-04-14 13:27:19.967911+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'ADMIN'), [42001-232]
+2025-04-14 13:27:19.967911+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'USER'), [42001-232]
+2025-04-14 13:27:20.016171+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'USER'), [42001-232]
+2025-04-14 13:27:20.031280+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'USER'), [42001-232]
+2025-04-14 13:27:20.093797+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'USER'), [42001-232]
+2025-04-14 13:27:20.125497+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'USER'), [42001-232]
+2025-04-14 13:27:20.153139+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'USER'), [42001-232]
+2025-04-14 13:27:20.168803+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'USER'), [42001-232]
+2025-04-14 13:27:20.204443+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'USER'), [42001-232]
+2025-04-14 13:27:20.247753+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'USER'), [42001-232]
+2025-04-14 13:27:20.263371+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'USER') [42001-232]
+2025-04-14 13:27:20.278999+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO tag (id, nombre) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO tag (id, nombre) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO tag (id, nombre) VALUES [42001-232]
+2025-04-14 13:27:20.304650+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'EmpÃ¡tico/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'EmpÃ¡tico/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'EmpÃ¡tico/a'), [42001-232]
+2025-04-14 13:27:20.310671+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Estudioso/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Estudioso/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Estudioso/a'), [42001-232]
+2025-04-14 13:27:20.326327+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Musical'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Musical'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Musical'), [42001-232]
+2025-04-14 13:27:20.389287+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Sobreviviendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Sobreviviendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Sobreviviendo'), [42001-232]
+2025-04-14 13:27:20.404823+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'Autodidacta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'Autodidacta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'Autodidacta'), [42001-232]
+2025-04-14 13:27:20.429015+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Recto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Recto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Recto/a'), [42001-232]
+2025-04-14 13:27:20.476958+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'EspontÃ¡neo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'EspontÃ¡neo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'EspontÃ¡neo/a'), [42001-232]
+2025-04-14 13:27:20.510035+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'Divertido/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'Divertido/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'Divertido/a'), [42001-232]
+2025-04-14 13:27:20.580303+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'Fluyendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'Fluyendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'Fluyendo'), [42001-232]
+2025-04-14 13:27:20.595320+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Aplicado/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Aplicado/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Aplicado/a'), [42001-232]
+2025-04-14 13:27:20.603319+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Con ganas'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Con ganas'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Con ganas'), [42001-232]
+2025-04-14 13:27:20.617839+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Con ritmo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Con ritmo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Con ritmo'), [42001-232]
+2025-04-14 13:27:20.690851+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Entusiasta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Entusiasta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Entusiasta'), [42001-232]
+2025-04-14 13:27:20.739390+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Dispuesto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Dispuesto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Dispuesto/a'), [42001-232]
+2025-04-14 13:27:20.778395+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'En forma'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'En forma'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'En forma'), [42001-232]
+2025-04-14 13:27:20.800406+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'De hecho'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'De hecho'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'De hecho'), [42001-232]
+2025-04-14 13:27:20.811923+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Tranquilo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Tranquilo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Tranquilo/a'), [42001-232]
+2025-04-14 13:27:20.821925+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Intercultural'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Intercultural'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Intercultural'), [42001-232]
+2025-04-14 13:27:20.843924+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Perseverante'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Perseverante'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Perseverante'), [42001-232]
+2025-04-14 13:27:20.867922+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Perfeccionista')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Perfeccionista')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Perfeccionista') [42001-232]
+2025-04-14 13:27:20.926491+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES [42001-232]
+2025-04-14 13:27:20.952488+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 13:27:20.976497+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 13:27:21.000495+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, '555e8400-e29b-41d4-a716-446655440009'), [42001-232]
+2025-04-14 13:27:21.034019+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '990e8400-e29b-41d4-a716-446655440004'), [42001-232]
+2025-04-14 13:27:21.064016+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 13:27:21.085019+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '660e8400-e29b-41d4-a716-446655440001'), [42001-232]
+2025-04-14 13:27:21.133543+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 13:27:21.162543+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '880e8400-e29b-41d4-a716-446655440003'), [42001-232]
+2025-04-14 13:27:21.195563+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 13:27:21.204560+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 13:27:21.230076+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, '555e8400-e29b-41d4-a716-446655440009') [42001-232]
+2025-04-14 13:30:49.800538+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_entity ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "INSERT INTO user_entity ([*]"; expected "identifier"; SQL statement:
+INSERT INTO user_entity ( [42001-232]
+2025-04-14 13:30:49.826542+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento,"; expected "INSERT"; SQL statement:
+id, username, password, email, enabled, nombre, apellidos, sexo, num_telefono, imagen_perfil, fecha_nacimiento, [42001-232]
+2025-04-14 13:30:49.838059+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion,"
+Syntax error in SQL statement "[*]lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion,"; SQL statement:
+lugar_nacimiento, lugar_residencia, puntos_popularidad, idioma_nativo, otros_idiomas, conocimientos, descripcion, [42000-232]
+2025-04-14 13:30:49.849059+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]activation_token, created_at) VALUES"; se esperaba "ALTER, ANALYZE"
+Syntax error in SQL statement "[*]activation_token, created_at) VALUES"; expected "ALTER, ANALYZE"; SQL statement:
+activation_token, created_at) VALUES [42001-232]
+2025-04-14 13:30:49.861061+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', true, 'Duke', 'Java', 'HOMBRE', '101010101', NULL, '1995-01-01', 'MADRID', 'SEVILLA', 0, 'InglÃ©s', 'AlemÃ¡n', 'ProgramaciÃ³n', 'Mascota de Java.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:49.880059+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ\00ada y los videojuegos.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'SkyHunter92', '{noop}PassWord123', 'juan.perez@gmail.com', true, 'Juan', 'PÃ©rez', 'HOMBRE', '123456789', NULL, '1990-01-01', 'MADRID', 'BARCELONA', 100, 'EspaÃ±ol', 'InglÃ©s', 'ProgramaciÃ³n', 'Apasionado de la tecnologÃ­a y los videojuegos.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:49.895065+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ\00ada', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'StarGazer88', '{noop}GalaxyWay9', 'maria.lopez@gmail.com', true, 'MarÃ­a', 'LÃ³pez', 'MUJER', '987654321', NULL, '1995-05-15', 'VALENCIA', 'SEVILLA', 50, 'EspaÃ±ol', 'FrancÃ©s', 'DiseÃ±o grÃ¡fico', 'Creativa y amante del arte digital.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:49.937594+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'CodeMaster77', '{noop}SecureCodeX1', 'CodeMaster77@gmail.com', true, 'Carlos', 'GÃ³mez', 'HOMBRE', '654321987', NULL, '1985-07-23', 'ALICANTE', 'MADRID', 75, 'EspaÃ±ol', 'AlemÃ¡n', 'MÃºsica', 'Desarrollador de software con pasiÃ³n por la inteligencia artificial.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:49.973820+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ\00ada', 'MartÃ\00adnez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ\00ada', 'FotÃ³grafa freelance con espÃ\00adritu viajero.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'LunaDreamer99', '{noop}DreamMoonX9', 'lucia99@gmail.com', true, 'LucÃ­a', 'MartÃ­nez', 'MUJER', '111222333', NULL, '1992-04-10', 'SEVILLA', 'VALENCIA', 90, 'EspaÃ±ol', 'Italiano', 'FotografÃ­a', 'FotÃ³grafa freelance con espÃ­ritu viajero.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:49.999823+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'FastRunner24', '{noop}SpeedWayX3', 'miguelFastRunner24@gmail.com', true, 'Miguel', 'FernÃ¡ndez', 'HOMBRE', '444555666', NULL, '1988-12-05', 'MURCIA', 'ALBACETE', 60, 'EspaÃ±ol', 'PortuguÃ©s', 'Deportes', 'Atleta profesional y entrenador personal.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:50.044344+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ\00ada', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ\00adas.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'PaintQueenX', '{noop}ColorsMagic99', 'PaintQueenX@gmail.com', true, 'Ana', 'GarcÃ­a', 'MUJER', '555666777', NULL, '1993-03-20', 'BADAJOZ', 'SALAMANCA', 85, 'EspaÃ±ol', 'Ruso', 'Pintura', 'Artista autodidacta con exposiciones en galerÃ­as.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:50.402722+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'ZenChef77', '{noop}TastyFoodX5', 'pedro.sanchez@gmail.com', true, 'Pedro', 'SÃ¡nchez', 'HOMBRE', '999888777', NULL, '1980-09-12', 'ZARAGOZA', 'NAVARRA', 40, 'EspaÃ±ol', 'JaponÃ©s', 'Cocina', 'Chef innovador en busca de nuevos sabores.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:50.406722+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'DanceStar101', '{noop}GrooveX9', 'anceStar101@gmail.com', true, 'Laura', 'HernÃ¡ndez', 'MUJER', '777666555', NULL, '1998-06-30', 'BURGOS', 'CANTABRIA', 70, 'EspaÃ±ol', 'Chino', 'Danza', 'Bailarina y coreÃ³grafa en ascenso.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:50.418720+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, CURRENT_TIMESTAMP),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ\00ada', 'FotÃ³grafo de naturaleza y aventura.', NULL, CURRENT_TIMESTAMP),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'PhotoExplorerX', '{noop}LensMagic88', 'danPhotoExplorerX@gmail.com', true, 'Daniel', 'Ruiz', 'HOMBRE', '222333444', NULL, '1987-11-18', 'ALMERIA', 'GRANADA', 95, 'EspaÃ±ol', 'Coreano', 'FotografÃ­a', 'FotÃ³grafo de naturaleza y aventura.', NULL, CURRENT_TIMESTAMP), [42001-232]
+2025-04-14 13:30:50.437250+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, CURRENT_TIMESTAMP)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ\00adaz', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, CURRENT_TIMESTAMP)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'WriterSoul55', '{noop}InkMasterX7', 'elena.diaz@gmail.com', true, 'Elena', 'DÃ­az', 'MUJER', '666777888', NULL, '1991-02-08', 'LEON', 'VALLADOLID', 55, 'EspaÃ±ol', 'HolandÃ©s', 'Escritura', 'Escritora y amante de la literatura clÃ¡sica.', NULL, CURRENT_TIMESTAMP) [42001-232]
+2025-04-14 13:30:50.447250+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO user_roles (user_id, roles) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO user_roles (user_id, roles) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO user_roles (user_id, roles) VALUES [42001-232]
+2025-04-14 13:30:50.452255+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'551e8400-e22b-41d4-a716-446655440010', 'ADMIN'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('551e8400-e22b-41d4-a716-446655440010', 'ADMIN'), [42001-232]
+2025-04-14 13:30:50.463251+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'550e8400-e29b-41d4-a716-446655440000', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('550e8400-e29b-41d4-a716-446655440000', 'USER'), [42001-232]
+2025-04-14 13:30:50.484249+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'660e8400-e29b-41d4-a716-446655440001', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('660e8400-e29b-41d4-a716-446655440001', 'USER'), [42001-232]
+2025-04-14 13:30:50.565807+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'770e8400-e29b-41d4-a716-446655440002', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('770e8400-e29b-41d4-a716-446655440002', 'USER'), [42001-232]
+2025-04-14 13:30:50.589814+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'880e8400-e29b-41d4-a716-446655440003', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('880e8400-e29b-41d4-a716-446655440003', 'USER'), [42001-232]
+2025-04-14 13:30:50.616281+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'990e8400-e29b-41d4-a716-446655440004', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('990e8400-e29b-41d4-a716-446655440004', 'USER'), [42001-232]
+2025-04-14 13:30:50.643827+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'111e8400-e29b-41d4-a716-446655440005', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('111e8400-e29b-41d4-a716-446655440005', 'USER'), [42001-232]
+2025-04-14 13:30:50.662826+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'222e8400-e29b-41d4-a716-446655440006', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('222e8400-e29b-41d4-a716-446655440006', 'USER'), [42001-232]
+2025-04-14 13:30:50.690826+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'333e8400-e29b-41d4-a716-446655440007', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('333e8400-e29b-41d4-a716-446655440007', 'USER'), [42001-232]
+2025-04-14 13:30:50.781263+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'444e8400-e29b-41d4-a716-446655440008', 'USER'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('444e8400-e29b-41d4-a716-446655440008', 'USER'), [42001-232]
+2025-04-14 13:30:50.812737+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'555e8400-e29b-41d4-a716-446655440009', 'USER')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('555e8400-e29b-41d4-a716-446655440009', 'USER') [42001-232]
+2025-04-14 13:30:50.844440+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO tag (id, nombre) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO tag (id, nombre) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO tag (id, nombre) VALUES [42001-232]
+2025-04-14 13:30:50.860090+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'EmpÃ¡tico/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'EmpÃ¡tico/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'EmpÃ¡tico/a'), [42001-232]
+2025-04-14 13:30:50.875722+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Estudioso/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Estudioso/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Estudioso/a'), [42001-232]
+2025-04-14 13:30:50.891343+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Musical'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Musical'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Musical'), [42001-232]
+2025-04-14 13:30:50.938642+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Sobreviviendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Sobreviviendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Sobreviviendo'), [42001-232]
+2025-04-14 13:30:50.971273+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'Autodidacta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'Autodidacta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'Autodidacta'), [42001-232]
+2025-04-14 13:30:51.020496+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Recto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Recto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Recto/a'), [42001-232]
+2025-04-14 13:30:51.053606+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'EspontÃ¡neo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'EspontÃ¡neo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'EspontÃ¡neo/a'), [42001-232]
+2025-04-14 13:30:51.087424+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'Divertido/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'Divertido/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'Divertido/a'), [42001-232]
+2025-04-14 13:30:51.103088+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'Fluyendo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'Fluyendo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'Fluyendo'), [42001-232]
+2025-04-14 13:30:51.134349+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Aplicado/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Aplicado/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Aplicado/a'), [42001-232]
+2025-04-14 13:30:51.144417+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Con ganas'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Con ganas'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Con ganas'), [42001-232]
+2025-04-14 13:30:51.191297+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Con ritmo'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Con ritmo'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Con ritmo'), [42001-232]
+2025-04-14 13:30:51.207236+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Entusiasta'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Entusiasta'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Entusiasta'), [42001-232]
+2025-04-14 13:30:51.238939+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Dispuesto/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Dispuesto/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Dispuesto/a'), [42001-232]
+2025-04-14 13:30:51.254586+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'En forma'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'En forma'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'En forma'), [42001-232]
+2025-04-14 13:30:51.285835+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'De hecho'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'De hecho'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'De hecho'), [42001-232]
+2025-04-14 13:30:52.830075+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Tranquilo/a'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Tranquilo/a'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Tranquilo/a'), [42001-232]
+2025-04-14 13:30:52.983069+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Intercultural'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Intercultural'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Intercultural'), [42001-232]
+2025-04-14 13:30:53.005070+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Perseverante'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Perseverante'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Perseverante'), [42001-232]
+2025-04-14 13:30:53.030077+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Perfeccionista')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Perfeccionista')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Perfeccionista') [42001-232]
+2025-04-14 13:30:53.049602+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO se_etiqueta_con (tag_id, usuario_id) VALUES [42001-232]
+2025-04-14 13:30:53.079599+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 13:30:53.112597+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 13:30:53.135615+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, '555e8400-e29b-41d4-a716-446655440009'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, '555e8400-e29b-41d4-a716-446655440009'), [42001-232]
+2025-04-14 13:30:53.198605+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '990e8400-e29b-41d4-a716-446655440004'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '990e8400-e29b-41d4-a716-446655440004'), [42001-232]
+2025-04-14 13:30:53.232613+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 13:30:53.264130+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, '660e8400-e29b-41d4-a716-446655440001'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, '660e8400-e29b-41d4-a716-446655440001'), [42001-232]
+2025-04-14 13:30:53.479718+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, '333e8400-e29b-41d4-a716-446655440007'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, '333e8400-e29b-41d4-a716-446655440007'), [42001-232]
+2025-04-14 13:30:53.525341+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '880e8400-e29b-41d4-a716-446655440003'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '880e8400-e29b-41d4-a716-446655440003'), [42001-232]
+2025-04-14 13:30:53.534340+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, '222e8400-e29b-41d4-a716-446655440006'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, '222e8400-e29b-41d4-a716-446655440006'), [42001-232]
+2025-04-14 13:30:53.556868+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, '550e8400-e29b-41d4-a716-446655440000'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, '550e8400-e29b-41d4-a716-446655440000'), [42001-232]
+2025-04-14 13:30:53.562859+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, '555e8400-e29b-41d4-a716-446655440009')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, '555e8400-e29b-41d4-a716-446655440009') [42001-232]

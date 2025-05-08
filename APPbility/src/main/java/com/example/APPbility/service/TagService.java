@@ -1,10 +1,10 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.dto.tag.EditTagCmd;
-import com.example.APPbility.dto.tag.GetTagDTO;
-import com.example.APPbility.error.TagNotFoundException;
-import com.example.APPbility.model.Tag;
-import com.example.APPbility.repository.TagRepository;
+import com.example.APPbility.dto.tagPRUEBA.EditTagCmd;
+import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
+import com.example.APPbility.error.TagPRUEBANotFoundException;
+import com.example.APPbility.model.TagPRUEBA;
+import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class TagService {
 
-    private final TagRepository tagRepository;
+    private final TagPRUEBARepository tagPRUEBARepository;
     private final UserRepository userRepository;
 
     //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
@@ -32,42 +32,42 @@ public class TagService {
 
     //Listar todos los Tags.
     public Page<GetTagDTO> findAll(Pageable pageable){
-        Page<GetTagDTO> result = tagRepository.findAllTagDTO(pageable);
+        Page<GetTagDTO> result = tagPRUEBARepository.findAllTagDTO(pageable);
 
         if(result.isEmpty())
-            throw new TagNotFoundException();
+            throw new TagPRUEBANotFoundException();
         return result;
     }
 
     //Buscar Tag por ID.
-    public Tag findById(Long id){
-        Optional<Tag> tagOptional = tagRepository.findById(id);
+    public TagPRUEBA findById(Long id){
+        Optional<TagPRUEBA> tagOptional = tagPRUEBARepository.findById(id);
 
         if(tagOptional.isPresent())
             return tagOptional.get();
-        throw new TagNotFoundException(id);
+        throw new TagPRUEBANotFoundException(id);
     }
 
     //Crear Tag.
-    public Tag save(EditTagCmd nuevo){
-        return tagRepository.save(Tag.builder()
+    public TagPRUEBA save(EditTagCmd nuevo){
+        return tagPRUEBARepository.save(TagPRUEBA.builder()
                 .nombre(nuevo.nombre())
                 .build());
     }
 
     //Editar Tag.
-    public Tag edit(EditTagCmd editTagCmd, Long id){
-        Optional<Tag> tagOptional = tagRepository.findById(id);
+    public TagPRUEBA edit(EditTagCmd editTagCmd, Long id){
+        Optional<TagPRUEBA> tagOptional = tagPRUEBARepository.findById(id);
 
         if(tagOptional.isPresent()){
             return tagOptional
                 .map(old -> {
                     old.setNombre(editTagCmd.nombre());
 
-                    return tagRepository.save(old);
+                    return tagPRUEBARepository.save(old);
                 }).get();
         }else{
-            throw new TagNotFoundException("No se ha encontrado ningún Tag con ID: "+id+".");
+            throw new TagPRUEBANotFoundException("No se ha encontrado ningún Tag con ID: "+id+".");
         }
     }
 

@@ -1,12 +1,10 @@
 package com.example.APPbility.user.service;
 
-import com.example.APPbility.dto.tag.GetTagDTO;
-import com.example.APPbility.dto.talento.GetTalentoDTO;
+import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
+import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO;
 import com.example.APPbility.dto.valoracion.GetValoracionDTO;
-import com.example.APPbility.error.TagNotFoundException;
-import com.example.APPbility.model.Tag;
-import com.example.APPbility.repository.TagRepository;
-import com.example.APPbility.repository.TalentoRepository;
+import com.example.APPbility.repository.TagPRUEBARepository;
+import com.example.APPbility.repository.TalentoPRUEBARepository;
 import com.example.APPbility.repository.ValoracionRepository;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
@@ -40,8 +38,8 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final SendGridMailSender mailSender;
 
-    private final TagRepository tagRepository;
-    private final TalentoRepository talentoRepository;
+    private final TagPRUEBARepository tagPRUEBARepository;
+    private final TalentoPRUEBARepository talentoPRUEBARepository;
     private final ValoracionRepository valoracionRepository;
 
     @Value("${activation.duration}")
@@ -50,11 +48,11 @@ public class UserService {
     //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
 
     public Set<GetTagDTO> getListaTagsByUsuarioID(UUID id){
-        return tagRepository.findListaTagsByUsuarioID(id);
+        return tagPRUEBARepository.findListaTagsByUsuarioID(id);
     }
 
     public List<GetTalentoDTO> getListaTalentosByUsuarioID(UUID id){
-        return talentoRepository.findListaTalentosByUsuarioID(id);
+        return talentoPRUEBARepository.findListaTalentosByUsuarioID(id);
     }
 
     public List<GetValoracionDTO> getListaValoracionesRealizadasByUsuarioID(UUID id){
