@@ -1,26 +1,13 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.dto.talentoPRUEBA.EditTalentoCmd;
-import com.example.APPbility.error.TalentoPRUEBANotFoundException;
-import com.example.APPbility.files.model.FileMetadata;
-import com.example.APPbility.files.service.StorageService;
-import com.example.APPbility.model.TalentoPRUEBA;
-import com.example.APPbility.repository.TalentoPRUEBARepository;
-import com.example.APPbility.user.model.User;
-import com.example.APPbility.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class TalentoService {
+public class TalentoPRUEBAService {
 
-    private final TalentoPRUEBARepository talentoPRUEBARepository;
+    /*private final TalentoPRUEBARepository talentoPRUEBARepository;
     private final StorageService storageService;
     private final UserRepository userRepository;
 
@@ -97,6 +84,6 @@ public class TalentoService {
         } else {
             throw new TalentoPRUEBANotFoundException("No se ha encontrado ningún Talento con ID: " + id + ".");
         }
-    }
+    }*/
 
 }

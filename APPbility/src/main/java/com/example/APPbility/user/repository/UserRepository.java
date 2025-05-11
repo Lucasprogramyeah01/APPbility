@@ -16,24 +16,38 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<User, UUID> {
 
     @Query("""
+        SELECT u
+        FROM User u JOIN u.paisNativo p
+        WHERE p.id = ?1
+    """)
+    List<User> findListaUsuariosNativosByPaisID(Long id);
+
+    @Query("""
+        SELECT u
+        FROM User u JOIN u.paisResidencia p
+        WHERE p.id = ?1
+    """)
+    List<User> findListaUsuariosResidentesByPaisID(Long id);
+
+    /*@Query("""
         SELECT u.listaTalentos
         FROM User u
         WHERE u.id = ?1
     """)
-    List<TalentoPRUEBA> findListaTalentosByUsuarioID(UUID id);
+    List<TalentoPRUEBA> findListaTalentosByUsuarioID(UUID id);*/
 
-    @Query("""
-        SELECT new com.example.APPbility.user.dto.GetUserDTO(
-            u.id, u.username, u.email, u.nombre, u.apellidos, u.sexo, u.numTelefono,
-            u.imagenPerfil, u.fechaNacimiento, u.lugarNacimiento, u.lugarResidencia,
-            u.puntosPopularidad, u.idiomaNativo, u.otrosIdiomas, u.conocimientos,
-            u.descripcion
+    /*@Query("""
+        SELECT NEW com.example.APPbility.user.dto.GetUserDTO(
+            u.id, u.username, u.password, u.email, u.nombre, u.apellidos, u.fechaNacimiento, u.sexo, 
+            u.modalidadPreferida, u.numTelefono, u.mostrarNumTelefono, u.imagenPerfil, u.idiomaNativo, 
+            u.listaOtrosIdiomas, u.descripcionProfesional, u.presentacionPersonal, u.listaEnlacesExternos, 
+            u.paisNativo, u.paisResidencia  
         )
         FROM User u
     """)
-    Page<GetUserDTO> findAllUserDTO(Pageable pageable);
+    Page<User> findAllUserDTO(Pageable pageable);*/
 
-    @Query("""
+    /*@Query("""
          SELECT NEW com.example.APPbility.user.dto.GetUserDTO(
             u.id, u.username, u.email, u.nombre, u.apellidos, u.sexo, u.numTelefono,
             u.imagenPerfil, u.fechaNacimiento, u.lugarNacimiento, u.lugarResidencia,
@@ -67,7 +81,7 @@ public interface UserRepository extends JpaRepository<User, UUID> {
          FROM User u JOIN u.listaTags lt
          WHERE lt.id = ?1
     """)
-    Set<GetUserDTO> findListaUsuariosByTagID(Long id);
+    Set<GetUserDTO> findListaUsuariosByTagID(Long id);*/
 
     //SEGURIDAD ---------------------------------------------------------------------------
 

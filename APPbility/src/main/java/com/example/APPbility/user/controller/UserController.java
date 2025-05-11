@@ -8,7 +8,7 @@ import com.example.APPbility.security.jwt.refresh.RefreshToken;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenRequest;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenService;
 import com.example.APPbility.user.dto.GetUserDTO;
-import com.example.APPbility.user.dto.GetUserDTOCompleto;
+//import com.example.APPbility.user.dto.GetUserDTOCompleto;
 import com.example.APPbility.user.dto.seguridad.ActivateAccountRequest;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.dto.seguridad.LoginRequest;
@@ -47,10 +47,10 @@ public class UserController {
 
     @GetMapping("/user/")
     public Page<GetUserDTO> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
-        return userService.findAll(pageable);
+        return userService.findAll(pageable).map(GetUserDTO::of);
     }
 
-    @GetMapping("/user/{id}")
+    /*@GetMapping("/user/{id}")
     public GetUserDTOCompleto findByID(@PathVariable UUID id){
         Set<GetTagDTO> listaTags = userService.getListaTagsByUsuarioID(id);
         List<GetTalentoDTO> listaTalentos = userService.getListaTalentosByUsuarioID(id);
@@ -63,16 +63,16 @@ public class UserController {
 
         return GetUserDTOCompleto.of(u, listaTags, listaTalentos, listaValoracionesRealizadas, listaValoracionesRecibidas,
             listaUsuariosFavoritos, listaUsuariosSeguidores);
-    }
+    }*/
 
     //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
-    @PostMapping("/auth/register")
+    /*@PostMapping("/auth/register")
     public ResponseEntity<UserResponse> register(@RequestBody CreateUserRequest createUserRequest) {
         User user = userService.createUser(createUserRequest);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(UserResponse.of(user));
-    }
+    }*/
 
     @PostMapping("/auth/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {

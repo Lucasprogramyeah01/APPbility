@@ -68,19 +68,20 @@ public class SecurityConfig {
 
                 //PERMIT ALL
                 .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/tag/", "/tag/{id}", "/user/", "/user/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/user/", "/user/{id}", "/pais/", "/pais/{id}",
+                    "/continente/", "/continente/{id}" /*"/tag/", "/tag/{id}",*/).permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 
                 //ADMIN
-                .requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/tag/{id}").hasRole("ADMIN")
+                /*.requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/tag/{id}").hasRole("ADMIN")*/
                 .requestMatchers("/me/admin").hasRole("ADMIN")
 
                 //USER
                 .requestMatchers("/me").hasRole("USER")
-                .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
-                .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
+                /*.requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
+                .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")*/
 
                 .anyRequest().authenticated()).httpBasic(withDefaults()); // Habilita Basic Auth);
 

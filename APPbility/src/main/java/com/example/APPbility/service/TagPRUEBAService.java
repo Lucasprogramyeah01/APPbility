@@ -1,25 +1,13 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.dto.tagPRUEBA.EditTagCmd;
-import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
-import com.example.APPbility.error.TagPRUEBANotFoundException;
-import com.example.APPbility.model.TagPRUEBA;
-import com.example.APPbility.repository.TagPRUEBARepository;
-import com.example.APPbility.user.dto.GetUserDTO;
-import com.example.APPbility.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class TagService {
+public class TagPRUEBAService {
 
-    private final TagPRUEBARepository tagPRUEBARepository;
+    /*private final TagPRUEBARepository tagPRUEBARepository;
     private final UserRepository userRepository;
 
     //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
@@ -69,7 +57,7 @@ public class TagService {
         }else{
             throw new TagPRUEBANotFoundException("No se ha encontrado ningún Tag con ID: "+id+".");
         }
-    }
+    }*/
 
 
 

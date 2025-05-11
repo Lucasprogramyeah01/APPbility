@@ -1,33 +1,21 @@
 package com.example.APPbility.user.service;
 
-import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
-import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO;
-import com.example.APPbility.dto.valoracion.GetValoracionDTO;
 import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.repository.TalentoPRUEBARepository;
-import com.example.APPbility.repository.ValoracionRepository;
-import com.example.APPbility.user.dto.GetUserDTO;
-import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.error.ActivationExpiredException;
 import com.example.APPbility.user.error.UserNotFoundException;
 import com.example.APPbility.user.model.User;
-import com.example.APPbility.user.model.UserRole;
 import com.example.APPbility.user.repository.UserRepository;
 import com.example.APPbility.util.SendGridMailSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -40,14 +28,14 @@ public class UserService {
 
     private final TagPRUEBARepository tagPRUEBARepository;
     private final TalentoPRUEBARepository talentoPRUEBARepository;
-    private final ValoracionRepository valoracionRepository;
+    //private final ValoracionRepository valoracionRepository;
 
     @Value("${activation.duration}")
     private int activationDuration;
 
     //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
 
-    public Set<GetTagDTO> getListaTagsByUsuarioID(UUID id){
+    /*public Set<GetTagDTO> getListaTagsByUsuarioID(UUID id){
         return tagPRUEBARepository.findListaTagsByUsuarioID(id);
     }
 
@@ -69,13 +57,13 @@ public class UserService {
 
     public Set<GetUserDTO> getListaUsuariosSeguidoresByUsuarioID(UUID id){
         return userRepository.findListaUsuariosSeguidoresByUsuarioID(id);
-    }
+    }*/
 
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
     //Listar todos los Usuarios.
-    public Page<GetUserDTO> findAll(Pageable pageable){
-        Page<GetUserDTO> result = userRepository.findAllUserDTO(pageable);
+    public Page<User> findAll(Pageable pageable){
+        Page<User> result = userRepository.findAll(pageable);
 
         if(result.isEmpty())
             throw new UserNotFoundException();
@@ -83,17 +71,17 @@ public class UserService {
     }
 
     //Buscar Usuario por ID.
-    public User findById(UUID id){
+    /*public User findById(UUID id){
         Optional<User> usuarioOptional = userRepository.findById(id);
 
         if(usuarioOptional.isPresent())
             return usuarioOptional.get();
         throw new UserNotFoundException(id);
-    }
+    }*/
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
-    public User createUser(CreateUserRequest createUserRequest) {
+    /*public User createUser(CreateUserRequest createUserRequest) {
         User user = User.builder()
                 .username(createUserRequest.username())
                 .password(passwordEncoder.encode(createUserRequest.password()))
@@ -118,7 +106,7 @@ public class UserService {
         }
 
         return userRepository.save(user);
-    }
+    }*/
 
     public String generateRandomActivationCode() {
         return UUID.randomUUID().toString();

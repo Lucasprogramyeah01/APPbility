@@ -10,16 +10,16 @@ import java.util.UUID;
 
 public interface TalentoPRUEBARepository extends JpaRepository<TalentoPRUEBA, Long> {
 
-    boolean existsTalentoByUsuario_Id(UUID id);
+    //boolean existsTalentoByUsuario_Id(UUID id);
 
-    @Query("""
+    /*@Query("""
        SELECT new com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO(
             t.id, t.titulo, t.descripcion
         )
         FROM TalentoPRUEBA t JOIN t.usuario u
         WHERE u.id = ?1
     """)
-    List<GetTalentoDTO> findListaTalentosByUsuarioID(UUID id);
+    List<GetTalentoDTO> findListaTalentosByUsuarioID(UUID id);*/
 
     /*@Query("""
        SELECT new com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO(

@@ -28,19 +28,19 @@ public class TalentoPRUEBA {
     private String descripcion;
 
     @ElementCollection
-    private List<String> listaImagenes = new ArrayList<>();
+    private List<String> listaImagenes;
 
     //ASOCIACIONES ----------------------------------------------------------------------------------
 
     //Con USER (MT - 1U).
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(
             name="usuario_id",
             foreignKey = @ForeignKey(name="fk_talento_usuario")
     )
-    private User usuario;
+    private User usuario;*/
 
-    //EQUALS & HASHCODE ----------------------------------------------------------------------------------
+    //EQUALS & HASHCODE --------------------------------------------------------------------------------
 
     @Override
     public final boolean equals(Object o) {

@@ -14,7 +14,7 @@ public interface TagPRUEBARepository extends JpaRepository<TagPRUEBA, Long> {
 
     boolean existsByNombre(String nombre);
 
-    @Query("""
+    /*@Query("""
         SELECT new com.example.APPbility.dto.tagPRUEBA.GetTagDTO(
             t.id, t.nombre
         )
@@ -29,6 +29,6 @@ public interface TagPRUEBARepository extends JpaRepository<TagPRUEBA, Long> {
         FROM TagPRUEBA t JOIN t.listaUsuarios lu
         WHERE lu.id = ?1
     """)
-    Set<GetTagDTO> findListaTagsByUsuarioID(UUID id);
+    Set<GetTagDTO> findListaTagsByUsuarioID(UUID id);*/
 
 }
