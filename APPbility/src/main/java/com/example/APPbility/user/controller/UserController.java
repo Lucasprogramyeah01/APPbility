@@ -1,5 +1,6 @@
 package com.example.APPbility.user.controller;
 
+import com.example.APPbility.dto.pais.GetPaisDTO;
 import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
 import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO;
 import com.example.APPbility.dto.valoracion.GetValoracionDTO;
@@ -47,7 +48,15 @@ public class UserController {
 
     @GetMapping("/user/")
     public Page<GetUserDTO> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
-        return userService.findAll(pageable).map(GetUserDTO::of);
+        /*GetPaisDTO getPaisNativoDTO = GetPaisDTO.of(userService.getPaisNativoByUsuarioID());
+        GetPaisDTO getPaisResidenciaDTO = GetPaisDTO.of(userService.getPaisResidenciaByUsuarioID());*/
+
+        return userService.findAll(pageable)//.map(GetUserDTO::of);
+        .map(user -> {
+            GetPaisDTO paisNativoDTO = GetPaisDTO.of(user.getPaisNativo());
+            GetPaisDTO paisResidenciaDTO = GetPaisDTO.of(user.getPaisResidencia());
+            return GetUserDTO.of(user, paisNativoDTO, paisResidenciaDTO);
+        });
     }
 
     /*@GetMapping("/user/{id}")

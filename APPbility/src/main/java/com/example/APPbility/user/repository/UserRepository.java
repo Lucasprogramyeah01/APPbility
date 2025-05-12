@@ -1,5 +1,6 @@
 package com.example.APPbility.user.repository;
 
+import com.example.APPbility.model.Pais;
 import com.example.APPbility.model.TalentoPRUEBA;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.model.User;
@@ -28,6 +29,20 @@ public interface UserRepository extends JpaRepository<User, UUID> {
         WHERE p.id = ?1
     """)
     List<User> findListaUsuariosResidentesByPaisID(Long id);
+
+    @Query("""
+        SELECT p
+        FROM User u JOIN u.paisNativo p
+        WHERE u.id = ?1
+    """)
+    Pais findPaisNativoByUsuarioID(UUID id);
+
+    @Query("""
+        SELECT p
+        FROM User u JOIN u.paisResidencia p
+        WHERE u.id = ?1
+    """)
+    Pais findPaisResidenciaByUsuarioID(UUID id);
 
     /*@Query("""
         SELECT u.listaTalentos

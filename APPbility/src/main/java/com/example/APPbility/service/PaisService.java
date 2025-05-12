@@ -1,5 +1,6 @@
 package com.example.APPbility.service;
 
+import com.example.APPbility.error.PaisNotFoundException;
 import com.example.APPbility.error.TagPRUEBANotFoundException;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
@@ -43,7 +44,7 @@ public class PaisService {
         Page<Pais> result = paisRepository.findAll(pageable);
 
         if(result.isEmpty())
-            throw new UserNotFoundException();  //CREAR EXCEPCIÓN PARA PAIS.
+            throw new PaisNotFoundException();
         return result;
     }
 
@@ -53,7 +54,7 @@ public class PaisService {
 
         if(paisOptional.isPresent())
             return paisOptional.get();
-        throw new TagPRUEBANotFoundException(id); //CREAR EXCEPCIÓN PARA PAIS.
+        throw new PaisNotFoundException(id);
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.APPbility.user.service;
 
+import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.repository.TalentoPRUEBARepository;
 import com.example.APPbility.user.error.ActivationExpiredException;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -34,6 +36,14 @@ public class UserService {
     private int activationDuration;
 
     //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
+
+    public Pais getPaisNativoByUsuarioID(UUID id){
+        return userRepository.findPaisNativoByUsuarioID(id);
+    }
+
+    public Pais getPaisResidenciaByUsuarioID(UUID id){
+        return userRepository.findPaisResidenciaByUsuarioID(id);
+    }
 
     /*public Set<GetTagDTO> getListaTagsByUsuarioID(UUID id){
         return tagPRUEBARepository.findListaTagsByUsuarioID(id);
