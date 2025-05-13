@@ -9,6 +9,7 @@ import com.example.APPbility.service.ContinenteService;
 import com.example.APPbility.service.PaisService;
 import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.dto.GetUserSinPaisNativoDTO;
+import com.example.APPbility.user.dto.GetUserSinPaisResidenciaDTO;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -41,8 +42,11 @@ public class PaisController {
     @GetMapping("/pais/{id}")
     public GetPaisDTOCompleto findByID(@PathVariable Long id){
         GetContinenteDTO getContinenteDTO = GetContinenteDTO.of(paisService.getContinenteByPaisID(id));
-        List<GetUserSinPaisNativoDTO> listaUsuariosNativos = paisService.getListaUsuariosNativosByPaisID(id).stream().map(GetUserSinPaisNativoDTO::of).toList();
-        List<GetUserSinPaisNativoDTO> listaUsuariosResidentes = paisService.getListaUsuariosResidentesByPaisID(id).stream().map(GetUserSinPaisNativoDTO::of).toList();
+
+        List<GetUserSinPaisNativoDTO> listaUsuariosNativos = paisService.getListaUsuariosNativosByPaisID(id).stream()
+            .map(user -> GetUserSinPaisNativoDTO.of(user, GetPaisDTO.of(user.getPaisResidencia()))).toList();
+        List<GetUserSinPaisResidenciaDTO> listaUsuariosResidentes = paisService.getListaUsuariosResidentesByPaisID(id).stream()
+            .map(user -> GetUserSinPaisResidenciaDTO.of(user, GetPaisDTO.of(user.getPaisNativo()))).toList();
 
         Pais p = paisService.findById(id);
 

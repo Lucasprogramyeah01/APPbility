@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-public record GetUserSinPaisNativoDTO(
+public record GetUserSinPaisResidenciaDTO(
         UUID id,
         String username,
         String password,
@@ -27,11 +27,11 @@ public record GetUserSinPaisNativoDTO(
         String descripcionProfesional,
         String presentacionPersonal,
         List<String> listaEnlacesExternos,
-        GetPaisDTO paisResidencia
+        GetPaisDTO paisNativo
 ) {
 
-    public static GetUserSinPaisNativoDTO of(User u, GetPaisDTO paisResidencia){
-        return new GetUserSinPaisNativoDTO(
+    public static GetUserSinPaisResidenciaDTO of(User u, GetPaisDTO paisNativo){
+        return new GetUserSinPaisResidenciaDTO(
                 u.getId(),
                 u.getUsername(),
                 u.getPassword(),
@@ -49,7 +49,7 @@ public record GetUserSinPaisNativoDTO(
                 u.getDescripcionProfesional(),
                 u.getPresentacionPersonal(),
                 u.getListaEnlacesExternos(),
-                paisResidencia
+                paisNativo
         );
     }
 

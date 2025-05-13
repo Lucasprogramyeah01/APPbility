@@ -21,17 +21,20 @@ ALTER SEQUENCE pais_seq RESTART WITH 55;
 
 
 -- USUARIOS.
-INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha_nacimiento, sexo, modalidad_preferida, num_telefono, mostrar_num_telefono, imagen_perfil, idioma_nativo, descripcion_profesional, presentacion_personal, enabled, activation_token, created_at, pais_nativo_id, pais_residencia_id) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'Khin90', 'hash', 'khindasvinto@gmail.com', 'Khindasvinto', 'Batbayar Gaanbatar', '1990-01-01', 'HOMBRE', 'VIRTUAL', '+34123456789', false, 'https://i.pinimg.com/474x/87/39/e4/8739e4274f7fcb13c440dc51030f216b.jpg', 'es', 'Desarrollador Java', 'Programador a tiempo completo y karateka de nacimiento.', true, NULL, CURRENT_TIMESTAMP, 1, 1);
+INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha_nacimiento, sexo, modalidad_preferida, num_telefono, mostrar_num_telefono, imagen_perfil, idioma_nativo, descripcion_profesional, presentacion_personal, enabled, activation_token, created_at, pais_nativo_id, pais_residencia_id) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'Khin90', '{noop}khin', 'khindasvinto@gmail.com', 'Khindasvinto', 'Batbayar Gaanbatar', '1990-01-01', 'HOMBRE', 'VIRTUAL', '+34123456789', false, 'https://i.pinimg.com/474x/87/39/e4/8739e4274f7fcb13c440dc51030f216b.jpg', 'es', 'Médico licenciado: Experiencia laboral Médica adjunta del Servicio de Obstetricia y Ginecología, mayo 2020- noviembre 2021.', 'Boticario a tiempo completo y karateka de nacimiento.', true, NULL, CURRENT_TIMESTAMP, 1, 1);
+    INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'en');
+    INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'fr');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'https://x.com/');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'https://www.linkedin.com/');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'https://github.com/');
+    INSERT INTO user_roles (user_id, roles) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'USER');
 
-INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'en');
-INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'fr');
+INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha_nacimiento, sexo, modalidad_preferida, num_telefono, mostrar_num_telefono, imagen_perfil, idioma_nativo, descripcion_profesional, presentacion_personal, enabled, activation_token, created_at, pais_nativo_id, pais_residencia_id) VALUES ('551e8400-e22b-41d4-a716-446655440010', 'admin', '{noop}admin', 'admin@gmail.com', 'Duke', 'Java', '1985-05-23', 'HOMBRE', 'VIRTUAL', '+34111222333', true, 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Duke_%28Java_mascot%29_waving.svg/1200px-Duke_%28Java_mascot%29_waving.svg.png', 'en', 'Desarrollador senior en Java. Más de 15 años de experiencia en aplicaciones empresariales, microservicios y sistemas distribuidos. Mentor y predicador de buenas prácticas.', 'Apasionado por el café, el código limpio y los patrones de diseño.', true, NULL, CURRENT_TIMESTAMP, 2, 3);
+    INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('551e8400-e22b-41d4-a716-446655440010', 'es');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('551e8400-e22b-41d4-a716-446655440010', 'https://x.com/');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('551e8400-e22b-41d4-a716-446655440010', 'https://www.linkedin.com/');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('551e8400-e22b-41d4-a716-446655440010', 'https://github.com/');
+    INSERT INTO user_roles (user_id, roles) VALUES ('551e8400-e22b-41d4-a716-446655440010', 'ADMIN');
 
-INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'https://x.com/');
-INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'https://www.linkedin.com/');
-INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'https://github.com/');
-
-INSERT INTO user_roles (user_id, roles) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'USER');
-
-ALTER SEQUENCE pais_seq RESTART WITH 51;
 
 
