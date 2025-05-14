@@ -1,4 +1,4 @@
-package com.example.APPbility.dto.tag;
+package com.example.APPbility.dto.tagPRUEBA;
 
 import com.example.APPbility.validation.tag.UniqueNameTag;
 import jakarta.validation.constraints.NotBlank;

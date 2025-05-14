@@ -1,0 +1,20 @@
+package com.example.APPbility.repository;
+
+import com.example.APPbility.model.Continente;
+import com.example.APPbility.model.Pais;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface PaisRepository extends JpaRepository<Pais, Long> {
+
+    /*@Query("SELECT p FROM Pais p")
+    Page<Pais> findAllPaises(Pageable pageable);*/
+
+    @Query("""
+        SELECT c 
+        FROM Pais p JOIN p.continente c
+        WHERE p.id = ?1
+        """)
+    Continente findContinenteByPaisID(Long id);
+
+}

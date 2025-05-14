@@ -1,4 +1,4 @@
-package com.example.APPbility.dto.talento;
+package com.example.APPbility.dto.talentoPRUEBA;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

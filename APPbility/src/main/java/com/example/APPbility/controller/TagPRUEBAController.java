@@ -1,44 +1,25 @@
 package com.example.APPbility.controller;
 
-import com.example.APPbility.dto.tag.EditTagCmd;
-import com.example.APPbility.dto.tag.GetTagDTO;
-import com.example.APPbility.dto.tag.GetTagDTOCompleto;
-import com.example.APPbility.service.TagService;
-import com.example.APPbility.user.dto.GetUserDTO;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/tag/")
+@Validated
 @Tag(name = "Tag", description = "Controlador de Tag, para poder realizar sus operaciones de gestión.")
-public class TagController {
+public class TagPRUEBAController {
 
-    private final TagService tagService;
+    /*private final TagService tagService;
 
     @Operation(summary = "Obtiene una lista de todas los Tags.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
                     description = "Se han encontrado Tags.",
                     content = { @Content(mediaType = "application/json",
-                            array = @ArraySchema(schema = @Schema(implementation = com.example.APPbility.model.Tag.class)),
+                            array = @ArraySchema(schema = @Schema(implementation = TagPRUEBA.class)),
                             examples = {@ExampleObject(
                                     value = """
                                             [
@@ -72,7 +53,7 @@ public class TagController {
             @ApiResponse(responseCode = "200",
                     description = "Se ha encontrado el Tag.",
                     content = { @Content(mediaType = "application/json",
-                            array = @ArraySchema(schema = @Schema(implementation = com.example.APPbility.model.Tag.class)),
+                            array = @ArraySchema(schema = @Schema(implementation = TagPRUEBA.class)),
                             examples = {@ExampleObject(
                                     value = """
                                             {
@@ -110,7 +91,7 @@ public class TagController {
     public GetTagDTOCompleto findByID(@PathVariable Long id){
         Set<GetUserDTO> listaUsuarios = tagService.getListaUsuariosByTagID(id);
 
-        com.example.APPbility.model.Tag t = tagService.findById(id);
+        TagPRUEBA t = tagService.findById(id);
 
         return GetTagDTOCompleto.of(t, listaUsuarios);
     }
@@ -131,7 +112,7 @@ public class TagController {
                     )}),
     })
     @PostMapping
-    public ResponseEntity<com.example.APPbility.model.Tag> save(@Valid @RequestBody EditTagCmd nuevo){
+    public ResponseEntity<TagPRUEBA> save(@Valid @RequestBody EditTagCmd nuevo){
         return ResponseEntity.status(HttpStatus.CREATED).body(tagService.save(nuevo));
     }
 
@@ -156,6 +137,6 @@ public class TagController {
     @PutMapping("{id}")
     public GetTagDTO edit(@Valid @RequestBody EditTagCmd editTagCmd, @PathVariable Long id){
         return GetTagDTO.of(tagService.edit(editTagCmd, id));
-    }
+    }*/
 
 }

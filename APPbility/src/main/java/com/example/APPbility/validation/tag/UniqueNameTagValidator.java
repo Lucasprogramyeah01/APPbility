@@ -1,6 +1,6 @@
 package com.example.APPbility.validation.tag;
 
-import com.example.APPbility.repository.TagRepository;
+import com.example.APPbility.repository.TagPRUEBARepository;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,11 @@ import org.springframework.util.StringUtils;
 public class UniqueNameTagValidator implements ConstraintValidator<UniqueNameTag, String> {
 
     @Autowired
-    private TagRepository tagRepository;
+    private TagPRUEBARepository tagPRUEBARepository;
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return StringUtils.hasText(s) && !tagRepository.existsByNombre(s);
+        return StringUtils.hasText(s) && !tagPRUEBARepository.existsByNombre(s);
     }
 
 }

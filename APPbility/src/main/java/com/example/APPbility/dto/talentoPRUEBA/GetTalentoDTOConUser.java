@@ -1,6 +1,6 @@
-package com.example.APPbility.dto.talento;
+package com.example.APPbility.dto.talentoPRUEBA;
 
-import com.example.APPbility.model.Talento;
+import com.example.APPbility.model.TalentoPRUEBA;
 import com.example.APPbility.user.dto.GetUserDTO;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public record GetTalentoDTOConUser(
         GetUserDTO usuario
 ) {
 
-    public static GetTalentoDTOConUser of(Talento t, GetUserDTO usuario){
+    public static GetTalentoDTOConUser of(TalentoPRUEBA t, GetUserDTO usuario){
         return new GetTalentoDTOConUser(
                 t.getId(),
                 t.getTitulo(),

@@ -26,14 +26,16 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleNotFoundException(NotFoundException ex) {
         HttpStatus status = HttpStatus.NOT_FOUND;
-        String errorType = "Recurso no encontrado";
+        String errorType = "Entidad no encontrada";
 
-        if (ex instanceof TagNotFoundException tagEx) {
-            errorType = "Tag no encontrado.";
-        } else if (ex instanceof TalentoNotFoundException talentoEx) {
-            errorType = "Talento no encontrado.";
-        } else if (ex instanceof UserNotFoundException usuarioEx) {
+        if (ex instanceof UserNotFoundException usuarioEx) {
             errorType = "Usuario no encontrado.";
+        } else if (ex instanceof PaisNotFoundException paisEx) {
+            errorType = "País no encontrado.";
+        } else if (ex instanceof ContinenteNotFoundException continenteEx) {
+            errorType = "Continente no encontrado.";
+        } else if (ex instanceof TalentoPRUEBANotFoundException talentoEx) {
+            errorType = "Talento no encontrado.";
         }
 
         Map<String, Object> errorBody = Map.of(
