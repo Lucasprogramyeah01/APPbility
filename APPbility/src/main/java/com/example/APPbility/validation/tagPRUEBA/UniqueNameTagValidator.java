@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.tag;
+package com.example.APPbility.validation.tagPRUEBA;
 
 import com.example.APPbility.repository.TagPRUEBARepository;
 import jakarta.validation.ConstraintValidator;

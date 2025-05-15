@@ -74,9 +74,9 @@ public class SecurityConfig {
                     "/activate/account/","/error").permitAll()
 
                 //ADMIN
-                /*.requestMatchers(HttpMethod.POST, "/tag/").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/tag/{id}").hasRole("ADMIN")*/
                 .requestMatchers("/me/admin").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/continente/").hasRole("ADMIN")
+                //.requestMatchers(HttpMethod.PUT, "/tag/{id}").hasRole("ADMIN")
 
                 //USER
                 .requestMatchers("/me").hasRole("USER")

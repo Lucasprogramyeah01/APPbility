@@ -1,6 +1,6 @@
 package com.example.APPbility.dto.tagPRUEBA;
 
-import com.example.APPbility.validation.tag.UniqueNameTag;
+import com.example.APPbility.validation.tagPRUEBA.UniqueNameTag;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

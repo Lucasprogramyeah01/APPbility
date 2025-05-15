@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface ContinenteRepository extends JpaRepository<Continente, Long> {
 
+    boolean existsByNombreIgnoreCase(String nombre);
+
     @Query("""
         SELECT c.listaPaises 
         FROM Continente c
