@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.tag;
+package com.example.APPbility.validation.continente;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -7,11 +7,11 @@ import java.lang.annotation.*;
 
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UniqueNameTagValidator.class)
+@Constraint(validatedBy = UniqueNombreContinenteValidator.class)
 @Documented
-public @interface UniqueNameTag {
+public @interface UniqueNombreContinente {
 
-    String message() default "Ya existe un Tag con ese nombre.";
+    String message() default "Ya existe un continente registrado con ese nombre.";
 
     Class<?>[] groups() default {};
 

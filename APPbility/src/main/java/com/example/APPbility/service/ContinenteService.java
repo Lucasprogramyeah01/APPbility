@@ -1,10 +1,10 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.error.TagPRUEBANotFoundException;
+import com.example.APPbility.dto.continente.CreateContinenteCMD;
+import com.example.APPbility.error.ContinenteNotFoundException;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.ContinenteRepository;
-import com.example.APPbility.user.error.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +32,7 @@ public class ContinenteService {
         Page<Continente> result = continenteRepository.findAll(pageable);
 
         if(result.isEmpty())
-            throw new UserNotFoundException();  //CREAR EXCEPCIÓN PARA CONTINENTE.
+            throw new ContinenteNotFoundException();
         return result;
     }
 
@@ -42,7 +42,18 @@ public class ContinenteService {
 
         if(continenteOptional.isPresent())
             return continenteOptional.get();
-        throw new TagPRUEBANotFoundException(id); //CREAR EXCEPCIÓN PARA CONTINENTE.
+        throw new ContinenteNotFoundException(id);
     }
+
+    //Crear Continente.
+    public Continente save(CreateContinenteCMD nuevo){
+        return continenteRepository.save(Continente.builder()
+            .nombre(nuevo.nombre())
+            .build());
+    }
+
+
+
+
 
 }
