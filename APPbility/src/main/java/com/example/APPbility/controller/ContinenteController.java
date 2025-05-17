@@ -1,6 +1,7 @@
 package com.example.APPbility.controller;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
+import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.dto.continente.GetContinenteDTO;
 import com.example.APPbility.dto.continente.GetContinenteDTOCompleto;
 import com.example.APPbility.dto.pais.GetPaisDTO;
@@ -46,6 +47,11 @@ public class ContinenteController {
     @PostMapping
     public ResponseEntity<Continente> save(@Valid @RequestBody CreateContinenteCMD nuevo){
         return ResponseEntity.status(HttpStatus.CREATED).body(continenteService.save(nuevo));
+    }
+
+    @PutMapping("{id}")
+    public GetContinenteDTO edit(@Valid @RequestBody EditContinenteCMD editContinenteCMD, @PathVariable Long id){
+        return GetContinenteDTO.of(continenteService.edit(editContinenteCMD, id));
     }
 
 }

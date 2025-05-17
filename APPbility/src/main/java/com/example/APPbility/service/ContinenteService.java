@@ -1,6 +1,7 @@
 package com.example.APPbility.service;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
+import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.error.ContinenteNotFoundException;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
@@ -52,8 +53,19 @@ public class ContinenteService {
             .build());
     }
 
+    //Editar Continente.
+    public Continente edit(EditContinenteCMD editContinenteCMD, Long id){
+        Optional<Continente> continenteOptional = continenteRepository.findById(id);
 
-
-
+        if(continenteOptional.isPresent()){
+            return continenteOptional
+                    .map(old -> {
+                        old.setNombre(editContinenteCMD.nombre().trim());
+                        return continenteRepository.save(old);
+                    }).get();
+        }else{
+            throw new ContinenteNotFoundException("No se ha encontrado ningún continente con ID: "+id+".");
+        }
+    }
 
 }
