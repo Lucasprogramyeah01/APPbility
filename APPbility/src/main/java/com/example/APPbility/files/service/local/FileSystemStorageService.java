@@ -53,6 +53,22 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
+    public FileMetadata storeInFolder(MultipartFile file, String folder) {
+        try {
+            Path directoryPath = Paths.get(storageLocation, folder);
+
+            Files.createDirectories(directoryPath);
+
+            String filename = file.getOriginalFilename();
+            String storedFilename = store(file.getBytes(), Paths.get(folder, filename).toString(), file.getContentType());
+
+            return LocalFileMetadataImpl.of(storedFilename);
+        } catch (Exception ex) {
+            throw new StorageException("Error storing file: " + file.getOriginalFilename(), ex);
+        }
+    }
+
+    @Override
     public Resource loadAsResource(String id) {
         try {
             Path file = load(id);
@@ -74,6 +90,23 @@ public class FileSystemStorageService implements StorageService {
             Files.delete(load(filename));
         } catch (IOException e) {
             throw new StorageException("Could not delete file:" + filename);
+        }
+    }
+
+    @Override
+    public void deleteFileInFolder(String folder, String filename) {
+        try {
+            Path filePath = Paths.get("uploads", folder, filename);
+            boolean deleted = Files.deleteIfExists(filePath);
+
+            if (!deleted) {
+                throw new StorageException("File does not exist or could not be deleted: " + filename);
+            } else {
+                System.out.println("Foto borrada correctamente: " + filePath);
+            }
+
+        } catch (IOException e) {
+            throw new StorageException("Error deleting file: " + filename, e);
         }
     }
 

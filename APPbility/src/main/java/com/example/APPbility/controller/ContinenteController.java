@@ -23,8 +23,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/continente/")
 @Validated
+@RequestMapping("/continente/")
 @Tag(name = "Continente", description = "Controlador de Continente, para poder realizar sus operaciones de gestión.")
 public class ContinenteController {
 
