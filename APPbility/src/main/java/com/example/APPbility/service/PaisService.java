@@ -1,7 +1,9 @@
 package com.example.APPbility.service;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
+import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.dto.pais.CreatePaisCMD;
+import com.example.APPbility.dto.pais.EditPaisCMD;
 import com.example.APPbility.error.ContinenteNotFoundException;
 import com.example.APPbility.error.PaisNotFoundException;
 import com.example.APPbility.error.TagPRUEBANotFoundException;
@@ -19,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,10 +81,41 @@ public class PaisService {
 
         return  paisRepository.save(Pais.builder()
                 .nombre(nuevo.nombre())
-                .codigoISO(nuevo.codigoISO())
+                .codigoISO(nuevo.codigoISO().toUpperCase())
                 .bandera(bandera)
                 .continente(continente)
                 .build());
+    }
+
+    //Editar Pais.
+    public Pais edit(EditPaisCMD editPaisCMD, MultipartFile multipartFile, Long id){
+        Optional<Pais> paisOptional = paisRepository.findById(id);
+
+        Continente continente = continenteRepository.findById(editPaisCMD.continenteID())
+            .orElseThrow(() -> new ContinenteNotFoundException("No se ha encontrado ningún continente con ese ID: "
+                    +editPaisCMD.continenteID()+".")
+            );
+
+        String bandera = "/uploads/" + storageService.storeInFolder(multipartFile, "banderasPaises")
+                .getFilename();
+
+        if(paisOptional.isPresent()){
+            if(paisOptional.get().getBandera().contains("uploads")) {
+                String antiguaBandera = Paths.get(paisOptional.get().getBandera()).getFileName().toString();
+                storageService.deleteFileInFolder("banderasPaises", antiguaBandera);
+            }
+
+            return paisOptional
+                    .map(old -> {
+                        old.setNombre(editPaisCMD.nombre().trim());
+                        old.setCodigoISO(editPaisCMD.codigoISO().trim().toUpperCase());
+                        old.setBandera(bandera);
+                        old.setContinente(continente);
+                        return paisRepository.save(old);
+                    }).get();
+        }else{
+            throw new PaisNotFoundException("No se ha encontrado ningún pais con ID: "+id+".");
+        }
     }
 
 

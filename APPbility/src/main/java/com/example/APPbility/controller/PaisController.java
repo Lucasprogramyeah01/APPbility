@@ -1,11 +1,9 @@
 package com.example.APPbility.controller;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
+import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.dto.continente.GetContinenteDTO;
-import com.example.APPbility.dto.pais.CreatePaisCMD;
-import com.example.APPbility.dto.pais.GetPaisDTO;
-import com.example.APPbility.dto.pais.GetPaisDTOCompleto;
-import com.example.APPbility.dto.pais.GetPaisDTOConContinente;
+import com.example.APPbility.dto.pais.*;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.service.ContinenteService;
@@ -63,14 +61,20 @@ public class PaisController {
 
     @PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<GetPaisDTOConContinente> save(@Valid @RequestPart("pais") CreatePaisCMD nuevo,
-        @RequestPart("bandera") MultipartFile multipartFile){
+        @RequestPart(value = "bandera", required = true) MultipartFile multipartFile){
         Pais nuevoPais = paisService.save(nuevo, multipartFile);
 
         return ResponseEntity.status(HttpStatus.CREATED)
             .body(GetPaisDTOConContinente.of(nuevoPais, GetContinenteDTO.of(paisService.getContinenteByPaisID(nuevoPais.getId()))));
     }
 
+    @PutMapping(value = "{id}", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public GetPaisDTOConContinente edit(@Valid @RequestPart("pais") EditPaisCMD editPaisCMD,
+        @RequestPart(value = "bandera", required = true) MultipartFile multipartFile, @PathVariable Long id){
+        Pais paisEditado = paisService.edit(editPaisCMD, multipartFile, id);
 
+        return GetPaisDTOConContinente.of(paisEditado, GetContinenteDTO.of(paisService.getContinenteByPaisID(id)));
+    }
 
 
 }

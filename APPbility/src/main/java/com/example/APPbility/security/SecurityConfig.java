@@ -77,7 +77,7 @@ public class SecurityConfig {
                 //ADMIN
                 .requestMatchers("/me/admin").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/continente/", "/pais/").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/continente/{id}").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/continente/{id}", "/pais/{id}").hasRole("ADMIN")
 
                 //USER
                 .requestMatchers("/me").hasRole("USER")
