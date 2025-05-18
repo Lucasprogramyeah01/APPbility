@@ -1,7 +1,6 @@
 package com.example.APPbility.files.model;
 
 public interface FileMetadata {
-
     String getFilename();
     String getURL();
     String getDeleteId();
@@ -12,5 +11,4 @@ public interface FileMetadata {
     void setDeleteId(String deleteId);
     void setDeleteURL(String deleteURL);
     void setId(String id);
-
 }

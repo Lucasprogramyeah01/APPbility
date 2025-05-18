@@ -10,6 +10,9 @@ public interface PaisRepository extends JpaRepository<Pais, Long> {
     /*@Query("SELECT p FROM Pais p")
     Page<Pais> findAllPaises(Pageable pageable);*/
 
+    boolean existsByNombreIgnoreCase(String nombre);
+    boolean existsByCodigoISOIgnoreCase(String nombre);
+
     @Query("""
         SELECT c 
         FROM Pais p JOIN p.continente c

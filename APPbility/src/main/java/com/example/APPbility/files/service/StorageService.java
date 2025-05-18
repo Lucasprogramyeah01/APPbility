@@ -14,4 +14,8 @@ public interface StorageService {
 
     void deleteFile(String filename);
 
+    void deleteFileInFolder(String folder, String filename);
+
+    FileMetadata storeInFolder(MultipartFile multipartFile, String folder);
+
 }

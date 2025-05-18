@@ -67,7 +67,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authz -> authz
 
                 //PERMIT ALL
-                .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**",
+                    "/uploads/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/user/", "/user/{id}", "/pais/", "/pais/{id}",
                     "/continente/", "/continente/{id}" /*"/tag/", "/tag/{id}",*/).permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
@@ -75,7 +76,7 @@ public class SecurityConfig {
 
                 //ADMIN
                 .requestMatchers("/me/admin").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/continente/").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/continente/", "/pais/").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/continente/{id}").hasRole("ADMIN")
 
                 //USER
