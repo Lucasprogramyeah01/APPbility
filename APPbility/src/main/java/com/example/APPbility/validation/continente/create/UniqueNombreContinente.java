@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.continente;
+package com.example.APPbility.validation.continente.create;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

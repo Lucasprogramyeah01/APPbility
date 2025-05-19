@@ -1,18 +1,16 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.dto.continente.CreateContinenteCMD;
-import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.dto.pais.CreatePaisCMD;
 import com.example.APPbility.dto.pais.EditPaisCMD;
-import com.example.APPbility.error.ContinenteNotFoundException;
-import com.example.APPbility.error.PaisNotFoundException;
-import com.example.APPbility.error.TagPRUEBANotFoundException;
+import com.example.APPbility.error.custom.DuplicatedAttributeException;
+import com.example.APPbility.error.custom.IncorrectSizeException;
+import com.example.APPbility.error.entity.ContinenteNotFoundException;
+import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.files.service.StorageService;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.ContinenteRepository;
 import com.example.APPbility.repository.PaisRepository;
-import com.example.APPbility.user.error.UserNotFoundException;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -90,6 +88,24 @@ public class PaisService {
     //Editar Pais.
     public Pais edit(EditPaisCMD editPaisCMD, MultipartFile multipartFile, Long id){
         Optional<Pais> paisOptional = paisRepository.findById(id);
+
+        //Alternativa de la validación "UniqueNombrePaisEdit".
+        boolean nombreDuplicado = paisRepository.existsByNombreIgnoreCaseAndIdNot(editPaisCMD.nombre().trim(), id);
+        if (nombreDuplicado) {
+            throw new DuplicatedAttributeException("Ya existe un pais registrado con ese nombre.");
+        }
+
+        //Alternativa de la validación "@Size(min = 2, max = 2, message = "{pais.codigoISO.size}")".
+        String codigoISO = editPaisCMD.codigoISO().trim();
+        if (codigoISO.length() != 2) {
+            throw new IncorrectSizeException("El código ISO de un país debe contener exactamente 2 caracteres.");
+        }
+
+        //Alternativa de la validación "UniqueCodigoISOPaisEdit".
+        boolean codigoISODuplicado = paisRepository.existsByCodigoISOIgnoreCaseAndIdNot(editPaisCMD.codigoISO().trim(), id);
+        if (codigoISODuplicado) {
+            throw new DuplicatedAttributeException("Ya existe un país registrado con ese código ISO.");
+        }
 
         Continente continente = continenteRepository.findById(editPaisCMD.continenteID())
             .orElseThrow(() -> new ContinenteNotFoundException("No se ha encontrado ningún continente con ese ID: "
