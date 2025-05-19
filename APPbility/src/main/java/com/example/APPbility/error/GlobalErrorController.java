@@ -1,7 +1,6 @@
 package com.example.APPbility.error;
 
-import com.example.APPbility.error.custom.DuplicatedAttributeException;
-import com.example.APPbility.error.custom.IncorrectSizeException;
+import com.example.APPbility.error.custom.*;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.error.entity.TalentoPRUEBANotFoundException;
@@ -70,6 +69,13 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
         );
 
         return ResponseEntity.status(status).body(errorBody);
+    }
+
+    @ExceptionHandler(EntityWithRelationshipsException.class)
+    public ResponseEntity<String> EntityWithRelationshipsException(EntityWithRelationshipsException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(ex.getMessage());
     }
 
     @ExceptionHandler(ConstraintViolationException.class)

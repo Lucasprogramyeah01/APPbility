@@ -1,6 +1,6 @@
 package com.example.APPbility.user.error;
 
-import com.example.APPbility.error.NotFoundException;
+import com.example.APPbility.error.custom.NotFoundException;
 
 import java.util.UUID;
 

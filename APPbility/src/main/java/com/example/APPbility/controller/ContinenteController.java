@@ -54,4 +54,10 @@ public class ContinenteController {
         return GetContinenteDTO.of(continenteService.edit(editContinenteCMD, id));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        continenteService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
