@@ -2,11 +2,13 @@ package com.example.APPbility.service;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
 import com.example.APPbility.dto.continente.EditContinenteCMD;
+import com.example.APPbility.error.custom.EntityWithRelationshipsException;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.ContinenteRepository;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -66,6 +68,18 @@ public class ContinenteService {
         }else{
             throw new ContinenteNotFoundException("No se ha encontrado ningún continente con ID: "+id+".");
         }
+    }
+
+    //Borrar Continente.
+    public void delete(Long id){
+        Continente continente = continenteRepository.findById(id).orElseThrow(() ->
+            new ContinenteNotFoundException(id));
+
+        if (!continente.getListaPaises().isEmpty()) {
+            throw new EntityWithRelationshipsException("No se ha podido eliminar el continente " +
+                "con ID: " + continente.getId() + " porque tiene países asociados.");
+        }
+        continenteRepository.delete(continente);
     }
 
 }

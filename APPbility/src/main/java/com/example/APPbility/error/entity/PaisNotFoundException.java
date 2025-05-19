@@ -1,6 +1,6 @@
 package com.example.APPbility.error.entity;
 
-import com.example.APPbility.error.NotFoundException;
+import com.example.APPbility.error.custom.NotFoundException;
 
 public class PaisNotFoundException extends NotFoundException {
 
