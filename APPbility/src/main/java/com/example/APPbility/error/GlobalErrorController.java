@@ -1,5 +1,10 @@
 package com.example.APPbility.error;
 
+import com.example.APPbility.error.custom.DuplicatedAttributeException;
+import com.example.APPbility.error.custom.IncorrectSizeException;
+import com.example.APPbility.error.entity.ContinenteNotFoundException;
+import com.example.APPbility.error.entity.PaisNotFoundException;
+import com.example.APPbility.error.entity.TalentoPRUEBANotFoundException;
 import com.example.APPbility.user.error.UserNotFoundException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.ConstraintViolation;
@@ -26,7 +31,7 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleNotFoundException(NotFoundException ex) {
         HttpStatus status = HttpStatus.NOT_FOUND;
-        String errorType = "Entidad no encontrada";
+        String errorType = "Entidad no encontrada.";
 
         if (ex instanceof UserNotFoundException usuarioEx) {
             errorType = "Usuario no encontrado.";
@@ -36,6 +41,26 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Continente no encontrado.";
         } else if (ex instanceof TalentoPRUEBANotFoundException talentoEx) {
             errorType = "Talento no encontrado.";
+        }
+
+        Map<String, Object> errorBody = Map.of(
+                "error", errorType,
+                "message", ex.getMessage(),
+                "status", status.value()
+        );
+
+        return ResponseEntity.status(status).body(errorBody);
+    }
+
+    @ExceptionHandler(CustomValidationException.class)
+    public ResponseEntity<Map<String, Object>> handleCustomValidationException(CustomValidationException ex) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        String errorType = "Error de validación personalizada.";
+
+        if (ex instanceof DuplicatedAttributeException) {
+            errorType = "Atributo duplicado.";
+        } else if (ex instanceof IncorrectSizeException) {
+            errorType = "Tamaño incorrecto de campo.";
         }
 
         Map<String, Object> errorBody = Map.of(

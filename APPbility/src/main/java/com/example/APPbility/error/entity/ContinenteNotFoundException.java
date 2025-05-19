@@ -1,4 +1,6 @@
-package com.example.APPbility.error;
+package com.example.APPbility.error.entity;
+
+import com.example.APPbility.error.NotFoundException;
 
 public class ContinenteNotFoundException extends NotFoundException {
 

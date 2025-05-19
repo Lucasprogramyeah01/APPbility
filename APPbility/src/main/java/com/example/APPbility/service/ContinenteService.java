@@ -2,7 +2,7 @@ package com.example.APPbility.service;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
 import com.example.APPbility.dto.continente.EditContinenteCMD;
-import com.example.APPbility.error.ContinenteNotFoundException;
+import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.ContinenteRepository;

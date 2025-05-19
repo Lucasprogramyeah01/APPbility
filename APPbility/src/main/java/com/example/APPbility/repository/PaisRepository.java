@@ -11,7 +11,11 @@ public interface PaisRepository extends JpaRepository<Pais, Long> {
     Page<Pais> findAllPaises(Pageable pageable);*/
 
     boolean existsByNombreIgnoreCase(String nombre);
-    boolean existsByCodigoISOIgnoreCase(String nombre);
+    boolean existsByCodigoISOIgnoreCase(String codigoISO);
+
+    boolean existsByNombreIgnoreCaseAndIdNot(String nombre, Long id);
+    boolean existsByCodigoISOIgnoreCaseAndIdNot(String codigoISO, Long id);
+
 
     @Query("""
         SELECT c 
