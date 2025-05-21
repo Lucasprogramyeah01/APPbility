@@ -76,6 +76,11 @@ public class PaisController {
         return GetPaisDTOConContinente.of(paisEditado, GetContinenteDTO.of(paisService.getContinenteByPaisID(id)));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        paisService.delete(id);
 
+        return ResponseEntity.noContent().build();
+    }
 
 }

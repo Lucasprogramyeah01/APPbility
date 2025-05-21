@@ -3,7 +3,7 @@ package com.example.APPbility.dto.continente;
 import com.example.APPbility.validation.continente.edit.UniqueNombreContinenteEdit;
 import jakarta.validation.constraints.NotBlank;
 
-@UniqueNombreContinenteEdit
+//@UniqueNombreContinenteEdit
 public record EditContinenteCMD(
         Long id,
 
