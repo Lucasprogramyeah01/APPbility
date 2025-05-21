@@ -2,6 +2,7 @@ package com.example.APPbility.service;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
 import com.example.APPbility.dto.continente.EditContinenteCMD;
+import com.example.APPbility.error.custom.DuplicatedAttributeException;
 import com.example.APPbility.error.custom.EntityWithRelationshipsException;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.model.Continente;
@@ -41,11 +42,7 @@ public class ContinenteService {
 
     //Buscar Continente por ID.
     public Continente findById(Long id){
-        Optional<Continente> continenteOptional = continenteRepository.findById(id);
-
-        if(continenteOptional.isPresent())
-            return continenteOptional.get();
-        throw new ContinenteNotFoundException(id);
+        return continenteRepository.findById(id).orElseThrow(() -> new ContinenteNotFoundException(id));
     }
 
     //Crear Continente.
@@ -57,17 +54,18 @@ public class ContinenteService {
 
     //Editar Continente.
     public Continente edit(EditContinenteCMD editContinenteCMD, Long id){
-        Optional<Continente> continenteOptional = continenteRepository.findById(id);
+        Continente continente = continenteRepository.findById(id).orElseThrow(() ->
+            new ContinenteNotFoundException(id));
 
-        if(continenteOptional.isPresent()){
-            return continenteOptional
-                    .map(old -> {
-                        old.setNombre(editContinenteCMD.nombre().trim());
-                        return continenteRepository.save(old);
-                    }).get();
-        }else{
-            throw new ContinenteNotFoundException("No se ha encontrado ningún continente con ID: "+id+".");
+        //Alternativa de la validación "UniqueNombreContinenteEdit".
+        boolean nombreDuplicado = continenteRepository.existsByNombreIgnoreCaseAndIdNot(editContinenteCMD.nombre().trim(), id);
+        if (nombreDuplicado) {
+            throw new DuplicatedAttributeException("Ya existe un continente registrado con ese nombre.");
         }
+
+        continente.setNombre(editContinenteCMD.nombre().trim());
+
+        return continenteRepository.save(continente);
     }
 
     //Borrar Continente.

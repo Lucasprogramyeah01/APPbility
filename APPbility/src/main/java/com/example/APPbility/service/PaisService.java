@@ -3,6 +3,7 @@ package com.example.APPbility.service;
 import com.example.APPbility.dto.pais.CreatePaisCMD;
 import com.example.APPbility.dto.pais.EditPaisCMD;
 import com.example.APPbility.error.custom.DuplicatedAttributeException;
+import com.example.APPbility.error.custom.EntityWithRelationshipsException;
 import com.example.APPbility.error.custom.IncorrectSizeException;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
@@ -60,11 +61,7 @@ public class PaisService {
 
     //Buscar Pais por ID.
     public Pais findById(Long id){
-        Optional<Pais> paisOptional = paisRepository.findById(id);
-
-        if(paisOptional.isPresent())
-            return paisOptional.get();
-        throw new PaisNotFoundException(id);
+        return paisRepository.findById(id).orElseThrow(() -> new PaisNotFoundException(id));
     }
 
     //Crear Pais.
@@ -87,7 +84,7 @@ public class PaisService {
 
     //Editar Pais.
     public Pais edit(EditPaisCMD editPaisCMD, MultipartFile multipartFile, Long id){
-        Optional<Pais> paisOptional = paisRepository.findById(id);
+        Pais pais = paisRepository.findById(id).orElseThrow(() -> new PaisNotFoundException(id));
 
         //Alternativa de la validación "UniqueNombrePaisEdit".
         boolean nombreDuplicado = paisRepository.existsByNombreIgnoreCaseAndIdNot(editPaisCMD.nombre().trim(), id);
@@ -115,24 +112,34 @@ public class PaisService {
         String bandera = "/uploads/" + storageService.storeInFolder(multipartFile, "banderasPaises")
                 .getFilename();
 
-        if(paisOptional.isPresent()){
-            if(paisOptional.get().getBandera().contains("uploads")) {
-                String antiguaBandera = Paths.get(paisOptional.get().getBandera()).getFileName().toString();
-                storageService.deleteFileInFolder("banderasPaises", antiguaBandera);
-            }
-
-            return paisOptional
-                    .map(old -> {
-                        old.setNombre(editPaisCMD.nombre().trim());
-                        old.setCodigoISO(editPaisCMD.codigoISO().trim().toUpperCase());
-                        old.setBandera(bandera);
-                        old.setContinente(continente);
-                        return paisRepository.save(old);
-                    }).get();
-        }else{
-            throw new PaisNotFoundException("No se ha encontrado ningún pais con ID: "+id+".");
+        if(pais.getBandera().contains("uploads")) {
+            String antiguaBandera = Paths.get(pais.getBandera()).getFileName().toString();
+            storageService.deleteFileInFolder("banderasPaises", antiguaBandera);
         }
+
+        pais.setNombre(editPaisCMD.nombre().trim());
+        pais.setCodigoISO(editPaisCMD.codigoISO().trim().toUpperCase());
+        pais.setBandera(bandera);
+        pais.setContinente(continente);
+
+        return paisRepository.save(pais);
     }
 
+    //Borrar País.
+    public void delete(Long id){
+        Pais pais = paisRepository.findById(id).orElseThrow(() -> new PaisNotFoundException(id));
+
+        if(!pais.getListaUsuariosNativos().isEmpty() && !pais.getListaUsuariosResidentes().isEmpty()){
+            throw new EntityWithRelationshipsException("No se ha podido eliminar el país con ID: " +
+                pais.getId() + " porque tiene usuarios asociados.");
+        }
+
+        if(pais.getBandera().contains("uploads")){
+            String bandera = Paths.get(pais.getBandera()).getFileName().toString();
+            storageService.deleteFileInFolder("banderasPaises", bandera);
+        }
+
+        paisRepository.delete(pais);
+    }
 
 }
