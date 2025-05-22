@@ -1,5 +1,7 @@
 package com.example.APPbility.service;
 
+import com.example.APPbility.dto.continente.CreateContinenteCMD;
+import com.example.APPbility.dto.nivel.CreateNivelCMD;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.NivelNotFoundException;
 import com.example.APPbility.model.Continente;
@@ -9,6 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +33,32 @@ public class NivelService {
         if(result.isEmpty())
             throw new NivelNotFoundException();
         return result;
+    }
+
+    //Crear Nivel.
+    @Transactional
+    public Nivel save(CreateNivelCMD nuevo){
+        List<Nivel> listaNiveles = nivelRepository.findListaNivelesOrderedByOrden();
+
+        int numOrden = nuevo.orden();
+        int longitudListaNiveles = listaNiveles.size();
+
+        int ultimoNumOrden = numOrden > longitudListaNiveles ? longitudListaNiveles + 1 : numOrden;
+
+        listaNiveles.stream()
+            .filter(indice -> indice.getOrden() >= ultimoNumOrden)
+            .sorted((a, b) -> Integer.compare(b.getOrden(), a.getOrden()))
+            .forEach(indice -> {
+                indice.setOrden(indice.getOrden() + 1);
+                nivelRepository.save(indice);
+            });
+
+        return nivelRepository.save(Nivel.builder()
+                .nombre(nuevo.nombre().trim())
+                .color(nuevo.color().trim().toUpperCase())
+                .orden(nuevo.orden())
+                .build()
+        );
     }
 
 

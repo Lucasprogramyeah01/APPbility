@@ -38,8 +38,6 @@ import java.util.stream.Collectors;
 public class PaisController {
 
     private final PaisService paisService;
-    private final ContinenteService continenteService;
-    private final UserService userService;
 
     @GetMapping
     public Page<GetPaisDTO> findAll(@PageableDefault(sort = "nombre", direction = Sort.Direction.ASC) Pageable pageable){
