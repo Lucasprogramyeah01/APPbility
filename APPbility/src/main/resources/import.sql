@@ -20,6 +20,16 @@ INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (5, 'Alb
 ALTER SEQUENCE pais_seq RESTART WITH 55;
 
 
+-- NIVELES.
+INSERT INTO nivel (id, nombre, color, orden) VALUES (1, 'Inicial', '#b7b7b7', '1');
+INSERT INTO nivel (id, nombre, color, orden) VALUES (2, 'Básico', '#009deb', '2');
+INSERT INTO nivel (id, nombre, color, orden) VALUES (3, 'Intermedio', '#6dd702', '3');
+INSERT INTO nivel (id, nombre, color, orden) VALUES (4, 'Avanzado', '#ff9500', '4');
+INSERT INTO nivel (id, nombre, color, orden) VALUES (5, 'Experto', '#e80044', '5');
+
+ALTER SEQUENCE nivel_seq RESTART WITH 55;
+
+
 -- USUARIOS.
 INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha_nacimiento, sexo, modalidad_preferida, num_telefono, mostrar_num_telefono, imagen_perfil, idioma_nativo, descripcion_profesional, presentacion_personal, enabled, activation_token, created_at, pais_nativo_id, pais_residencia_id) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'Khin90', '{noop}khin', 'khindasvinto@gmail.com', 'Khindasvinto', 'Batbayar Gaanbatar', '1990-01-01', 'HOMBRE', 'VIRTUAL', '+34123456789', false, 'https://i.pinimg.com/474x/87/39/e4/8739e4274f7fcb13c440dc51030f216b.jpg', 'es', 'Médico licenciado: Experiencia laboral Médica adjunta del Servicio de Obstetricia y Ginecología, mayo 2020- noviembre 2021.', 'Boticario a tiempo completo y karateka de nacimiento.', true, NULL, CURRENT_TIMESTAMP, 1, 1);
     INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('123e4567-e89b-12d3-a456-426614174000', 'en');

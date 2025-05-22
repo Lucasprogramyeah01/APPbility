@@ -2,6 +2,7 @@ package com.example.APPbility.error;
 
 import com.example.APPbility.error.custom.*;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
+import com.example.APPbility.error.entity.NivelNotFoundException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.error.entity.TalentoPRUEBANotFoundException;
 import com.example.APPbility.user.error.UserNotFoundException;
@@ -38,6 +39,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "País no encontrado.";
         } else if (ex instanceof ContinenteNotFoundException continenteEx) {
             errorType = "Continente no encontrado.";
+        } else if (ex instanceof NivelNotFoundException nivelEx) {
+            errorType = "Nivel no encontrado.";
         } else if (ex instanceof TalentoPRUEBANotFoundException talentoEx) {
             errorType = "Talento no encontrado.";
         }
