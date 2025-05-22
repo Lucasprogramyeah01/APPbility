@@ -70,7 +70,7 @@ public class SecurityConfig {
                 .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**",
                     "/uploads/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/user/", "/user/{id}", "/pais/", "/pais/{id}",
-                    "/continente/", "/continente/{id}" /*"/tag/", "/tag/{id}",*/).permitAll()
+                    "/continente/", "/continente/{id}", "/nivel/" /*"/tag/", "/tag/{id}",*/).permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 
