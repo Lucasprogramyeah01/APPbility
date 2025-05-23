@@ -93,8 +93,8 @@ public class PaisService {
         }
 
         //Alternativa de la validación "@Size(min = 2, max = 2, message = "{pais.codigoISO.size}")".
-        String codigoISO = editPaisCMD.codigoISO().trim();
-        if (codigoISO.length() != 2) {
+        String codigoISONormalizado = editPaisCMD.codigoISO().trim();
+        if (codigoISONormalizado.length() != 2) {
             throw new IncorrectSizeException("El código ISO de un país debe contener exactamente 2 caracteres.");
         }
 

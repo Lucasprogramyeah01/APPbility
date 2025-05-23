@@ -11,6 +11,9 @@ public interface NivelRepository extends JpaRepository<Nivel, Long> {
     boolean existsByNombreIgnoreCase(String nombre);
     boolean existsByColorIgnoreCase(String color);
 
+    boolean existsByNombreIgnoreCaseAndIdNot(String nombre, Long id);
+    boolean existsByColorIgnoreCaseAndIdNot(String color, Long id);
+
     @Query("SELECT n FROM Nivel n ORDER BY n.orden ASC")
     List<Nivel> findListaNivelesOrderedByOrden();
 
