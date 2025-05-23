@@ -1,6 +1,9 @@
 package com.example.APPbility.controller;
 
+import com.example.APPbility.dto.continente.EditContinenteCMD;
+import com.example.APPbility.dto.continente.GetContinenteDTO;
 import com.example.APPbility.dto.nivel.CreateNivelCMD;
+import com.example.APPbility.dto.nivel.EditNivelCMD;
 import com.example.APPbility.dto.nivel.GetNivelDTO;
 import com.example.APPbility.model.Nivel;
 import com.example.APPbility.service.NivelService;
@@ -33,6 +36,11 @@ public class NivelController {
     @PostMapping
     public ResponseEntity<Nivel> save(@Valid @RequestBody CreateNivelCMD nuevo){
         return ResponseEntity.status(HttpStatus.CREATED).body(nivelService.save(nuevo));
+    }
+
+    @PutMapping("{id}")
+    public GetNivelDTO edit(@Valid @RequestBody EditNivelCMD editNivelCMD, @PathVariable Long id){
+        return GetNivelDTO.of(nivelService.edit(editNivelCMD, id));
     }
 
     @DeleteMapping("{id}")

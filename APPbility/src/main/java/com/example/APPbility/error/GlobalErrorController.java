@@ -63,6 +63,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Atributo duplicado.";
         } else if (ex instanceof IncorrectSizeException) {
             errorType = "Tamaño incorrecto de campo.";
+        } else if (ex instanceof IncorrectPatternException) {
+            errorType = "Patrón no cumplido.";
         }
 
         Map<String, Object> errorBody = Map.of(
