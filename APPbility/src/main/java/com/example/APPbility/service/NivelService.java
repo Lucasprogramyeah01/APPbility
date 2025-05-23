@@ -2,6 +2,7 @@ package com.example.APPbility.service;
 
 import com.example.APPbility.dto.continente.CreateContinenteCMD;
 import com.example.APPbility.dto.nivel.CreateNivelCMD;
+import com.example.APPbility.error.custom.EntityWithRelationshipsException;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.NivelNotFoundException;
 import com.example.APPbility.model.Continente;
@@ -46,12 +47,13 @@ public class NivelService {
         int ultimoNumOrden = numOrden > longitudListaNiveles ? longitudListaNiveles + 1 : numOrden;
 
         listaNiveles.stream()
-            .filter(indice -> indice.getOrden() >= ultimoNumOrden)
+            .filter(niv -> niv.getOrden() >= ultimoNumOrden)
             .sorted((a, b) -> Integer.compare(b.getOrden(), a.getOrden()))
-            .forEach(indice -> {
-                indice.setOrden(indice.getOrden() + 1);
-                nivelRepository.save(indice);
-            });
+            .forEach(niv -> {
+                niv.setOrden(niv.getOrden() + 1);
+                nivelRepository.save(niv);
+            }
+        );
 
         return nivelRepository.save(Nivel.builder()
                 .nombre(nuevo.nombre().trim())
@@ -61,10 +63,25 @@ public class NivelService {
         );
     }
 
+    //Borrar Nivel.
+    public void delete(Long id){
+        Nivel nivel = nivelRepository.findById(id).orElseThrow(() -> new NivelNotFoundException(id));
 
+        if(!nivel.getListaTalentos().isEmpty()){
+            throw new EntityWithRelationshipsException("No se ha podido eliminar el nivel " +
+                "con ID: " + nivel.getId() + " porque tiene talentos asociados.");
+        }
+        nivelRepository.delete(nivel);
 
+        List<Nivel> listaNiveles = nivelRepository.findListaNivelesOrderedByOrden();
 
-
-
+        listaNiveles.stream()
+            .filter(niv -> niv.getOrden() > nivel.getOrden())
+            .forEach(niv -> {
+                niv.setOrden(niv.getOrden() - 1);
+                nivelRepository.save(niv);
+            }
+        );
+    }
 
 }

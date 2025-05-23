@@ -35,4 +35,10 @@ public class NivelController {
         return ResponseEntity.status(HttpStatus.CREATED).body(nivelService.save(nuevo));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        nivelService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
