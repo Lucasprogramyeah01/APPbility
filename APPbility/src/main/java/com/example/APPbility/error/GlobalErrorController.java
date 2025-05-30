@@ -4,7 +4,7 @@ import com.example.APPbility.error.custom.*;
 import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.NivelNotFoundException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
-import com.example.APPbility.error.entity.TalentoPRUEBANotFoundException;
+import com.example.APPbility.error.entity.TalentoNotFoundException;
 import com.example.APPbility.user.error.UserNotFoundException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.ConstraintViolation;
@@ -41,7 +41,7 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Continente no encontrado.";
         } else if (ex instanceof NivelNotFoundException nivelEx) {
             errorType = "Nivel no encontrado.";
-        } else if (ex instanceof TalentoPRUEBANotFoundException talentoEx) {
+        } else if (ex instanceof TalentoNotFoundException talentoEx) {
             errorType = "Talento no encontrado.";
         }
 
@@ -65,6 +65,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Tamaño incorrecto de campo.";
         } else if (ex instanceof IncorrectPatternException) {
             errorType = "Patrón no cumplido.";
+        } else if (ex instanceof UnauthorizedAccessException) {
+            errorType = "Permiso no concedido.";
         }
 
         Map<String, Object> errorBody = Map.of(

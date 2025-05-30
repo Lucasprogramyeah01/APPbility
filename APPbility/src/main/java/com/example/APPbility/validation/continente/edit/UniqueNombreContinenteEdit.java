@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.continente.edit;
+/*package com.example.APPbility.validation.continente.edit;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -17,4 +17,4 @@ public @interface UniqueNombreContinenteEdit {
 
     Class<? extends Payload>[] payload() default {};
 
-}
+}*/

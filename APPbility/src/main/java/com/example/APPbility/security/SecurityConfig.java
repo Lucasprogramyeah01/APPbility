@@ -70,7 +70,7 @@ public class SecurityConfig {
                 .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**",
                     "/uploads/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/user/", "/user/{id}", "/pais/", "/pais/{id}",
-                    "/continente/", "/continente/{id}", "/nivel/" /*"/tag/", "/tag/{id}",*/).permitAll()
+                    "/continente/", "/continente/{id}", "/nivel/", "/talento/{id}" /*"/tag/", "/tag/{id}",*/).permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 
@@ -82,8 +82,9 @@ public class SecurityConfig {
 
                 //USER
                 .requestMatchers("/me").hasRole("USER")
-                /*.requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
-                .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")*/
+                .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
+                .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
+                .requestMatchers(HttpMethod.DELETE, "/talento/{id}").hasRole("USER")
 
                 .anyRequest().authenticated()).httpBasic(withDefaults()); // Habilita Basic Auth);
 

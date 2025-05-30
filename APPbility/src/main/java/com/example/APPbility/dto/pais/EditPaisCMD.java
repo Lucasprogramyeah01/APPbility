@@ -4,8 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record EditPaisCMD(
-        Long id,
-
         @NotBlank(message = "{pais.nombre.notBlank}")
         String nombre,
 
