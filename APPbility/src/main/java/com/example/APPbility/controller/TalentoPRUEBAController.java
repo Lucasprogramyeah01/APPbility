@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/talento/")
-@Tag(name = "Talento", description = "Controlador de Talento, para poder realizar sus operaciones de gestión.")
+@RequestMapping("/talentoPRUEBA/")
+@Tag(name = "TalentoPRUEBA", description = "Controlador de Talento, para poder realizar sus operaciones de gestión.")
 public class TalentoPRUEBAController {
 
     /*private final TalentoService talentoService;

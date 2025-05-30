@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.pais.edit;
+/*package com.example.APPbility.validation.pais.edit;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -17,4 +17,4 @@ public @interface UniqueCodigoISOPaisEdit {
 
     Class<? extends Payload>[] payload() default {};
 
-}
+}*/

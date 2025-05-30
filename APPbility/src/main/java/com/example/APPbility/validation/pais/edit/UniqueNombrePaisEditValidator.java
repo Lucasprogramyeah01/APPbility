@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.pais.edit;
+/*package com.example.APPbility.validation.pais.edit;
 
 import com.example.APPbility.dto.pais.EditPaisCMD;
 import com.example.APPbility.repository.PaisRepository;
@@ -20,4 +20,4 @@ public class UniqueNombrePaisEditValidator implements ConstraintValidator<Unique
         return !paisRepository.existsByNombreIgnoreCaseAndIdNot(dto.nombre().trim(), dto.id());
     }
 
-}
+}*/

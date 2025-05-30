@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.continente.edit;
+/*package com.example.APPbility.validation.continente.edit;
 
 import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.repository.ContinenteRepository;
@@ -20,4 +20,4 @@ public class UniqueNombreContinenteEditValidator implements ConstraintValidator<
         return !continenteRepository.existsByNombreIgnoreCaseAndIdNot(dto.nombre().trim(), dto.id());
     }
 
-}
+}*/

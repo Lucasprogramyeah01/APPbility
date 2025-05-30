@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.pais.create;
+package com.example.APPbility.validation.talento;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -7,11 +7,11 @@ import java.lang.annotation.*;
 
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UniqueNombrePaisCreateValidator.class)
+@Constraint(validatedBy = UniqueTituloTalentoValidator.class)
 @Documented
-public @interface UniqueNombrePaisCreate {
+public @interface UniqueTituloTalento {
 
-    String message() default "Ya existe un pais registrado con ese nombre.";
+    String message() default "Ya existe un talento registrado con ese título en tu perfil.";
 
     Class<?>[] groups() default {};
 
