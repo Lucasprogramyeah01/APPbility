@@ -44,6 +44,7 @@ public class User implements UserDetails{
 
     private String numTelefono;
     private boolean mostrarNumTelefono;
+    private String color;
     private String imagenPerfil;
     private String idiomaNativo;
 
@@ -97,6 +98,12 @@ public class User implements UserDetails{
     )
     private Pais paisResidencia;
 
+    //Con TALENTO [<-->] (1-M).
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @Builder.Default
+    @ToString.Exclude
+    private List<Talento> listaTalentos = new ArrayList<>();
+
     //Con USER [<-marca_como_favorito->] (M-M).
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -115,13 +122,27 @@ public class User implements UserDetails{
     @ToString.Exclude
     private Set<User> listaUsuariosSeguidores = new HashSet<>();
 
-    //Con TALENTO [<-->] (1-M).
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    //Con INTERCAMBIO [<-->] (1-M).
+    @OneToMany(mappedBy = "usuarioDemandante", fetch = FetchType.LAZY)
     @Builder.Default
     @ToString.Exclude
-    private List<Talento> listaTalentos = new ArrayList<>();
+    private List<Intercambio> intercambiosDemandados = new ArrayList<>();
+    //Con INTERCAMBIO [<-->] (1-M).
+    @OneToMany(mappedBy = "usuarioSolicitado", fetch = FetchType.LAZY)
+    @Builder.Default
+    @ToString.Exclude
+    private List<Intercambio> intercambiosRecibidos = new ArrayList<>();
 
-
+    //Con VALORACION [<-escribe->] (1-M).
+    @OneToMany(mappedBy = "usuarioEscritor", fetch = FetchType.LAZY)
+    @Builder.Default
+    @ToString.Exclude
+    private List<Valoracion> listaValoracionesRealizadas = new ArrayList<>();
+    //Con VALORACION [<-recibe->] (1-M).
+    @OneToMany(mappedBy = "usuarioValorado", fetch = FetchType.LAZY)
+    @Builder.Default
+    @ToString.Exclude
+    private List<Valoracion> listaValoracionesRecibidas = new ArrayList<>();
 
     //Con TAG (MU - MT).
     /*@ManyToMany(fetch = FetchType.LAZY)
@@ -134,26 +155,7 @@ public class User implements UserDetails{
     )
     @Builder.Default
     @ToString.Exclude
-    private Set<TagPRUEBA> listaTags = new HashSet<>();
-
-    //Con TALENTO (1U - MT).
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    @Builder.Default
-    @ToString.Exclude
-    private List<TalentoPRUEBA> listaTalentos = new ArrayList<>();
-
-    //Con VALORACION -> Para Valoraciones realizadas (1U - MV).
-    @OneToMany(mappedBy = "usuarioEscritor", fetch = FetchType.LAZY)
-    @Builder.Default
-    @ToString.Exclude
-    private List<Valoracion> listaValoracionesRealizadas = new ArrayList<>();
-
-    //Con VALORACION -> Para Valoraciones recibidas (1U - MV).
-    @OneToMany(mappedBy = "usuarioValorado", fetch = FetchType.LAZY)
-    @Builder.Default
-    @ToString.Exclude
-    private List<Valoracion> listaValoracionesRecibidas = new ArrayList<>();*/
-
+    private Set<TagPRUEBA> listaTags = new HashSet<>();*/
 
     //MÉTODOS HELPER --------------------------------------------------------------------------------
 
@@ -186,55 +188,57 @@ public class User implements UserDetails{
         t.setUsuario(null);
     }
 
+    //CON INTERCAMBIO:
+    public void addIntercambioDemandado(Intercambio i) {
+        this.intercambiosDemandados.add(i);
+        i.setUsuarioDemandante(this);
+    }
+    public void removeIntercambioDemandado(Intercambio i) {
+        this.intercambiosDemandados.remove(i);
+        i.setUsuarioDemandante(null);
+    }
+    //CON INTERCAMBIO:
+    public void addIntercambioRecibido(Intercambio i) {
+        this.intercambiosRecibidos.add(i);
+        i.setUsuarioSolicitado(this);
+    }
+    public void removeIntercambioRecibido(Intercambio i) {
+        this.intercambiosRecibidos.remove(i);
+        i.setUsuarioSolicitado(null);
+    }
 
+    //Con VALORACION:
+    public void addValoracionRealizada(Valoracion v){
+        v.setUsuarioEscritor(this);
+        this.getListaValoracionesRealizadas().add(v);
+    }
+    public void removeValoracionRealizada(Valoracion v){
+        this.getListaValoracionesRealizadas().remove(v);
+        v.setUsuarioEscritor(null);
+    }
+    //Con VALORACION:
+    public void addValoracionRecibida(Valoracion v){
+        v.setUsuarioValorado(this);
+        this.getListaValoracionesRecibidas().add(v);
+    }
+    public void removeValoracionRecibida(Valoracion v){
+        this.getListaValoracionesRecibidas().remove(v);
+        v.setUsuarioValorado(null);
+    }
 
-        //Con TAG:
+    //Con TAG:
 
-        /*public void addTag(TagPRUEBA t){
-            this.listaTags.add(t);
-            t.getListaUsuarios().add(this);
-        }
+    /*public void addTag(TagPRUEBA t){
+        this.listaTags.add(t);
+        t.getListaUsuarios().add(this);
+    }
 
-        public void removeTag(TagPRUEBA t){
-            t.getListaUsuarios().remove(this);
-            this.listaTags.remove(t);
-        }
+    public void removeTag(TagPRUEBA t){
+        t.getListaUsuarios().remove(this);
+        this.listaTags.remove(t);
+    }
 
-        //Con TALENTO:
-
-        public void addTalento(TalentoPRUEBA t){
-            t.setUsuario(this);
-            this.getListaTalentoPRUEBAS().add(t);
-        }
-
-        public void removeTalento(TalentoPRUEBA t){
-            this.getListaTalentoPRUEBAS().remove(t);
-            t.setUsuario(null);
-        }
-
-        //Con VALORACION -> Para Valoraciones realizadas:
-
-        public void addValoracionRealizada(Valoracion v){
-            v.setUsuarioEscritor(this);
-            this.getListaValoracionesRealizadas().add(v);
-        }
-
-        public void removeValoracionRealizada(Valoracion v){
-            this.getListaValoracionesRealizadas().remove(v);
-            v.setUsuarioEscritor(null);
-        }
-
-        //Con VALORACION -> Para Valoraciones recibidas:
-
-        public void addValoracionRecibida(Valoracion v){
-            v.setUsuarioValorado(this);
-            this.getListaValoracionesRecibidas().add(v);
-        }
-
-        public void removeValoracionRecibida(Valoracion v){
-            this.getListaValoracionesRecibidas().remove(v);
-            v.setUsuarioValorado(null);
-        }*/
+    */
 
     //EQUALS & HASHCODE ----------------------------------------------------------------------------------
 

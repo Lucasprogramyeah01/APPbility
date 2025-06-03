@@ -57,7 +57,7 @@ public class TalentoService {
         //Alternativa de la validación "UniqueTituloTalento".
         boolean nombreDuplicado = talentoRepository.existsByUsuarioIdAndTituloIgnoreCase(nuevo.titulo().trim(), user.getId());
         if(nombreDuplicado) {
-            throw new DuplicatedAttributeException("Ya existe un talento con ese título en tu perfil.");
+            throw new DuplicatedAttributeException("Ya existe un talento con ese título en su perfil.");
         }
 
         Nivel nivel = nivelRepository.findById(nuevo.nivelID())

@@ -1,18 +1,11 @@
 package com.example.APPbility.controller;
 
-import com.example.APPbility.dto.continente.CreateContinenteCMD;
-import com.example.APPbility.dto.continente.EditContinenteCMD;
 import com.example.APPbility.dto.continente.GetContinenteDTO;
 import com.example.APPbility.dto.pais.*;
-import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
-import com.example.APPbility.service.ContinenteService;
 import com.example.APPbility.service.PaisService;
-import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.dto.GetUserSinPaisNativoDTO;
 import com.example.APPbility.user.dto.GetUserSinPaisResidenciaDTO;
-import com.example.APPbility.user.model.User;
-import com.example.APPbility.user.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor

@@ -1,17 +1,13 @@
 package com.example.APPbility.user.controller;
 
 import com.example.APPbility.dto.pais.GetPaisDTO;
-import com.example.APPbility.dto.tagPRUEBA.GetTagDTO;
-import com.example.APPbility.dto.talentoPRUEBA.GetTalentoDTO;
-import com.example.APPbility.dto.valoracion.GetValoracionDTO;
 import com.example.APPbility.security.jwt.access.JwtService;
 import com.example.APPbility.security.jwt.refresh.RefreshToken;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenRequest;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenService;
-import com.example.APPbility.user.dto.GetUserDTO;
+import com.example.APPbility.user.dto.GetUserDTOConPaises;
 //import com.example.APPbility.user.dto.GetUserDTOCompleto;
 import com.example.APPbility.user.dto.seguridad.ActivateAccountRequest;
-import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.dto.seguridad.LoginRequest;
 import com.example.APPbility.user.dto.seguridad.UserResponse;
 import com.example.APPbility.user.model.User;
@@ -30,10 +26,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Usuario", description = "Controlador de Usuario, para poder realizar sus operaciones de gestión.")
@@ -47,7 +39,7 @@ public class UserController {
     //ENDPOINTS DEL CONTROLADOR --------------------------------------------------------------------------------
 
     @GetMapping("/user/")
-    public Page<GetUserDTO> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
+    public Page<GetUserDTOConPaises> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
         /*GetPaisDTO getPaisNativoDTO = GetPaisDTO.of(userService.getPaisNativoByUsuarioID());
         GetPaisDTO getPaisResidenciaDTO = GetPaisDTO.of(userService.getPaisResidenciaByUsuarioID());*/
 
@@ -55,7 +47,7 @@ public class UserController {
         .map(user -> {
             GetPaisDTO paisNativoDTO = GetPaisDTO.of(user.getPaisNativo());
             GetPaisDTO paisResidenciaDTO = GetPaisDTO.of(user.getPaisResidencia());
-            return GetUserDTO.of(user, paisNativoDTO, paisResidenciaDTO);
+            return GetUserDTOConPaises.of(user, paisNativoDTO, paisResidenciaDTO);
         });
     }
 

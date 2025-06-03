@@ -1,17 +1,13 @@
 package com.example.APPbility.controller;
 
-import com.example.APPbility.dto.continente.GetContinenteDTO;
 import com.example.APPbility.dto.nivel.GetNivelDTO;
-import com.example.APPbility.dto.pais.EditPaisCMD;
-import com.example.APPbility.dto.pais.GetPaisDTOConContinente;
 import com.example.APPbility.dto.talento.CreateTalentoCMD;
 import com.example.APPbility.dto.talento.GetTalentoDTOCompleto;
 import com.example.APPbility.dto.talento.GetTalentoDTOConNivel;
-import com.example.APPbility.model.Pais;
 import com.example.APPbility.model.Talento;
 import com.example.APPbility.service.NivelService;
 import com.example.APPbility.service.TalentoService;
-import com.example.APPbility.user.dto.GetUserDTOSinListas;
+import com.example.APPbility.user.dto.GetUserDTO;
 import com.example.APPbility.user.model.User;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -62,7 +58,7 @@ public class TalentoController {
 
         return ResponseEntity.status(HttpStatus.CREATED)
             .body(GetTalentoDTOCompleto.of(nuevoTalento,
-                GetNivelDTO.of(talentoService.getNivelByTalentoID(nuevoTalento.getId())), GetUserDTOSinListas.of(user)));
+                GetNivelDTO.of(talentoService.getNivelByTalentoID(nuevoTalento.getId())), GetUserDTO.of(user)));
     }
 
     @PutMapping(value = "{id}", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
@@ -71,7 +67,7 @@ public class TalentoController {
         Talento talentoEditado = talentoService.edit(editTalentoCMD, multipartFile, user, id);
 
         return GetTalentoDTOCompleto.of(talentoEditado,
-            GetNivelDTO.of(talentoService.getNivelByTalentoID(talentoEditado.getId())), GetUserDTOSinListas.of(user));
+            GetNivelDTO.of(talentoService.getNivelByTalentoID(talentoEditado.getId())), GetUserDTO.of(user));
     }
 
     @DeleteMapping("{id}")

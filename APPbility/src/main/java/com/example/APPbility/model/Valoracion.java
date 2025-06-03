@@ -28,21 +28,28 @@ public class Valoracion {
 
     //ASOCIACIONES ----------------------------------------------------------------------------------
 
-    //Con USER -> Usuario escritor (MT - 1U).
+    //Con USER [<-->] (M-1).
     @ManyToOne
     @JoinColumn(
             name="usuario_escritor_id",
             foreignKey = @ForeignKey(name="fk_valoracion_usuarioEscritor")
     )
     private User usuarioEscritor;
-
-    //Con USER -> Usuario valorado (MT - 1U).
+    //Con USER [<-->] (M-1).
     @ManyToOne
     @JoinColumn(
             name="usuario_valorado_id",
             foreignKey = @ForeignKey(name="fk_valoracion_usuarioValorado")
     )
     private User usuarioValorado;
+
+    //Con INTERCAMBIO [<-->] (M-1).
+    @ManyToOne
+    @JoinColumn(
+            name="intercambio_id_asociado_a_valoracion",
+            foreignKey = @ForeignKey(name="fk_valoracion_intercambio")
+    )
+    private Intercambio intercambio;
 
     //EQUALS & HASHCODE ----------------------------------------------------------------------------------
 

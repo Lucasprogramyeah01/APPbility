@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.time.LocalTime;
 import java.util.Objects;
 
 @Getter
@@ -14,7 +15,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Talento {
+public class Bloque {
 
     @Id
     @GeneratedValue
@@ -24,23 +25,23 @@ public class Talento {
 
     private String descripcion;
 
-    private String imagen;
+    private LocalTime hora;
 
     //ASOCIACIONES ----------------------------------------------------------------------------------
 
-    //Con NIVEL [<-->] (M-1).
+    //Con SESION [<-->] (M-1).
     @ManyToOne
     @JoinColumn(
-            name="nivel_id",
-            foreignKey = @ForeignKey(name="fk_talento_nivel")
+            name="sesion_id",
+            foreignKey = @ForeignKey(name="fk_bloque_sesion")
     )
-    private Nivel nivel;
+    private Sesion sesion;
 
-    //Con USER [<-->] (M-1).
+    //Con USER [U-->B] (M-1).
     @ManyToOne
     @JoinColumn(
-            name="user_id",
-            foreignKey = @ForeignKey(name="fk_talento_user")
+            name="usuarioCreador_id",
+            foreignKey = @ForeignKey(name="fk_bloque_usuario")
     )
     private User usuario;
 
@@ -53,8 +54,8 @@ public class Talento {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Talento talento = (Talento) o;
-        return getId() != null && Objects.equals(getId(), talento.getId());
+        Bloque bloque = (Bloque) o;
+        return getId() != null && Objects.equals(getId(), bloque.getId());
     }
 
     @Override

@@ -83,7 +83,7 @@ public class SecurityConfig {
                 //USER
                 .requestMatchers("/me").hasRole("USER")
                 .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
-                .requestMatchers(HttpMethod.PUT, "/talento/{id}").hasRole("USER")
+                .requestMatchers(HttpMethod.PUT, "/talento/{id}", "/intercambio/proponer").hasRole("USER")
                 .requestMatchers(HttpMethod.DELETE, "/talento/{id}").hasRole("USER")
 
                 .anyRequest().authenticated()).httpBasic(withDefaults()); // Habilita Basic Auth);
