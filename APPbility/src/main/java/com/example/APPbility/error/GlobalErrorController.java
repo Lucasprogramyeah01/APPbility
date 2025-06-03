@@ -67,6 +67,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Patrón no cumplido.";
         } else if (ex instanceof UnauthorizedAccessException) {
             errorType = "Permiso no concedido.";
+        } else if (ex instanceof IllegalMatchException) {
+            errorType = "Entidad no correspondiente.";
         }
 
         Map<String, Object> errorBody = Map.of(

@@ -1,5 +1,6 @@
 package com.example.APPbility.user.service;
 
+import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.repository.TalentoPRUEBARepository;
@@ -78,6 +79,11 @@ public class UserService {
         if(result.isEmpty())
             throw new UserNotFoundException();
         return result;
+    }
+
+    //Buscar Usuario por ID.
+    public User findById(UUID id){
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
     //Buscar Usuario por ID.

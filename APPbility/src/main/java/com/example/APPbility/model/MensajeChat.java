@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter
@@ -14,33 +15,36 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Talento {
+public class MensajeChat {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String titulo;
+    private String contenido;
 
-    private String descripcion;
-
-    private String imagen;
+    private LocalDateTime fechaEnvio;
 
     //ASOCIACIONES ----------------------------------------------------------------------------------
 
-    //Con NIVEL [<-->] (M-1).
+    //Con INTERCAMBIO [<-->] (M-1).
     @ManyToOne
+    /*@JoinColumns({
+            @JoinColumn(name = "usuario_demandante_id_asociado_a_mensaje", referencedColumnName = "usuarioDemandante_id"),
+            @JoinColumn(name = "usuario_solicitado_id_asociado_a_mensaje", referencedColumnName = "usuarioSolicitado_id"),
+            @JoinColumn(name = "fechaSolicitud_asociada_a_mensaje", referencedColumnName = "fechaSolicitud")
+    })*/
     @JoinColumn(
-            name="nivel_id",
-            foreignKey = @ForeignKey(name="fk_talento_nivel")
+            name="intercambio_id_asociado_a_mensaje",
+            foreignKey = @ForeignKey(name="fk_mensajeChat_intercambio")
     )
-    private Nivel nivel;
+    private Intercambio intercambio;
 
-    //Con USER [<-->] (M-1).
+    //Con USER [U-->MC] (M-1).
     @ManyToOne
     @JoinColumn(
-            name="user_id",
-            foreignKey = @ForeignKey(name="fk_talento_user")
+            name="usuarioAutor_id",
+            foreignKey = @ForeignKey(name="fk_mensajeChat_usuario")
     )
     private User usuario;
 
@@ -53,8 +57,8 @@ public class Talento {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Talento talento = (Talento) o;
-        return getId() != null && Objects.equals(getId(), talento.getId());
+        MensajeChat that = (MensajeChat) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
     }
 
     @Override
