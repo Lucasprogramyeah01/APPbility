@@ -7,7 +7,7 @@ import com.example.APPbility.user.dto.GetUserDTO;
 
 import java.time.LocalDateTime;
 
-public record GetIntercambioDTOParaProponer(
+public record GetIntercambioDTOAlRechazar(
         Long intercambioID,
         Estado estado,
         LocalDateTime fechaSolicitud,
@@ -17,9 +17,9 @@ public record GetIntercambioDTOParaProponer(
         GetTalentoDTOConNivel talentoSugerido
 ) {
 
-    public static GetIntercambioDTOParaProponer of(Intercambio i, GetUserDTO usuarioDemandante,
-        GetUserDTO usuarioSolicitado, GetTalentoDTOConNivel talentoSolicitado, GetTalentoDTOConNivel talentoSugerido){
-        return new GetIntercambioDTOParaProponer(
+    public static GetIntercambioDTOAlRechazar of(Intercambio i, GetUserDTO usuarioDemandante, GetUserDTO usuarioSolicitado,
+        GetTalentoDTOConNivel talentoSolicitado, GetTalentoDTOConNivel talentoSugerido){
+        return new GetIntercambioDTOAlRechazar(
                 i.getIntercambioID(),
                 i.getEstado(),
                 i.getFechaSolicitud(),

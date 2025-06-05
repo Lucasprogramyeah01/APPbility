@@ -13,17 +13,17 @@ import java.util.List;
 
 public record GetIntercambioDTO(
         Long intercambioID,
-        LocalDateTime fechaSolicitud,
-        LocalDateTime fechaComienzo,
-        LocalDateTime fechaFin,
         Estado estado,
         boolean finalizadoPorDemandante,
         boolean finalizadoPorSolicitado,
+        LocalDateTime fechaSolicitud,
+        LocalDateTime fechaComienzo,
+        LocalDateTime fechaFin,
         GetUserDTO usuarioDemandante,
         GetUserDTO usuarioSolicitado,
         GetTalentoDTOConNivel talentoSolicitado,
-        GetTalentoDTOConNivel talentoSugerido,
         GetTalentoDTOConNivel talentoAceptado,
+        GetTalentoDTOConNivel talentoSugerido,
         List<GetSesionDTOConBloques> listaSesiones,
         List<GetMensajeChatDTOConUserID> listaMensajesChat,
         List<GetValoracionDTOConAmbosUsuariosIDs> listaValoraciones
@@ -35,17 +35,17 @@ public record GetIntercambioDTO(
         List<GetMensajeChatDTOConUserID> listaMensajesChat, List<GetValoracionDTOConAmbosUsuariosIDs> listaValoraciones){
         return new GetIntercambioDTO(
                 i.getIntercambioID(),
-                i.getFechaSolicitud(),
-                i.getFechaComienzo(),
-                i.getFechaFin(),
                 i.getEstado(),
                 i.isFinalizadoPorDemandante(),
                 i.isFinalizadoPorSolicitado(),
+                i.getFechaSolicitud(),
+                i.getFechaComienzo(),
+                i.getFechaFin(),
                 usuarioDemandante,
                 usuarioSolicitado,
                 talentoSolicitado,
-                talentoSugerido,
                 talentoAceptado,
+                talentoSugerido,
                 listaSesiones,
                 listaMensajesChat,
                 listaValoraciones

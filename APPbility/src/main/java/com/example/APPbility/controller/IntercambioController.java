@@ -1,7 +1,6 @@
 package com.example.APPbility.controller;
 
-import com.example.APPbility.dto.intercambio.CreateIntercambioCMD;
-import com.example.APPbility.dto.intercambio.GetIntercambioDTOParaProponer;
+import com.example.APPbility.dto.intercambio.*;
 import com.example.APPbility.dto.nivel.GetNivelDTO;
 import com.example.APPbility.dto.talento.GetTalentoDTOConNivel;
 import com.example.APPbility.model.Intercambio;
@@ -18,8 +17,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 @RestController
 @RequiredArgsConstructor
 @Validated
@@ -35,15 +32,68 @@ public class IntercambioController {
         @Valid @RequestBody CreateIntercambioCMD nuevo) {
         Intercambio intercambioPropuesto = intercambioService.proponerIntercambio(nuevo, usuarioDemandante);
 
-        return ResponseEntity.status(HttpStatus.CREATED)
-            .body(GetIntercambioDTOParaProponer
-                .of(intercambioPropuesto, GetUserDTO.of(usuarioDemandante),
-                    GetUserDTO.of(intercambioPropuesto.getUsuarioSolicitado()),
-                    GetTalentoDTOConNivel.of(intercambioPropuesto.getTalentoSolicitado(), GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioPropuesto.getTalentoSolicitado().getId()))),
-                    GetTalentoDTOConNivel.of(intercambioPropuesto.getTalentoSugerido(), GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioPropuesto.getTalentoSugerido().getId())))
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+            GetIntercambioDTOParaProponer.of(
+                intercambioPropuesto,
+                GetUserDTO.of(usuarioDemandante),
+                GetUserDTO.of(intercambioPropuesto.getUsuarioSolicitado()),
+                GetTalentoDTOConNivel.of(
+                    intercambioPropuesto.getTalentoSolicitado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioPropuesto.getTalentoSolicitado().getId()))
+                ),
+                GetTalentoDTOConNivel.of(
+                    intercambioPropuesto.getTalentoSugerido(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioPropuesto.getTalentoSugerido().getId()))
                 )
-            );
+            )
+        );
     }
+
+    @PutMapping("/aceptar/{id}")
+    public ResponseEntity<GetIntercambioDTOAlAceptar> aceptarIntercambio(@AuthenticationPrincipal User usuarioSolicitado,
+        @Valid @RequestBody AceptarIntercambioCMD intercambioCMD, @PathVariable Long id) {
+        Intercambio intercambioAceptado = intercambioService.aceptarIntercambio(id, intercambioCMD, usuarioSolicitado);
+
+        return ResponseEntity.ok(
+            GetIntercambioDTOAlAceptar.of(
+                intercambioAceptado,
+                GetUserDTO.of(intercambioAceptado.getUsuarioDemandante()),
+                GetUserDTO.of(usuarioSolicitado),
+                GetTalentoDTOConNivel.of(
+                    intercambioAceptado.getTalentoSolicitado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioAceptado.getTalentoSolicitado().getId()))
+                ),
+                GetTalentoDTOConNivel.of(
+                    intercambioAceptado.getTalentoAceptado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioAceptado.getTalentoAceptado().getId()))
+                )
+            )
+        );
+    }
+
+    @PutMapping("/rechazar/{id}")
+    public ResponseEntity<GetIntercambioDTOAlRechazar> rechazarIntercambio(@AuthenticationPrincipal User usuarioSolicitado,
+        @PathVariable Long id) {
+        Intercambio intercambioRechazado = intercambioService.rechazarIntercambio(id, usuarioSolicitado);
+
+        return ResponseEntity.ok(
+            GetIntercambioDTOAlRechazar.of(
+                intercambioRechazado,
+                GetUserDTO.of(intercambioRechazado.getUsuarioDemandante()),
+                GetUserDTO.of(usuarioSolicitado),
+                GetTalentoDTOConNivel.of(
+                    intercambioRechazado.getTalentoSolicitado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioRechazado.getTalentoSolicitado().getId()))
+                ),
+                GetTalentoDTOConNivel.of(
+                    intercambioRechazado.getTalentoSugerido(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioRechazado.getTalentoSugerido().getId()))
+                )
+            )
+        );
+    }
+
+
 
 
 

@@ -86,7 +86,7 @@ public class TalentoService {
 
         //Validación para comprobar si es el usuario es propietario del talento.
         if (!talento.getUsuario().getId().equals(user.getId())) {
-            throw new UnauthorizedAccessException("No tienes permiso para editar este talento.");
+            throw new UnauthorizedAccessException("No tiene permiso para editar este talento.");
         }
 
         //Alternativa de la validación "UniqueTituloTalentoEdit".

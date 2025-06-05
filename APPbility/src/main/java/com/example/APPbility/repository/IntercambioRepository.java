@@ -2,14 +2,13 @@ package com.example.APPbility.repository;
 
 import com.example.APPbility.model.Estado;
 import com.example.APPbility.model.Intercambio;
-import com.example.APPbility.model.IntercambioPK;
 import com.example.APPbility.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface IntercambioRepository extends JpaRepository<Intercambio, IntercambioPK> {
+public interface IntercambioRepository extends JpaRepository<Intercambio, Long> {
 
     @Query("""
         SELECT COUNT(i) > 0 FROM Intercambio i
