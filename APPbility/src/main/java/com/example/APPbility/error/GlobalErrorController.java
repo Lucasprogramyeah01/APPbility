@@ -1,10 +1,7 @@
 package com.example.APPbility.error;
 
 import com.example.APPbility.error.custom.*;
-import com.example.APPbility.error.entity.ContinenteNotFoundException;
-import com.example.APPbility.error.entity.NivelNotFoundException;
-import com.example.APPbility.error.entity.PaisNotFoundException;
-import com.example.APPbility.error.entity.TalentoNotFoundException;
+import com.example.APPbility.error.entity.*;
 import com.example.APPbility.user.error.UserNotFoundException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.ConstraintViolation;
@@ -43,6 +40,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Nivel no encontrado.";
         } else if (ex instanceof TalentoNotFoundException talentoEx) {
             errorType = "Talento no encontrado.";
+        } else if (ex instanceof IntercambioNotFoundException intercambioEx) {
+            errorType = "Intercambio no encontrado.";
         }
 
         Map<String, Object> errorBody = Map.of(
