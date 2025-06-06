@@ -132,5 +132,20 @@ public class IntercambioService {
         return intercambioRepository.save(intercambio);
     }
 
+    //Ver detalles de Intercambio.
+    public Intercambio verDetallesDeIntercambio(Long id, User usuarioAutenticado) {
+        Intercambio intercambio = intercambioRepository.findById(id)
+                .orElseThrow(() -> new IntercambioNotFoundException(id));
+
+        /*Validación para comprobar si aquel que accede a los detalles del intercambio es o el usuarioDemandante
+        o el usuarioSolicitado.*/
+        if (!intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId()) &&
+            !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
+            throw new UnauthorizedAccessException("No tiene permiso para ver los detalles de este intercambio.");
+        }
+
+        return intercambio;
+    }
+
 
 }

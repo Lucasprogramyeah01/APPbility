@@ -27,7 +27,7 @@ public class IntercambioController {
     private final IntercambioService intercambioService;
     private final TalentoService talentoService;
 
-    @PostMapping("/proponer")
+    @PostMapping("proponer")
     public ResponseEntity<GetIntercambioDTOParaProponer> proponerIntercambio(@AuthenticationPrincipal User usuarioDemandante,
         @Valid @RequestBody CreateIntercambioCMD nuevo) {
         Intercambio intercambioPropuesto = intercambioService.proponerIntercambio(nuevo, usuarioDemandante);
@@ -49,7 +49,7 @@ public class IntercambioController {
         );
     }
 
-    @PutMapping("/aceptar/{id}")
+    @PutMapping("aceptar/{id}")
     public ResponseEntity<GetIntercambioDTOAlAceptar> aceptarIntercambio(@AuthenticationPrincipal User usuarioSolicitado,
         @Valid @RequestBody AceptarIntercambioCMD intercambioCMD, @PathVariable Long id) {
         Intercambio intercambioAceptado = intercambioService.aceptarIntercambio(id, intercambioCMD, usuarioSolicitado);
@@ -71,7 +71,7 @@ public class IntercambioController {
         );
     }
 
-    @PutMapping("/rechazar/{id}")
+    @PutMapping("rechazar/{id}")
     public ResponseEntity<GetIntercambioDTOAlRechazar> rechazarIntercambio(@AuthenticationPrincipal User usuarioSolicitado,
         @PathVariable Long id) {
         Intercambio intercambioRechazado = intercambioService.rechazarIntercambio(id, usuarioSolicitado);
@@ -88,6 +88,30 @@ public class IntercambioController {
                 GetTalentoDTOConNivel.of(
                     intercambioRechazado.getTalentoSugerido(),
                     GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambioRechazado.getTalentoSugerido().getId()))
+                )
+            )
+        );
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<GetIntercambioDTOConUsersYTalentos> verDetallesDeIntercambio(@AuthenticationPrincipal User usuarioAutenticado,
+        @PathVariable Long id) {
+        Intercambio intercambio = intercambioService.verDetallesDeIntercambio(id, usuarioAutenticado);
+
+        return ResponseEntity.ok(
+            GetIntercambioDTOConUsersYTalentos.of(
+                intercambio,
+                GetUserDTO.of(intercambio.getUsuarioDemandante()),
+                GetUserDTO.of(intercambio.getUsuarioSolicitado()),
+                GetTalentoDTOConNivel.of(intercambio.getTalentoSolicitado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambio.getTalentoSolicitado().getId()))
+                ),
+                intercambio.getTalentoAceptado() != null ?
+                    GetTalentoDTOConNivel.of(intercambio.getTalentoAceptado(),
+                        GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambio.getTalentoAceptado().getId()))
+                    ) : null,
+                GetTalentoDTOConNivel.of(intercambio.getTalentoSugerido(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambio.getTalentoSugerido().getId()))
                 )
             )
         );

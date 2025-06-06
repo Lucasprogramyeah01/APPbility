@@ -82,7 +82,7 @@ public class SecurityConfig {
 
                 //USER
                 .requestMatchers("/me").hasRole("USER")
-                .requestMatchers(HttpMethod.POST, "/talento/").hasRole("USER")
+                .requestMatchers(HttpMethod.POST, "/talento/", "/intercambio/{id}").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}", "/intercambio/proponer",
                     "/intercambio/aceptar/{id}", "/intercambio/rechazar/{id}").hasRole("USER")
                 .requestMatchers(HttpMethod.DELETE, "/talento/{id}").hasRole("USER")
