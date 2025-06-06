@@ -91,5 +91,9 @@ INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha
 ALTER SEQUENCE talento_seq RESTART WITH 60;
 
 --INTERCAMBIOS.
---INSERT INTO intercambio (id, ) VALUES (1);
--- Acuérdate de establecer intercambios RECHAZADOS, ACTIVOS y PROPUESTOS.
+-- [UD: Khin90, US: Arman] PROPUESTO
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (1,'PROPUESTO', '2025-04-22T10:45:00', null, null, false, false, '123e4567-e89b-12d3-a456-426614174000', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 7, null, 3);
+-- [UD: MalenG, US: Arman] ACTIVO
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (2,'ACTIVO', '2025-05-22T17:30:00', '2025-05-24T11:20:00', null, false, false, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 6, 9, 9);
+
+ALTER SEQUENCE intercambio_seq RESTART WITH 52;

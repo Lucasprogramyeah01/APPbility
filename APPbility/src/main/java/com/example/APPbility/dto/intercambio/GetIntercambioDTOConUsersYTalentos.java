@@ -11,7 +11,7 @@ import com.example.APPbility.user.dto.GetUserDTO;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public record GetIntercambioDTO(
+public record GetIntercambioDTOConUsersYTalentos(
         Long intercambioID,
         Estado estado,
         boolean finalizadoPorDemandante,
@@ -23,17 +23,13 @@ public record GetIntercambioDTO(
         GetUserDTO usuarioSolicitado,
         GetTalentoDTOConNivel talentoSolicitado,
         GetTalentoDTOConNivel talentoAceptado,
-        GetTalentoDTOConNivel talentoSugerido,
-        List<GetSesionDTOConBloques> listaSesiones,
-        List<GetMensajeChatDTOConUserID> listaMensajesChat,
-        List<GetValoracionDTOConAmbosUsuariosIDs> listaValoraciones
+        GetTalentoDTOConNivel talentoSugerido
 ) {
 
-    public static GetIntercambioDTO of(Intercambio i, GetUserDTO usuarioDemandante, GetUserDTO usuarioSolicitado,
-        GetTalentoDTOConNivel talentoSolicitado, GetTalentoDTOConNivel talentoSugerido,
-        GetTalentoDTOConNivel talentoAceptado, List<GetSesionDTOConBloques> listaSesiones,
-        List<GetMensajeChatDTOConUserID> listaMensajesChat, List<GetValoracionDTOConAmbosUsuariosIDs> listaValoraciones){
-        return new GetIntercambioDTO(
+    public static GetIntercambioDTOConUsersYTalentos of(Intercambio i, GetUserDTO usuarioDemandante,
+        GetUserDTO usuarioSolicitado, GetTalentoDTOConNivel talentoSolicitado, GetTalentoDTOConNivel talentoAceptado,
+        GetTalentoDTOConNivel talentoSugerido){
+        return new GetIntercambioDTOConUsersYTalentos(
                 i.getIntercambioID(),
                 i.getEstado(),
                 i.isFinalizadoPorDemandante(),
@@ -45,10 +41,7 @@ public record GetIntercambioDTO(
                 usuarioSolicitado,
                 talentoSolicitado,
                 talentoAceptado,
-                talentoSugerido,
-                listaSesiones,
-                listaMensajesChat,
-                listaValoraciones
+                talentoSugerido
         );
     }
 

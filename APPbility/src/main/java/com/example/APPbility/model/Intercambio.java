@@ -25,14 +25,14 @@ public class Intercambio {
     @GeneratedValue
     private Long intercambioID;
 
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
+
     private LocalDateTime fechaSolicitud;
 
     private LocalDateTime fechaComienzo;
 
     private LocalDateTime fechaFin;
-
-    @Enumerated(EnumType.STRING)
-    private Estado estado;
 
     private boolean finalizadoPorDemandante = false;
 
