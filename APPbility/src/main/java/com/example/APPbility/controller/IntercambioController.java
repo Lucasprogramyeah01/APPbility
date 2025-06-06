@@ -117,6 +117,33 @@ public class IntercambioController {
         );
     }
 
+    @PutMapping("finalizar/{id}")
+    public ResponseEntity<GetIntercambioDTOConUsersYTalentos> finalizarIntercambio( @AuthenticationPrincipal User usuarioAutenticado,
+        @PathVariable Long id) {
+        Intercambio intercambio = intercambioService.finalizarIntercambio(id, usuarioAutenticado);
+
+        return ResponseEntity.ok(
+            GetIntercambioDTOConUsersYTalentos.of(
+                intercambio,
+                GetUserDTO.of(intercambio.getUsuarioDemandante()),
+                GetUserDTO.of(intercambio.getUsuarioSolicitado()),
+                GetTalentoDTOConNivel.of(intercambio.getTalentoSolicitado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambio.getTalentoSolicitado().getId()))
+                ),
+                GetTalentoDTOConNivel.of(intercambio.getTalentoAceptado(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambio.getTalentoAceptado().getId()))
+                ),
+                GetTalentoDTOConNivel.of(intercambio.getTalentoSugerido(),
+                    GetNivelDTO.of(talentoService.getNivelByTalentoID(intercambio.getTalentoSugerido().getId()))
+                )
+            )
+        );
+    }
+
+
+
+
+
 
 
 

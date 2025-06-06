@@ -18,6 +18,7 @@ import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -93,7 +94,7 @@ public class IntercambioService {
             throw new UnauthorizedAccessException("No tiene permiso para aceptar este intercambio.");
         }
 
-        //Validación para comprobar si el estado del talento que se desea aceptar es PROPUESTO.
+        //Validación para comprobar si el estado del intercambio que se desea aceptar es PROPUESTO.
         if (!intercambio.getEstado().equals(Estado.PROPUESTO)) {
             throw new IllegalMatchException("Solamente se pueden aceptar intercambios con estado PROPUESTO.");
         }
@@ -101,7 +102,7 @@ public class IntercambioService {
         Talento talentoAceptado = talentoRepository.findById(intercambioCMD.talentoAceptadoID())
             .orElseThrow(() -> new TalentoNotFoundException(intercambioCMD.talentoAceptadoID()));
 
-        //Validación para comprobar si el talento aceptado pertenece al usuario demandante.
+        //Validación para comprobar si el intercambio aceptado pertenece al usuario demandante.
         if (!talentoAceptado.getUsuario().getId().equals(intercambio.getUsuarioDemandante().getId())) {
             throw new IllegalMatchException("El talento seleccionado no pertenece al usuario que ha sugerido el intercambio.");
         }
@@ -123,9 +124,9 @@ public class IntercambioService {
             throw new UnauthorizedAccessException("No tiene permiso para rechazar este intercambio.");
         }
 
-        //Validación para comprobar si el estado del talento que se desea rechazar es PROPUESTO.
+        //Validación para comprobar si el estado del intercambio que se desea rechazar es PROPUESTO.
         if (!intercambio.getEstado().equals(Estado.PROPUESTO)) {
-            throw new IllegalMatchException("Solo se pueden rechazar intercambios con estado PROPUESTO.");
+            throw new IllegalMatchException("Solamente se pueden rechazar intercambios con estado PROPUESTO.");
         }
 
         intercambio.setEstado(Estado.RECHAZADO);
@@ -145,6 +146,38 @@ public class IntercambioService {
         }
 
         return intercambio;
+    }
+
+    //Finalizar Intercambio.
+    @Transactional
+    public Intercambio finalizarIntercambio(Long intercambioId, User usuarioAutenticado) {
+        Intercambio intercambio = intercambioRepository.findById(intercambioId)
+                .orElseThrow(() -> new IntercambioNotFoundException(intercambioId));
+
+        /*Validación para comprobar si aquel que da por finalizado el intercambio es o el usuarioDemandante
+        o el usuarioSolicitado.*/
+        if (!intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId()) &&
+                !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
+            throw new UnauthorizedAccessException("No tiene permiso para finalizar este intercambio.");
+        }
+
+        //Validación para comprobar si el estado del intercambio que se desea finalizar es ACTIVO.
+        if (!intercambio.getEstado().equals(Estado.ACTIVO)) {
+            throw new IllegalMatchException("Solamente se pueden finalizar intercambios con estado ACTIVO.");
+        }
+
+        if (intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId())) {
+            intercambio.setFinalizadoPorDemandante(true);
+        } else {
+            intercambio.setFinalizadoPorSolicitado(true);
+        }
+
+        if (intercambio.isFinalizadoPorDemandante() && intercambio.isFinalizadoPorSolicitado()) {
+            intercambio.setEstado(Estado.FINALIZADO);
+            intercambio.setFechaFin(LocalDateTime.now());
+        }
+
+        return intercambioRepository.save(intercambio);
     }
 
 
