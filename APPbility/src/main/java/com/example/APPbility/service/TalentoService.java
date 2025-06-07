@@ -1,18 +1,12 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.dto.pais.CreatePaisCMD;
 import com.example.APPbility.dto.talento.CreateTalentoCMD;
 import com.example.APPbility.error.custom.DuplicatedAttributeException;
-import com.example.APPbility.error.custom.EntityWithRelationshipsException;
 import com.example.APPbility.error.custom.UnauthorizedAccessException;
-import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.NivelNotFoundException;
-import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.error.entity.TalentoNotFoundException;
 import com.example.APPbility.files.service.StorageService;
-import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Nivel;
-import com.example.APPbility.model.Pais;
 import com.example.APPbility.model.Talento;
 import com.example.APPbility.repository.NivelRepository;
 import com.example.APPbility.repository.TalentoRepository;
