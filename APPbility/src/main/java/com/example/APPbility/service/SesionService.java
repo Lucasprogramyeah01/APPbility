@@ -7,9 +7,8 @@ import com.example.APPbility.error.custom.UnauthorizedAccessException;
 import com.example.APPbility.error.entity.IntercambioNotFoundException;
 import com.example.APPbility.error.entity.SesionNotFoundException;
 import com.example.APPbility.error.entity.TalentoNotFoundException;
-import com.example.APPbility.model.Estado;
-import com.example.APPbility.model.Intercambio;
-import com.example.APPbility.model.Sesion;
+import com.example.APPbility.model.*;
+import com.example.APPbility.repository.BloqueRepository;
 import com.example.APPbility.repository.IntercambioRepository;
 import com.example.APPbility.repository.SesionRepository;
 import com.example.APPbility.user.model.User;
@@ -24,7 +23,14 @@ import java.util.List;
 public class SesionService {
 
     private final SesionRepository sesionRepository;
+    private final BloqueRepository bloqueRepository;
     private final IntercambioRepository intercambioRepository;
+
+    //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
+
+    public List<Bloque> findBloquesBySesionId(Long id){
+        return bloqueRepository.findBloquesBySesionId(id);
+    }
 
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
