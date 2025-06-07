@@ -1,6 +1,7 @@
 package com.example.APPbility.dto.bloque;
 
 import com.example.APPbility.model.Bloque;
+import com.example.APPbility.user.model.User;
 
 import java.time.LocalTime;
 import java.util.UUID;
@@ -10,16 +11,18 @@ public record GetBloqueDTOConUserID(
         String titulo,
         String descripcion,
         LocalTime hora,
-        UUID usuarioID
+        UUID usuarioID,
+        String username
 ) {
 
-    public static GetBloqueDTOConUserID of(Bloque b, UUID usuarioID){
+    public static GetBloqueDTOConUserID of(Bloque b, User usuario){
         return new GetBloqueDTOConUserID(
                 b.getId(),
                 b.getTitulo(),
                 b.getDescripcion(),
                 b.getHora(),
-                usuarioID
+                usuario.getId(),
+                usuario.getUsername()
         );
     }
 
