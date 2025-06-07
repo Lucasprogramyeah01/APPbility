@@ -42,6 +42,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Talento no encontrado.";
         } else if (ex instanceof IntercambioNotFoundException intercambioEx) {
             errorType = "Intercambio no encontrado.";
+        } else if (ex instanceof SesionNotFoundException sesionEx) {
+            errorType = "Sesión no encontrada.";
         }
 
         Map<String, Object> errorBody = Map.of(

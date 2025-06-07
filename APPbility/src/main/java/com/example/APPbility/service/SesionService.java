@@ -1,9 +1,12 @@
 package com.example.APPbility.service;
 
 import com.example.APPbility.dto.sesion.CreateSesionCMD;
+import com.example.APPbility.dto.sesion.GetSesionDTO;
 import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.custom.UnauthorizedAccessException;
 import com.example.APPbility.error.entity.IntercambioNotFoundException;
+import com.example.APPbility.error.entity.SesionNotFoundException;
+import com.example.APPbility.error.entity.TalentoNotFoundException;
 import com.example.APPbility.model.Estado;
 import com.example.APPbility.model.Intercambio;
 import com.example.APPbility.model.Sesion;
@@ -13,6 +16,8 @@ import com.example.APPbility.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -55,6 +60,25 @@ public class SesionService {
             .build();
 
         return sesionRepository.save(sesion);
+    }
+
+    //Listar todas las Sesiones de un Intercambio.
+    public List<Sesion> findSesionesFromIntercambio(Long intercambioID, User usuarioAutenticado) {
+        Intercambio intercambio = intercambioRepository.findById(intercambioID)
+                .orElseThrow(() -> new IntercambioNotFoundException(intercambioID));
+
+        /*Validación para comprobar si aquel que crea una sesión en el intercambio es o el usuarioDemandante
+        o el usuarioSolicitado.*/
+        if (!intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId()) &&
+                !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
+            throw new UnauthorizedAccessException("No tiene permiso para ver las sesiones de este intercambio.");
+        }
+
+        List<Sesion> result = sesionRepository.findAllByIntercambioIdOrderByFechaAsc(intercambioID);
+
+        if(result.isEmpty())
+            throw new SesionNotFoundException();
+        return result;
     }
 
 }

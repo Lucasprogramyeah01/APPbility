@@ -174,7 +174,7 @@ public class IntercambioService {
             intercambioRepository.findByUsuarioDemandanteIdOrUsuarioSolicitadoId(usuarioAutenticado.getId(), pageable);
 
         if(result.isEmpty())
-            throw new TalentoNotFoundException();
+            throw new IntercambioNotFoundException();
         return result;
     }
 
