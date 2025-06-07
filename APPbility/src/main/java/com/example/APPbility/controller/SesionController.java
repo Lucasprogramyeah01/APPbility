@@ -41,25 +41,13 @@ public class SesionController {
         @PathVariable Long intercambioID) {
         List<Sesion> listaSesiones = sesionService.findSesionesFromIntercambio(intercambioID, usuarioAutenticado);
 
-        List<GetSesionDTOConBloques> listaSesionesConDTO = listaSesiones.stream()
+        return listaSesiones.stream()
             .map(sesion -> GetSesionDTOConBloques.of(
                 sesion,
-                sesion.getListaBloques().stream()
+                sesionService.findBloquesBySesionId(sesion.getId()).stream()
                     .map(bloque -> GetBloqueDTOConUserID.of(bloque, bloque.getUsuario()))
                     .toList())
             ).toList();
-
-        /*List<GetSesionDTOConBloques> listaSesionesConDTO = listaSesiones.stream()
-                .map(sesion -> {
-                    List<GetBloqueDTOConUserID> listaBloques = sesion.getListaBloques().stream()
-                            .map(bloque -> GetBloqueDTOConUserID.of(bloque, bloque.getUsuario()))
-                            .toList();
-
-                    return GetSesionDTOConBloques.of(sesion, listaBloques);
-                })
-                .toList();*/
-
-        return listaSesionesConDTO;
     }
 
 
