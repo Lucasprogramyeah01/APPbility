@@ -5,11 +5,9 @@ import com.example.APPbility.dto.intercambio.CreateIntercambioCMD;
 import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.custom.UnauthorizedAccessException;
 import com.example.APPbility.error.entity.IntercambioNotFoundException;
-import com.example.APPbility.error.entity.NivelNotFoundException;
 import com.example.APPbility.error.entity.TalentoNotFoundException;
 import com.example.APPbility.model.Estado;
 import com.example.APPbility.model.Intercambio;
-import com.example.APPbility.model.Nivel;
 import com.example.APPbility.model.Talento;
 import com.example.APPbility.repository.IntercambioRepository;
 import com.example.APPbility.repository.TalentoRepository;
@@ -24,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -34,12 +31,10 @@ public class IntercambioService {
     private final UserRepository userRepository;
     private final TalentoRepository talentoRepository;
 
-    //MÉTODOS NECESARIOS PARA LA TRANSFORMACIÓN A DTO EN LOS MÉTODOS CONTROLADORES ---------------------------
-
-
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
     //Proponer Intercambio.
+    @Transactional
     public Intercambio proponerIntercambio(CreateIntercambioCMD intercambioPropuesto, User usuarioDemandante){
         User usuarioSolicitado = userRepository.findById(intercambioPropuesto.usuarioSolicitadoID())
             .orElseThrow(() -> new UserNotFoundException(intercambioPropuesto.usuarioSolicitadoID()));
@@ -87,7 +82,28 @@ public class IntercambioService {
         );
     }
 
+    //Cancelar Intercambio Propuesto.
+    @Transactional
+    public void cancelarIntercambioPropuesto(Long intercambioId, User usuarioDemandante) {
+        Intercambio intercambio = intercambioRepository.findById(intercambioId)
+                .orElseThrow(() -> new IntercambioNotFoundException(intercambioId));
+
+        //Validación para comprobar si aquel que cancela el intercambio propuesto es el usuarioDemandante.
+        if (!intercambio.getUsuarioDemandante().getId().equals(usuarioDemandante.getId())) {
+            throw new UnauthorizedAccessException("Solamente el usuario que ha propuesto el intercambio puede " +
+            "cancelarlo.");
+        }
+
+        //Validación para comprobar si el estado del intercambio que se desea cancelar es PROPUESTO.
+        if (!intercambio.getEstado().equals(Estado.PROPUESTO)) {
+            throw new IllegalMatchException("Solamente se pueden cancelar intercambios con estado PROPUESTO.");
+        }
+
+        intercambioRepository.delete(intercambio);
+    }
+
     //Aceptar Intercambio.
+    @Transactional
     public Intercambio aceptarIntercambio(Long intercambioId, AceptarIntercambioCMD intercambioCMD, User usuarioSolicitado) {
         Intercambio intercambio = intercambioRepository.findById(intercambioId)
             .orElseThrow(() -> new IntercambioNotFoundException(intercambioId));
@@ -118,6 +134,7 @@ public class IntercambioService {
     }
 
     //Rechazar Intercambio.
+    @Transactional
     public Intercambio rechazarIntercambio(Long intercambioId, User usuarioSolicitado) {
         Intercambio intercambio = intercambioRepository.findById(intercambioId)
                 .orElseThrow(() -> new IntercambioNotFoundException(intercambioId));
@@ -206,8 +223,8 @@ public class IntercambioService {
             throw new UnauthorizedAccessException("No tiene permiso para cancelar la finalización este intercambio.");
         }
 
-        /*Validación para comprobar si el estado del intercambio del que se desea cancelar la finalización por parte de
-        el usuario autenticado es FINALIZADO.*/
+        /*Validación para comprobar que no se pueda deshacer la finalización del intercambio si se encuentra en estado
+        FINALIZADO.*/
         if (intercambio.getEstado().equals(Estado.FINALIZADO)) {
             throw new IllegalMatchException("El estado de este intercambio es FINALIZADO, por lo que ya no se puede deshacer."
             );

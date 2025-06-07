@@ -4,7 +4,6 @@ import com.example.APPbility.dto.intercambio.*;
 import com.example.APPbility.dto.nivel.GetNivelDTO;
 import com.example.APPbility.dto.talento.GetTalentoDTOConNivel;
 import com.example.APPbility.model.Intercambio;
-import com.example.APPbility.model.Talento;
 import com.example.APPbility.service.IntercambioService;
 import com.example.APPbility.service.TalentoService;
 import com.example.APPbility.user.dto.GetUserDTO;
@@ -24,7 +23,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -56,6 +54,14 @@ public class IntercambioController {
                 )
             )
         );
+    }
+
+    @DeleteMapping("cancelar/{id}")
+    public ResponseEntity<Void> cancelarIntercambioPropuesto(@AuthenticationPrincipal User usuarioDemandante,
+        @PathVariable Long id) {
+        intercambioService.cancelarIntercambioPropuesto(id, usuarioDemandante);
+
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("aceptar/{id}")
