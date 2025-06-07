@@ -17,11 +17,14 @@ import com.example.APPbility.user.error.UserNotFoundException;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -148,6 +151,16 @@ public class IntercambioService {
         return intercambio;
     }
 
+    //Listar todos los Intercambio de un Usuario.
+    public Page<Intercambio> findIntercambiosFromUsuario(User usuarioAutenticado, Pageable pageable) {
+        Page<Intercambio> result =
+            intercambioRepository.findByUsuarioDemandanteIdOrUsuarioSolicitadoId(usuarioAutenticado.getId(), pageable);
+
+        if(result.isEmpty())
+            throw new TalentoNotFoundException();
+        return result;
+    }
+
     //Finalizar Intercambio.
     @Transactional
     public Intercambio finalizarIntercambio(Long intercambioId, User usuarioAutenticado) {
@@ -175,6 +188,41 @@ public class IntercambioService {
         if (intercambio.isFinalizadoPorDemandante() && intercambio.isFinalizadoPorSolicitado()) {
             intercambio.setEstado(Estado.FINALIZADO);
             intercambio.setFechaFin(LocalDateTime.now());
+        }
+
+        return intercambioRepository.save(intercambio);
+    }
+
+    //Deshacer Finalización de Intercambio por parte de un Usuario.
+    @Transactional
+    public Intercambio deshacerFinalizacionDeIntercambioPorUsuario(Long intercambioId, User usuarioAutenticado) {
+        Intercambio intercambio = intercambioRepository.findById(intercambioId)
+                .orElseThrow(() -> new IntercambioNotFoundException(intercambioId));
+
+        /*Validación para comprobar si aquel que cancela la finalización del intercambio por su parte es o el
+        usuarioDemandante o el usuarioSolicitado.*/
+        if (!intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId()) &&
+                !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
+            throw new UnauthorizedAccessException("No tiene permiso para cancelar la finalización este intercambio.");
+        }
+
+        /*Validación para comprobar si el estado del intercambio del que se desea cancelar la finalización por parte de
+        el usuario autenticado es FINALIZADO.*/
+        if (intercambio.getEstado().equals(Estado.FINALIZADO)) {
+            throw new IllegalMatchException("El estado de este intercambio es FINALIZADO, por lo que ya no se puede deshacer."
+            );
+        }
+
+        /*Validación para comprobar si el estado del intercambio del que se desea cancelar la finalización por parte de
+        el usuario autenticado es ACTIVO.*/
+        if (!intercambio.getEstado().equals(Estado.ACTIVO)) {
+            throw new IllegalMatchException("Solamente se puede deshacer la finalización de un intercambio si su estado es ACTIVO.");
+        }
+
+        if (intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId())) {
+            intercambio.setFinalizadoPorDemandante(false);
+        } else {
+            intercambio.setFinalizadoPorSolicitado(false);
         }
 
         return intercambioRepository.save(intercambio);

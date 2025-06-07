@@ -44,8 +44,8 @@ public class TalentoController {
         Page<Talento> listaTalentos = talentoService.findTalentosfromUsuario(id, pageable);
 
         List<GetTalentoDTOConNivel> listaTalentosConNivel = listaTalentos.stream()
-                .map(t -> GetTalentoDTOConNivel.of(t, GetNivelDTO.of(talentoService.getNivelByTalentoID(t.getId()))))
-                .toList();
+            .map(t -> GetTalentoDTOConNivel.of(t, GetNivelDTO.of(talentoService.getNivelByTalentoID(t.getId()))))
+            .toList();
 
         return new PageImpl<>(listaTalentosConNivel, pageable, listaTalentos.getTotalElements());
     }

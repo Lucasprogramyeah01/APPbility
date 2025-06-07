@@ -3,10 +3,13 @@ package com.example.APPbility.repository;
 import com.example.APPbility.model.Estado;
 import com.example.APPbility.model.Intercambio;
 import com.example.APPbility.user.model.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface IntercambioRepository extends JpaRepository<Intercambio, Long> {
 
@@ -18,4 +21,11 @@ public interface IntercambioRepository extends JpaRepository<Intercambio, Long> 
     """)
     boolean existsIntercambioEntreUsuariosConEstados(User usuario1, User usuario2, List<Estado> estados);
 
+    @Query("""
+        SELECT i
+        FROM Intercambio i
+        WHERE i.usuarioDemandante.id = ?1
+            OR i.usuarioSolicitado.id = ?1
+    """)
+    Page<Intercambio> findByUsuarioDemandanteIdOrUsuarioSolicitadoId(UUID usuarioID, Pageable pageable);
 }
