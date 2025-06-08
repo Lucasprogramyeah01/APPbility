@@ -47,7 +47,8 @@ public class BloqueService {
         /*Validación para comprobar que un bloque sólo se puede asociar a una sesión de un intercambio con
         estado ACTIVO.*/
         if (!intercambio.getEstado().equals(Estado.ACTIVO)) {
-            throw new IllegalMatchException("Solamente se pueden crear bloques en sesiones de intercambios activos.");
+            throw new IllegalMatchException("Solamente se pueden crear bloques en sesiones de intercambios con " +
+                "estado ACTIVO.");
         }
 
         //Se busca o se crea una sesión dependiendo del caso.

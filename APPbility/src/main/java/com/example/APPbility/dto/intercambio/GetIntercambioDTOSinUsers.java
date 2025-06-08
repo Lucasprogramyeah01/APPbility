@@ -3,11 +3,10 @@ package com.example.APPbility.dto.intercambio;
 import com.example.APPbility.dto.talento.GetTalentoDTOConNivel;
 import com.example.APPbility.model.Estado;
 import com.example.APPbility.model.Intercambio;
-import com.example.APPbility.user.dto.GetUserDTO;
 
 import java.time.LocalDateTime;
 
-public record GetIntercambioDTOConUsersYTalentos(
+public record GetIntercambioDTOSinUsers(
         Long intercambioID,
         Estado estado,
         boolean finalizadoPorDemandante,
@@ -15,17 +14,14 @@ public record GetIntercambioDTOConUsersYTalentos(
         LocalDateTime fechaSolicitud,
         LocalDateTime fechaComienzo,
         LocalDateTime fechaFin,
-        GetUserDTO usuarioDemandante,
-        GetUserDTO usuarioSolicitado,
         GetTalentoDTOConNivel talentoSolicitado,
         GetTalentoDTOConNivel talentoAceptado,
         GetTalentoDTOConNivel talentoSugerido
 ) {
 
-    public static GetIntercambioDTOConUsersYTalentos of(Intercambio i, GetUserDTO usuarioDemandante,
-        GetUserDTO usuarioSolicitado, GetTalentoDTOConNivel talentoSolicitado, GetTalentoDTOConNivel talentoAceptado,
-        GetTalentoDTOConNivel talentoSugerido){
-        return new GetIntercambioDTOConUsersYTalentos(
+    public static GetIntercambioDTOSinUsers of(Intercambio i, GetTalentoDTOConNivel talentoSolicitado,
+        GetTalentoDTOConNivel talentoAceptado, GetTalentoDTOConNivel talentoSugerido){
+        return new GetIntercambioDTOSinUsers(
                 i.getIntercambioID(),
                 i.getEstado(),
                 i.isFinalizadoPorDemandante(),
@@ -33,12 +29,11 @@ public record GetIntercambioDTOConUsersYTalentos(
                 i.getFechaSolicitud(),
                 i.getFechaComienzo(),
                 i.getFechaFin(),
-                usuarioDemandante,
-                usuarioSolicitado,
                 talentoSolicitado,
                 talentoAceptado,
                 talentoSugerido
         );
     }
+
 
 }
