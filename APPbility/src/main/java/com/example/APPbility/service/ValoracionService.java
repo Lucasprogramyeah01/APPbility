@@ -39,7 +39,7 @@ public class ValoracionService {
         //Validación para comprobar que una valoración sólo se puede asociar a un intercambio con estado FINALIZADO.
         if (!intercambio.getEstado().equals(Estado.FINALIZADO)) {
             throw new IllegalMatchException("Solamente se pueden realizar valoraciones en un intercambio si su " +
-                "estado es FINALIZADO.");
+                    "estado es FINALIZADO.");
         }
 
         /*Validación para comprobar si aquel que valora a otro usuario en el intercambio es o el usuarioDemandante
@@ -57,7 +57,7 @@ public class ValoracionService {
         }
 
         User usuarioValorado = intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId())
-            ? intercambio.getUsuarioSolicitado() : intercambio.getUsuarioDemandante();
+                ? intercambio.getUsuarioSolicitado() : intercambio.getUsuarioDemandante();
 
         Valoracion valoracion = Valoracion.builder()
                 .puntuacion(valoracionCMD.puntuacion())
@@ -71,14 +71,38 @@ public class ValoracionService {
         return valoracionRepository.save(valoracion);
     }
 
-    //Listar Valoraciones de Usuario.
+    //Validación para comprobar si aquel que va a editar la valoración es el usuarioEscritor.
     public Page<Valoracion> findValoracionesFromUsuario(UUID id, Pageable pageable) {
         Page<Valoracion> result = valoracionRepository.findAllValoracionesByUsuarioID(id, pageable);
 
-        if(result.isEmpty())
+        if (result.isEmpty())
             throw new ValoracionNotFoundException();
         return result;
     }
 
+    //Editar Valoración.
+    /*En este métod0 se utiliza el CreateValoracionCMD como si fuera un "EditValoracionCMD" porque ambos serían el mismo
+    DTO, por lo que CreateValoracionCMD vale tanto para una cosa como para otra.*/
+    @Transactional
+    public Valoracion editarValoracion(Long valoracionID, CreateValoracionCMD valoracionCMD, User usuarioAutenticado) {
+        Valoracion valoracion = valoracionRepository.findById(valoracionID)
+                .orElseThrow(() -> new ValoracionNotFoundException(valoracionID));
+
+        // Solo puede editar el autor
+        if (!valoracion.getUsuarioEscritor().getId().equals(usuarioAutenticado.getId())) {
+            throw new UnauthorizedAccessException("No tiene permiso para editar esta valoración.");
+        }
+
+        //Validación para comprobar que una valoración sólo se puede asociar a un intercambio con estado FINALIZADO.
+        if (!valoracion.getIntercambio().getEstado().equals(Estado.FINALIZADO)) {
+            throw new IllegalMatchException("Solamente se pueden editar valoraciones de intercambios con estado FINALIZADO.");
+        }
+
+        valoracion.setPuntuacion(valoracionCMD.puntuacion());
+        valoracion.setTitulo(valoracionCMD.titulo() != null ? valoracionCMD.titulo().trim() : null);
+        valoracion.setResenha(valoracionCMD.resenha().trim());
+
+        return valoracionRepository.save(valoracion);
+    }
 
 }
