@@ -85,11 +85,12 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/intercambio/{id}", "/intercambio/mis-intercambios",
                     "sesion/{intercambioID}/listar").hasRole("USER")
                 .requestMatchers(HttpMethod.POST, "/talento/", "/intercambio/proponer",
-                    "/sesion/{intercambioID}/crear").hasRole("USER")
+                    "/bloque/crear").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}", "/intercambio/aceptar/{id}",
                     "/intercambio/rechazar/{id}", "/intercambio/finalizar/{id}",
-                    "/intercambio/deshacer-finalizacion/{id}").hasRole("USER")
-                .requestMatchers(HttpMethod.DELETE, "/talento/{id}", "/intercambio/cancelar/{id}").hasRole("USER")
+                    "/intercambio/deshacer-finalizacion/{id}", "/bloque/{bloqueID}/editar").hasRole("USER")
+                .requestMatchers(HttpMethod.DELETE, "/talento/{id}", "/intercambio/cancelar/{id}",
+                    "/bloque/{bloqueID}/eliminar").hasRole("USER")
 
                 .anyRequest().authenticated()).httpBasic(withDefaults()); // Habilita Basic Auth);
 

@@ -1,11 +1,13 @@
 package com.example.APPbility.repository;
 
+import com.example.APPbility.model.Intercambio;
 import com.example.APPbility.model.Sesion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface SesionRepository extends JpaRepository<Sesion, Long> {
 
@@ -18,10 +20,17 @@ public interface SesionRepository extends JpaRepository<Sesion, Long> {
 
     @Query("""
         SELECT s
-        FROM Sesion s 
-        WHERE s.intercambio.intercambioID = ?1 
+        FROM Sesion s
+        WHERE s.intercambio.intercambioID = ?1
         ORDER BY s.fecha ASC
     """)
     List<Sesion> findAllByIntercambioIdOrderByFechaAsc(Long intercambioId);
+
+    @Query("""
+        SELECT s
+        FROM Sesion s
+        WHERE s.fecha = ?1 AND s.intercambio.intercambioID = ?2
+    """)
+    Optional<Sesion> findSesionByFechaAndIntercambioID(LocalDate fecha, Long intercambioID);
 
 }
