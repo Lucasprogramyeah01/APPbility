@@ -1,6 +1,5 @@
 package com.example.APPbility.repository;
 
-import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Nivel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
