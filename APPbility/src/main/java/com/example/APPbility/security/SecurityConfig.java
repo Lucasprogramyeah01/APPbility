@@ -88,7 +88,8 @@ public class SecurityConfig {
                     "/bloque/crear", "valoracion//{intercambioID}/crear").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}", "/intercambio/aceptar/{id}",
                     "/intercambio/rechazar/{id}", "/intercambio/finalizar/{id}",
-                    "/intercambio/deshacer-finalizacion/{id}", "/bloque/{bloqueID}/editar").hasRole("USER")
+                    "/intercambio/deshacer-finalizacion/{id}", "/bloque/{bloqueID}/editar",
+                    "/valoracion//{valoracionID}/editar").hasRole("USER")
                 .requestMatchers(HttpMethod.DELETE, "/talento/{id}", "/intercambio/cancelar/{id}",
                     "/bloque/{bloqueID}/eliminar").hasRole("USER")
 

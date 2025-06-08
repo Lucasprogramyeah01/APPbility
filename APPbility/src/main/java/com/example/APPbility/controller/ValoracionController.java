@@ -38,6 +38,7 @@ public class ValoracionController {
     public ResponseEntity<GetValoracionDTOConUsersEIntercambio> crearValoracion(@AuthenticationPrincipal User usuarioEscritor,
         @Valid @RequestBody CreateValoracionCMD valoracionCMD, @PathVariable Long intercambioID) {
         Valoracion valoracion = valoracionService.crearValoracion(intercambioID, valoracionCMD, usuarioEscritor);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(
             GetValoracionDTOConUsersEIntercambio.of(
                 valoracion,
@@ -102,5 +103,31 @@ public class ValoracionController {
         return new PageImpl<>(listaValoracionesConDTO, pageable, listaValoraciones.getTotalElements());
     }
 
+    @PutMapping("/{valoracionID}/editar")
+    public ResponseEntity<GetValoracionDTOConUsersEIntercambio> editarValoracion(@AuthenticationPrincipal User usuarioEscritor,
+        @Valid @RequestBody CreateValoracionCMD valoracionCMD, @PathVariable Long valoracionID) {
+        Valoracion valoracionEditada = valoracionService.editarValoracion(valoracionID, valoracionCMD, usuarioEscritor);
+
+        return ResponseEntity.ok(
+            GetValoracionDTOConUsersEIntercambio.of(
+                valoracionEditada,
+                GetUserDTO.of(valoracionEditada.getUsuarioEscritor()),
+                GetUserDTO.of(valoracionEditada.getUsuarioValorado()),
+                GetIntercambioDTOSinUsers.of(
+                    valoracionEditada.getIntercambio(),
+                    GetTalentoDTOConNivel.of(valoracionEditada.getIntercambio().getTalentoSolicitado(),
+                        GetNivelDTO.of(talentoService.getNivelByTalentoID(valoracionEditada.getIntercambio().getTalentoSolicitado().getId()))
+                    ),
+                    valoracionEditada.getIntercambio().getTalentoAceptado() != null ?
+                        GetTalentoDTOConNivel.of(valoracionEditada.getIntercambio().getTalentoAceptado(),
+                            GetNivelDTO.of(talentoService.getNivelByTalentoID(valoracionEditada.getIntercambio().getTalentoAceptado().getId()))
+                        ) : null,
+                    GetTalentoDTOConNivel.of(valoracionEditada.getIntercambio().getTalentoSugerido(),
+                        GetNivelDTO.of(talentoService.getNivelByTalentoID(valoracionEditada.getIntercambio().getTalentoSugerido().getId()))
+                    )
+                )
+            )
+        );
+    }
 
 }
