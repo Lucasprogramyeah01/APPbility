@@ -57,7 +57,7 @@ public class IntercambioController {
     }
 
     @DeleteMapping("cancelar/{id}")
-    public ResponseEntity<Void> cancelarIntercambioPropuesto(@AuthenticationPrincipal User usuarioDemandante,
+    public ResponseEntity<?> cancelarIntercambioPropuesto(@AuthenticationPrincipal User usuarioDemandante,
         @PathVariable Long id) {
         intercambioService.cancelarIntercambioPropuesto(id, usuarioDemandante);
 

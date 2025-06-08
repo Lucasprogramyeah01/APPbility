@@ -44,6 +44,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
             errorType = "Intercambio no encontrado.";
         } else if (ex instanceof SesionNotFoundException sesionEx) {
             errorType = "Sesión no encontrada.";
+        } else if (ex instanceof BloqueNotFoundException bloqueEx) {
+            errorType = "Bloque no encontrado.";
         }
 
         Map<String, Object> errorBody = Map.of(

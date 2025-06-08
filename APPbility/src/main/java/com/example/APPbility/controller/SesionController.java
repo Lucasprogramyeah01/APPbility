@@ -4,7 +4,6 @@ import com.example.APPbility.dto.bloque.GetBloqueDTOConUserID;
 import com.example.APPbility.dto.sesion.CreateSesionCMD;
 import com.example.APPbility.dto.sesion.GetSesionDTO;
 import com.example.APPbility.dto.sesion.GetSesionDTOConBloques;
-import com.example.APPbility.model.Bloque;
 import com.example.APPbility.model.Sesion;
 import com.example.APPbility.service.SesionService;
 import com.example.APPbility.user.model.User;
@@ -28,14 +27,6 @@ public class SesionController {
 
     private final SesionService sesionService;
 
-    @PostMapping("{IntercambioID}/crear")
-    public ResponseEntity<GetSesionDTO> crearSesion(@AuthenticationPrincipal User usuarioAutenticado,
-        @Valid @RequestBody CreateSesionCMD nuevo, @PathVariable Long IntercambioID) {
-        Sesion nuevaSesion = sesionService.crearSesion(nuevo, IntercambioID, usuarioAutenticado);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(GetSesionDTO.of(nuevaSesion));
-    }
-
     @GetMapping("{intercambioID}/listar")
     public List<GetSesionDTOConBloques> findSesionesFromIntercambio(@AuthenticationPrincipal User usuarioAutenticado,
         @PathVariable Long intercambioID) {
@@ -50,6 +41,11 @@ public class SesionController {
             ).toList();
     }
 
-
+    @DeleteMapping("/{sesionID}/eliminar")
+    public ResponseEntity<?> eliminarSesion(@AuthenticationPrincipal User usuarioAutenticado,
+        @PathVariable Long sesionID) {
+        sesionService.eliminarSesion(sesionID, usuarioAutenticado);
+        return ResponseEntity.noContent().build();
+    }
 
 }
