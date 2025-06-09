@@ -70,7 +70,7 @@ public class SecurityConfig {
                 .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**",
                     "/uploads/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/user/", "/user/{id}", "/pais/", "/pais/{id}",
-                    "/continente/", "/continente/{id}", "/nivel/", "/talento/{id}" /*"/tag/", "/tag/{id}",*/).permitAll()
+                    "/continente/", "/continente/{id}", "/nivel/", "/talento/{id}").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 
@@ -85,7 +85,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/intercambio/{id}", "/intercambio/mis-intercambios",
                     "sesion/{intercambioID}/listar", "valoracion/listar").hasRole("USER")
                 .requestMatchers(HttpMethod.POST, "/talento/", "/intercambio/proponer",
-                    "/bloque/crear", "valoracion//{intercambioID}/crear").hasRole("USER")
+                    "/bloque/crear", "/valoracion/{intercambioID}/crear",
+                    "/user/marcar/{favoritoId}/favorito").hasRole("USER")
                 .requestMatchers(HttpMethod.PUT, "/talento/{id}", "/intercambio/aceptar/{id}",
                     "/intercambio/rechazar/{id}", "/intercambio/finalizar/{id}",
                     "/intercambio/deshacer-finalizacion/{id}", "/bloque/{bloqueID}/editar",
