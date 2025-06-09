@@ -88,7 +88,26 @@ INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha
         INSERT INTO talento (id, titulo, descripcion, imagen, nivel_id, user_id) VALUES (9, 'Cuidados básicos para mascotas', 'Enseño cómo cuidar de perros y gatos: desde la alimentación hasta la higiene y manejo del estrés. Ideal para nuevos dueños.', null, 3, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007');
         INSERT INTO talento (id, titulo, descripcion, imagen, nivel_id, user_id) VALUES (10, 'Manicura y nail art profesional', 'Aprende técnicas de manicura moderna, cuidado de uñas y decoración creativa. Incluye consejos de higiene y estética.', null, 4, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007');
 
-ALTER SEQUENCE talento_seq RESTART WITH 60;
+-- Sofia, Martínez López (SophieML - sofiosasosa)
+INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha_nacimiento, sexo, modalidad_preferida, num_telefono, mostrar_num_telefono, color, imagen_perfil, idioma_nativo, descripcion_profesional, presentacion_personal, enabled, activation_token, created_at, pais_nativo_id, pais_residencia_id) VALUES ('3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'SophieML', '{noop}sofiosasosa', 'sofia.martinez@gmail.com', 'Sofia', 'Martínez López', '1993-04-12', 'MUJER', 'PRESENCIAL', '+34987654321', true, '#FF0F57', 'https://randomuser.me/api/portraits/women/43.jpg', 'es', 'Ingeniera de software con especialización en inteligencia artificial. 5 años de experiencia en desarrollo de chatbots y modelos predictivos.', 'Amante de la tecnología, el senderismo y la repostería. Siempre aprendiendo algo nuevo.', true, NULL, CURRENT_TIMESTAMP, 1, 1);
+    INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'en');
+    INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'fr');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'https://github.com/sofiaml');
+    INSERT INTO user_roles (user_id, roles) VALUES ('3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'USER');
+        -----
+        INSERT INTO talento (id, titulo, descripcion, imagen, nivel_id, user_id) VALUES (11, 'Programación en Python', 'Desde cero hasta funciones avanzadas. Ideal para automatizar tareas o iniciarse en data science.', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png', 3, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91');
+        INSERT INTO talento (id, titulo, descripcion, imagen, nivel_id, user_id) VALUES (12, 'Repostería creativa', 'Decoración de cupcakes, fondant y técnicas básicas de pastelería.', 'https://img.freepik.com/fotos-premium/varios-cupcakes-decorados-crema_23-2147741838.jpg', 2, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91');
+
+-- Raj, Patel (RajTech - raj2024)
+INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha_nacimiento, sexo, modalidad_preferida, num_telefono, mostrar_num_telefono, color, imagen_perfil, idioma_nativo, descripcion_profesional, presentacion_personal, enabled, activation_token, created_at, pais_nativo_id, pais_residencia_id) VALUES ('d29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 'RajTech', '{noop}raj2024', 'raj.patel@outlook.com', 'Raj', 'Patel', '1988-11-25', 'HOMBRE', 'VIRTUAL', '+919876543210', false, '#00E78F', 'https://randomuser.me/api/portraits/men/32.jpg', 'hi', 'Especialista en TI con certificaciones en ciberseguridad. He trabajado en proyectos para bancos y startups.', 'Fanático del cricket y la cocina picante. Enseño con ejemplos prácticos de la vida real.', true, NULL, CURRENT_TIMESTAMP, 3, 3);
+    INSERT INTO user_lista_otros_idiomas (user_id, lista_otros_idiomas) VALUES ('d29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 'en');
+    INSERT INTO user_lista_enlaces_externos (user_id, lista_enlaces_externos) VALUES ('d29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 'https://www.linkedin.com/in/rajpatel-tech');
+    INSERT INTO user_roles (user_id, roles) VALUES ('d29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 'USER');
+        -----
+        INSERT INTO talento (id, titulo, descripcion, imagen, nivel_id, user_id) VALUES (13, 'Seguridad informática básica', 'Protege tus cuentas y dispositivos: contraseñas seguras, autenticación en dos pasos y detección de phishing.', null, 2, 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7');
+        INSERT INTO talento (id, titulo, descripcion, imagen, nivel_id, user_id) VALUES (14, 'Cocina india vegetariana', 'Recetas auténticas de mi abuela: desde dal tadka hasta masala dosa.', 'https://www.cookwithmanali.com/wp-content/uploads/2020/05/Masala-Dosa.jpg', 4, 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7');
+
+ALTER SEQUENCE talento_seq RESTART WITH 64;
 
 --INTERCAMBIOS.
 -- [UD: Khin90, US: Arman] PROPUESTO
@@ -106,6 +125,33 @@ INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo,
 
 -- [UD: Elirart, US: MalenG] FINALIZADO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (3,'FINALIZADO', '2025-05-28T12:45:00', '2025-05-29T09:10:00', '2025-06-04T19:10:00', true, true, 'f13a2e98-70f5-4d61-93ab-349be7022025', 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', 10, 4, 5);
+    INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (4, '2025-06-01', 3);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (5, 'Anatomía de las uñas', 'Comprenderemos la estructura de las uñas y su relación con la piel para un mejor cuidado.', '02:00', 4, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007');
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (6, 'Experimentación con formas y colores', 'Realizaremos ejercicios donde los estudiantes manipulen formas básicas como círculos, líneas y cuadrados, utilizando diferentes combinaciones de colores y texturas.', '16:30', 4, 'f13a2e98-70f5-4d61-93ab-349be7022025');
+    -----
+    INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (1, 10, 'La mejor maestra', 'Aprender manicura con ella ha sido una experiencia increíble. Es paciente, detallista y transmite su pasión por el cuidado de las uñas con cada explicación. Gracias a su guía, he ganado confianza y técnica. ¡Una excelente maestra y profesional!', 'f13a2e98-70f5-4d61-93ab-349be7022025', 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', 3);
+    INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (2, 8, null, 'Su enfoque para enseñar pintura abstracta es muy interesante y me ha ayudado a soltarme creativamente. Aunque a veces me costaba seguir el ritmo, aprendí nuevas formas de expresarme y explorar el color. Una experiencia enriquecedora.', 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', 'f13a2e98-70f5-4d61-93ab-349be7022025', 3);
 
-ALTER SEQUENCE intercambio_seq RESTART WITH 53;
-ALTER SEQUENCE sesion_seq RESTART WITH 53;
+-- [UD: SofiaML, US: RajTech] ACTIVO
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (4, 'ACTIVO', '2025-05-15T14:20:00', '2025-05-18T10:00:00', null, false, false, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 14, 11, 12);
+    INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (5, '2025-06-10', 4);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (7, 'Funciones en Python', 'Aprenderemos a definir funciones, parámetros y retorno de valores. Ejercicios prácticos incluidos.', '17:00', 5, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91');
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (8, 'Preparación de curry de garbanzos', 'Ingredientes, especias y técnicas para un curry perfecto.', '19:30', 5, 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7');
+    INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (6, '2025-06-17', 4);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (9, 'Decoración de cupcakes', 'Uso de manga pastelera y fondant para diseños sencillos.', '16:00', 6, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91');
+
+-- [UD: RajTech, US: Elirart] PROPUESTO (Arte por Seguridad)
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (5, 'PROPUESTO', '2025-06-01T09:15:00', null, null, false, false, 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 'f13a2e98-70f5-4d61-93ab-349be7022025', 4, null, 13);
+
+-- [UD: Khin90, US: SofiaML] FINALIZADO (Karate por Repostería)
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (6, 'FINALIZADO', '2025-04-10T11:30:00', '2025-04-12T16:45:00', '2025-05-20T12:00:00', true, true, '123e4567-e89b-12d3-a456-426614174000', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 12, 1, 3);
+    INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (7, '2025-04-20', 6);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (10, 'Posturas básicas de karate', 'Kihon: posiciones, bloqueos y golpes fundamentales.', '18:00', 7, '123e4567-e89b-12d3-a456-426614174000');
+    -----
+    INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (3, 9, '¡Increíble maestro!', 'Khin tiene una paciencia infinita y explica cada movimiento con claridad. Ahora me siento más segura al caminar de noche.', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', '123e4567-e89b-12d3-a456-426614174000', 6);
+    INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (4, 7, null, 'Sofia es muy creativa, aunque a veces iba demasiado rápido para mi nivel. ¡Mis cupcakes mejoraron mucho!', '123e4567-e89b-12d3-a456-426614174000', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 6);
+
+
+ALTER SEQUENCE intercambio_seq RESTART WITH 56;
+ALTER SEQUENCE sesion_seq RESTART WITH 57;
+ALTER SEQUENCE bloque_seq RESTART WITH 60;

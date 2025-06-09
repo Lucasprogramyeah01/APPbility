@@ -5,6 +5,7 @@ import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.repository.TalentoPRUEBARepository;
+import com.example.APPbility.repository.ValoracionRepository;
 import com.example.APPbility.user.error.ActivationExpiredException;
 import com.example.APPbility.user.error.UserNotFoundException;
 import com.example.APPbility.user.model.User;
@@ -32,9 +33,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final SendGridMailSender mailSender;
 
-    private final TagPRUEBARepository tagPRUEBARepository;
-    private final TalentoPRUEBARepository talentoPRUEBARepository;
-    //private final ValoracionRepository valoracionRepository;
+    private final ValoracionRepository valoracionRepository;
 
     @Value("${activation.duration}")
     private int activationDuration;
@@ -152,6 +151,12 @@ public class UserService {
         User usuario = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
 
         return usuario.getListaUsuariosSeguidores();
+    }
+
+    //Calcular Media de Puntuaciones de Usuario.
+    public Double calcularMediaDePuntuacionesDeUsuario(UUID usuarioID) {
+        Double media = valoracionRepository.calcularPuntuacionMediaDeUsuario(usuarioID);
+        return media != null ? media : 0.0;
     }
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------

@@ -25,4 +25,9 @@ public interface ValoracionRepository extends JpaRepository<Valoracion, Long> {
     """)
     Page<Valoracion> findAllValoracionesByUsuarioID(UUID id, Pageable pageable);
 
+    @Query("""
+        SELECT AVG(v.puntuacion) FROM Valoracion v WHERE v.usuarioValorado.id = ?1
+    """)
+    double calcularPuntuacionMediaDeUsuario(UUID usuarioID);
+
 }
