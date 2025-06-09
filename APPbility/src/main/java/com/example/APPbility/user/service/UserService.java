@@ -133,6 +133,18 @@ public class UserService {
         return usuario.getListaUsuariosFavoritos();
     }
 
+    //Desmarcar Usuario de Favoritos.
+    @Transactional
+    public void desmarcarUsuarioDeFavoritos(UUID usuarioID, UUID favoritoID) {
+        User usuario = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
+        User usuarioFavorito = userRepository.findById(favoritoID).orElseThrow(() -> new UserNotFoundException(favoritoID));
+
+        if (usuario.getListaUsuariosFavoritos().contains(usuarioFavorito)) {
+            usuario.getListaUsuariosFavoritos().remove(usuarioFavorito);
+            userRepository.save(usuario);
+        }
+    }
+
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
     /*public User createUser(CreateUserRequest createUserRequest) {

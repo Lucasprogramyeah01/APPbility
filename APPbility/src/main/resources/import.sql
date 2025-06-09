@@ -97,8 +97,12 @@ INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo,
 -- [UD: MalenG, US: Arman] ACTIVO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (2,'ACTIVO', '2025-05-22T17:30:00', '2025-05-24T11:20:00', null, false, false, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 6, 9, 9);
     INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (1, '2025-06-07', 2);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (1, 'Cepillado', 'Hoy le enseñaré a cepillar el pelo de un perro regularmente para mantenerlo limpio y prevenir problemas de piel.', '12:30', 1, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007');
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (2, 'Estudio de células y tejidos', 'Toca preparar muestras de células humanas, vegetales o animales para observar su estructura y funcionamiento.', '18:00', 1, '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00');
     INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (2, '2025-06-25 ', 2);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (3, 'Identificación de microorganismos', 'Utilizaremos los microscopios para identificar bacterias, virus y otros microorganismos en muestras de agua, suelo o aire.', '20:10', 2, '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00');
     INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (3, '2025-06-28', 2);
+        INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (4, 'Limpieza de oídos', 'Tutorial para limpiar los oídos de un gato regularmente para prevenir infecciones.', '13:30', 3, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007');
 
 -- [UD: Elirart, US: MalenG] FINALIZADO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (3,'FINALIZADO', '2025-05-28T12:45:00', '2025-05-29T09:10:00', '2025-06-04T19:10:00', true, true, 'f13a2e98-70f5-4d61-93ab-349be7022025', 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', 10, 4, 5);
