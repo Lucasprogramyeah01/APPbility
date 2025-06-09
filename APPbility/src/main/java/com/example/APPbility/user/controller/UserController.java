@@ -27,7 +27,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -77,6 +79,21 @@ public class UserController {
         userService.marcarUsuarioComoFavorito(usuarioAutenticado.getId(), favoritoID);
 
         return ResponseEntity.ok("Usuario añadido a favoritos correctamente.");
+    }
+
+    @GetMapping("{usuarioID}/lista-favoritos")
+    public Set<GetUserDTOConPaises> listarUsuariosFavoritos(@PathVariable UUID usuarioID) {
+        Set<User> listaUsuariosFavoritos = userService.listarUsuariosFavoritos(usuarioID);
+
+        Set<GetUserDTOConPaises> listaUsuariosFavoritosConDTO = listaUsuariosFavoritos.stream()
+            .map(usuario -> GetUserDTOConPaises.of(
+                usuario,
+                GetPaisDTO.of(usuario.getPaisNativo()),
+                GetPaisDTO.of(usuario.getPaisResidencia())
+            ))
+            .collect(Collectors.toSet());
+
+        return listaUsuariosFavoritosConDTO;
     }
 
 

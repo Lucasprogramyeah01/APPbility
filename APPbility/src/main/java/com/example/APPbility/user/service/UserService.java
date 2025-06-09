@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -123,6 +124,13 @@ public class UserService {
             usuario.getListaUsuariosFavoritos().add(usarioQueVaASerFavorito);
             userRepository.save(usuario);
         }
+    }
+
+    //Listar Usuarios Favoritos.
+    public Set<User> listarUsuariosFavoritos(UUID usuarioID) {
+        User usuario = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
+
+        return usuario.getListaUsuariosFavoritos();
     }
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
