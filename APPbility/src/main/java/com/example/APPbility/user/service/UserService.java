@@ -112,16 +112,17 @@ public class UserService {
     public void marcarUsuarioComoFavorito(UUID usuarioID, UUID favoritoID) {
         User usuario = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
 
-        User usarioQueVaASerFavorito =
+        User usuarioQueVaASerFavorito =
             userRepository.findById(favoritoID).orElseThrow(() -> new UserNotFoundException(favoritoID));
 
         //Validación para comprobar que un usuario no pueda marcarse a sí mismo como favorito.
-        if (usuario.getId().equals(usarioQueVaASerFavorito.getId())) {
+        if (usuario.getId().equals(usuarioQueVaASerFavorito.getId())) {
             throw new IllegalMatchException("Un usuario no puede marcarse a sí mismo como favorito.");
         }
 
-        if (!usuario.getListaUsuariosFavoritos().contains(usarioQueVaASerFavorito)) {
-            usuario.getListaUsuariosFavoritos().add(usarioQueVaASerFavorito);
+        if (!usuario.getListaUsuariosFavoritos().contains(usuarioQueVaASerFavorito)) {
+            usuarioQueVaASerFavorito.getListaUsuariosSeguidores().add(usuario);
+            usuario.getListaUsuariosFavoritos().add(usuarioQueVaASerFavorito);
             userRepository.save(usuario);
         }
     }
@@ -140,9 +141,17 @@ public class UserService {
         User usuarioFavorito = userRepository.findById(favoritoID).orElseThrow(() -> new UserNotFoundException(favoritoID));
 
         if (usuario.getListaUsuariosFavoritos().contains(usuarioFavorito)) {
+            usuarioFavorito.getListaUsuariosSeguidores().remove(usuario);
             usuario.getListaUsuariosFavoritos().remove(usuarioFavorito);
             userRepository.save(usuario);
         }
+    }
+
+    //Listar Usuarios Seguidores.
+    public Set<User> listarUsuariosSeguidores(UUID usuarioID) {
+        User usuario = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
+
+        return usuario.getListaUsuariosSeguidores();
     }
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
