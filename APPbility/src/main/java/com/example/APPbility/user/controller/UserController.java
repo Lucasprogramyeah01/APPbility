@@ -96,6 +96,14 @@ public class UserController {
         return listaUsuariosFavoritosConDTO;
     }
 
+    @PostMapping("desmarcar/{favoritoID}/favorito")
+    public ResponseEntity<String> desmarcarUsuarioDeFavoritos(@AuthenticationPrincipal User usuarioAutenticado,
+        @PathVariable UUID favoritoID) {
+        userService.desmarcarUsuarioDeFavoritos(usuarioAutenticado.getId(), favoritoID);
+
+        return ResponseEntity.ok("Usuario eliminado de favoritos correctamente.");
+    }
+
 
     //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
