@@ -71,7 +71,7 @@ public class SecurityConfig {
                     "/uploads/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/user/", "/user/{id}", "/pais/", "/pais/{id}",
                     "/continente/", "/continente/{id}", "/nivel/", "/talento/{id}",
-                    "/user/{usuarioID}/lista-favoritos").permitAll()
+                    "/user/{usuarioID}/lista-favoritos", "/user/{usuarioID}/lista-seguidores").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
                     "/activate/account/","/error").permitAll()
 

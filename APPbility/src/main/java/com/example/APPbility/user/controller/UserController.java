@@ -104,6 +104,21 @@ public class UserController {
         return ResponseEntity.ok("Usuario eliminado de favoritos correctamente.");
     }
 
+    @GetMapping("{usuarioID}/lista-seguidores")
+    public Set<GetUserDTOConPaises> listarUsuariosSeguidores(@PathVariable UUID usuarioID) {
+        Set<User> listaUsuariosSeguidores = userService.listarUsuariosSeguidores(usuarioID);
+
+        Set<GetUserDTOConPaises> listaUsuariosSeguidoresConDTO = listaUsuariosSeguidores.stream()
+                .map(usuario -> GetUserDTOConPaises.of(
+                        usuario,
+                        GetPaisDTO.of(usuario.getPaisNativo()),
+                        GetPaisDTO.of(usuario.getPaisResidencia())
+                ))
+                .collect(Collectors.toSet());
+
+        return listaUsuariosSeguidoresConDTO;
+    }
+
 
     //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
