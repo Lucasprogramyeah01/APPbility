@@ -24,10 +24,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@Validated
+@RequestMapping("/user/")
 @Tag(name = "Usuario", description = "Controlador de Usuario, para poder realizar sus operaciones de gestión.")
 public class UserController {
 
@@ -38,7 +43,7 @@ public class UserController {
 
     //ENDPOINTS DEL CONTROLADOR --------------------------------------------------------------------------------
 
-    @GetMapping("/user/")
+    @GetMapping
     public Page<GetUserDTOConPaises> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
         /*GetPaisDTO getPaisNativoDTO = GetPaisDTO.of(userService.getPaisNativoByUsuarioID());
         GetPaisDTO getPaisResidenciaDTO = GetPaisDTO.of(userService.getPaisResidenciaByUsuarioID());*/
@@ -65,6 +70,15 @@ public class UserController {
         return GetUserDTOCompleto.of(u, listaTags, listaTalentos, listaValoracionesRealizadas, listaValoracionesRecibidas,
             listaUsuariosFavoritos, listaUsuariosSeguidores);
     }*/
+
+    @PostMapping("marcar/{favoritoID}/favorito")
+    public ResponseEntity<String> marcarUsuarioComoFavorito(@AuthenticationPrincipal User usuarioAutenticado,
+        @PathVariable UUID favoritoID) {
+        userService.marcarUsuarioComoFavorito(usuarioAutenticado.getId(), favoritoID);
+
+        return ResponseEntity.ok("Usuario añadido a favoritos correctamente.");
+    }
+
 
     //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 

@@ -1,5 +1,6 @@
 package com.example.APPbility.user.service;
 
+import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.TagPRUEBARepository;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -94,6 +96,34 @@ public class UserService {
             return usuarioOptional.get();
         throw new UserNotFoundException(id);
     }*/
+
+    //Marcar Usuario como Favorito.
+    public User addFavorito(User usuarioAutenticado, UUID id){
+        User usuario = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+
+        usuarioAutenticado.addUsuarioFavorito(usuario);
+
+        return userRepository.save(usuario);
+    }
+
+    //Marcar Usuario como Favorito.
+    @Transactional
+    public void marcarUsuarioComoFavorito(UUID usuarioID, UUID favoritoID) {
+        User usuario = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
+
+        User usarioQueVaASerFavorito =
+            userRepository.findById(favoritoID).orElseThrow(() -> new UserNotFoundException(favoritoID));
+
+        //Validación para comprobar que un usuario no pueda marcarse a sí mismo como favorito.
+        if (usuario.getId().equals(usarioQueVaASerFavorito.getId())) {
+            throw new IllegalMatchException("Un usuario no puede marcarse a sí mismo como favorito.");
+        }
+
+        if (!usuario.getListaUsuariosFavoritos().contains(usarioQueVaASerFavorito)) {
+            usuario.getListaUsuariosFavoritos().add(usarioQueVaASerFavorito);
+            userRepository.save(usuario);
+        }
+    }
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
