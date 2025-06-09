@@ -5,6 +5,7 @@ import com.example.APPbility.security.jwt.access.JwtService;
 import com.example.APPbility.security.jwt.refresh.RefreshToken;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenRequest;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenService;
+import com.example.APPbility.service.ValoracionService;
 import com.example.APPbility.user.dto.GetUserDTOConPaises;
 //import com.example.APPbility.user.dto.GetUserDTOCompleto;
 import com.example.APPbility.user.dto.seguridad.ActivateAccountRequest;
@@ -39,6 +40,8 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService userService;
+    private final ValoracionService valoracionService;
+
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final RefreshTokenService refreshTokenService;
@@ -119,6 +122,11 @@ public class UserController {
         return listaUsuariosSeguidoresConDTO;
     }
 
+    @GetMapping("{usuarioID}/calcular-media")
+    public ResponseEntity<Double> calcularMediaDePuntuacionesDeUsuario(@PathVariable UUID usuarioID) {
+        Double media = userService.calcularMediaDePuntuacionesDeUsuario(usuarioID);
+        return ResponseEntity.ok(media);
+    }
 
     //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
