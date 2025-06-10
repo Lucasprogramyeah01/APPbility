@@ -6,6 +6,8 @@ import com.example.APPbility.security.jwt.refresh.RefreshToken;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenRequest;
 import com.example.APPbility.security.jwt.refresh.RefreshTokenService;
 import com.example.APPbility.service.ValoracionService;
+import com.example.APPbility.user.dto.EditUserCMD;
+import com.example.APPbility.user.dto.GetUserDTOConPaisesYTalentos;
 import com.example.APPbility.user.dto.GetUserDTOConPaises;
 //import com.example.APPbility.user.dto.GetUserDTOCompleto;
 import com.example.APPbility.user.dto.seguridad.ActivateAccountRequest;
@@ -19,6 +21,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,11 +55,8 @@ public class UserController {
     //ENDPOINTS DEL CONTROLADOR --------------------------------------------------------------------------------
 
     @GetMapping
-    public Page<GetUserDTOConPaises> findAll(@PageableDefault/*(sort = "nombre", direction = Sort.Direction.ASC)*/ Pageable pageable){
-        /*GetPaisDTO getPaisNativoDTO = GetPaisDTO.of(userService.getPaisNativoByUsuarioID());
-        GetPaisDTO getPaisResidenciaDTO = GetPaisDTO.of(userService.getPaisResidenciaByUsuarioID());*/
-
-        return userService.findAll(pageable)//.map(GetUserDTO::of);
+    public Page<GetUserDTOConPaises> findAll(@PageableDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
+        return userService.findAll(pageable)
         .map(user -> {
             GetPaisDTO paisNativoDTO = GetPaisDTO.of(user.getPaisNativo());
             GetPaisDTO paisResidenciaDTO = GetPaisDTO.of(user.getPaisResidencia());
@@ -64,20 +64,25 @@ public class UserController {
         });
     }
 
-    /*@GetMapping("/user/{id}")
-    public GetUserDTOCompleto findByID(@PathVariable UUID id){
-        Set<GetTagDTO> listaTags = userService.getListaTagsByUsuarioID(id);
-        List<GetTalentoDTO> listaTalentos = userService.getListaTalentosByUsuarioID(id);
-        List<GetValoracionDTO> listaValoracionesRealizadas = userService.getListaValoracionesRealizadasByUsuarioID(id);
-        List<GetValoracionDTO> listaValoracionesRecibidas = userService.getListaValoracionesRecibidasByUsuarioID(id);
-        Set<GetUserDTO> listaUsuariosFavoritos = userService.getListaUsuariosFavoritosByUsuarioID(id);
-        Set<GetUserDTO> listaUsuariosSeguidores = userService.getListaUsuariosSeguidoresByUsuarioID(id);
+    @GetMapping("{id}")
+    public GetUserDTOConPaises findByID(@PathVariable UUID id){
+        User user = userService.findById(id);
 
-        User u = userService.findById(id);
+        return GetUserDTOConPaises.of(
+            user,
+            GetPaisDTO.of(user.getPaisNativo()),
+            GetPaisDTO.of(user.getPaisResidencia())
+        );
+    }
 
-        return GetUserDTOCompleto.of(u, listaTags, listaTalentos, listaValoracionesRealizadas, listaValoracionesRecibidas,
-            listaUsuariosFavoritos, listaUsuariosSeguidores);
-    }*/
+    @PutMapping("/editar")
+    public ResponseEntity<UserResponse> edit(@AuthenticationPrincipal User usuarioAutenticado,
+        @Valid @RequestPart("usuario") EditUserCMD editUserCMD,
+        @RequestPart(value = "imagenPerfil", required = false) MultipartFile multipartFile) {
+        User usuarioActualizado = userService.edit(usuarioAutenticado.getId(), editUserCMD, multipartFile);
+
+        return ResponseEntity.ok(UserResponse.of(usuarioActualizado));
+    }
 
     @PostMapping("marcar/{favoritoID}/favorito")
     public ResponseEntity<String> marcarUsuarioComoFavorito(@AuthenticationPrincipal User usuarioAutenticado,

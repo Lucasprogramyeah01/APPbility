@@ -1,6 +1,7 @@
 package com.example.APPbility.user.dto;
 
 import com.example.APPbility.dto.pais.GetPaisDTO;
+import com.example.APPbility.dto.talento.GetTalentoDTOConNivel;
 import com.example.APPbility.model.Modalidad;
 import com.example.APPbility.model.Sexo;
 import com.example.APPbility.user.model.User;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-public record GetUserDTOConPaises(
+public record GetUserDTOConPaisesYTalentos(
         UUID id,
         String username,
         String password,
@@ -29,12 +30,14 @@ public record GetUserDTOConPaises(
         String presentacionPersonal,
         List<String> listaEnlacesExternos,
         GetPaisDTO paisNativo,
-        GetPaisDTO paisResidencia
+        GetPaisDTO paisResidencia,
+        List<GetTalentoDTOConNivel> listaTalentos
 ) {
 
-    public static GetUserDTOConPaises of(User u, GetPaisDTO paisNativo, GetPaisDTO paisResidencia){
+    public static GetUserDTOConPaisesYTalentos of(User u, GetPaisDTO paisNativo, GetPaisDTO paisResidencia,
+        List<GetTalentoDTOConNivel> listaTalentos) {
 
-        return new GetUserDTOConPaises(
+        return new GetUserDTOConPaisesYTalentos(
                 u.getId(),
                 u.getUsername(),
                 u.getPassword(),
@@ -54,7 +57,8 @@ public record GetUserDTOConPaises(
                 u.getPresentacionPersonal(),
                 u.getListaEnlacesExternos(),
                 paisNativo,
-                paisResidencia
+                paisResidencia,
+                listaTalentos
         );
     }
 
