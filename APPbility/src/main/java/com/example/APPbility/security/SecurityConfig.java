@@ -73,8 +73,8 @@ public class SecurityConfig {
                     "/continente/", "/continente/{id}", "/nivel/", "/talento/{id}",
                     "/user/{usuarioID}/lista-favoritos", "/user/{usuarioID}/lista-seguidores",
                     "/user/{usuarioID}/calcular-media").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register", "/auth/login", "/auth/refresh/token",
-                    "/activate/account/","/error").permitAll()
+                .requestMatchers(HttpMethod.POST, "/user/auth/register", "/user/auth/login",
+                    "/user/auth/refresh/token", "/user/activate/account/","/error").permitAll()
 
                 //ADMIN
                 .requestMatchers("/me/admin").hasRole("ADMIN")

@@ -3,21 +3,28 @@ package com.example.APPbility.user.service;
 import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
 import com.example.APPbility.model.Pais;
+import com.example.APPbility.model.Sexo;
+import com.example.APPbility.repository.PaisRepository;
 import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.repository.TalentoPRUEBARepository;
 import com.example.APPbility.repository.ValoracionRepository;
+import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.error.ActivationExpiredException;
 import com.example.APPbility.user.error.UserNotFoundException;
 import com.example.APPbility.user.model.User;
+import com.example.APPbility.user.model.UserRole;
 import com.example.APPbility.user.repository.UserRepository;
 import com.example.APPbility.util.SendGridMailSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -34,6 +41,7 @@ public class UserService {
     private final SendGridMailSender mailSender;
 
     private final ValoracionRepository valoracionRepository;
+    private final PaisRepository paisRepository;
 
     @Value("${activation.duration}")
     private int activationDuration;
@@ -161,32 +169,56 @@ public class UserService {
 
     //MÉTODOS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
-    /*public User createUser(CreateUserRequest createUserRequest) {
-        User user = User.builder()
-                .username(createUserRequest.username())
-                .password(passwordEncoder.encode(createUserRequest.password()))
-                .email(createUserRequest.email())
-                .nombre(createUserRequest.nombre())
-                .apellidos(createUserRequest.apellidos())
-                .sexo(createUserRequest.sexo())
-                .numTelefono(createUserRequest.numTelefono())
-                .fechaNacimiento(createUserRequest.fechaNacimiento())
-                .lugarNacimiento(createUserRequest.lugarNacimiento())
-                .lugarResidencia(createUserRequest.lugarResidencia())
-                .idiomaNativo(createUserRequest.idiomaNativo())
-                .puntosPopularidad(0L)
-                .roles(Set.of(UserRole.USER))
-                .activationToken(generateRandomActivationCode())
-                .build();
+    //Create User (Registrar Usuario).
+    public User createUser(CreateUserRequest createUserRequest, MultipartFile multipartFile) {
+        //Validación que comprueba si el username que se desea asignar el usuario ya pertenece a otro.
+        if (userRepository.existsByUsername(createUserRequest.username().trim())) {
+            throw new IllegalMatchException("Ese nombre de usuario ya se encuentra en uso.");
+        }
 
+        //Validación que comprueba si el email que se desea asignar el usuario ya pertenece a otro.
+        if (userRepository.existsByEmail(createUserRequest.email().trim())) {
+            throw new IllegalMatchException("Ese email ya se encuentra registrado.");
+        }
+
+        User user = User.builder()
+            .username(createUserRequest.username().trim())
+            .password(passwordEncoder.encode(createUserRequest.password().trim()))
+            .nombre(createUserRequest.nombre().trim())
+            .apellidos(createUserRequest.apellidos().trim())
+            .email(createUserRequest.email().trim())
+            .fechaNacimiento(createUserRequest.fechaNacimiento())
+            .sexo(createUserRequest.sexo())
+            .modalidadPreferida(createUserRequest.modalidadPreferida())
+            .numTelefono(createUserRequest.numTelefono().trim())
+            .mostrarNumTelefono(createUserRequest.mostrarNumTelefono())
+            .color("#FF00CC")
+            .imagenPerfil(
+                (multipartFile != null)
+                    ? multipartFile.getOriginalFilename()
+                    : (createUserRequest.sexo() == Sexo.HOMBRE
+                        ? "https://cdn.vectorstock.com/i/500p/99/13/grey-profile-icon-placeholder-avatar-vector-38519913.jpg"
+                        : "https://phlebotomycareertraining.com/wp-content/uploads/2023/11/default-avatar-photo-placeholder-icon-grey-vector-38519922-e1699300466746.jpg")
+            )
+            .idiomaNativo(createUserRequest.idiomaNativo().trim())
+            .listaOtrosIdiomas(createUserRequest.listaOtrosIdiomas())
+            .descripcionProfesional(createUserRequest.descripcionProfesional().trim())
+            .presentacionPersonal(createUserRequest.presentacionPersonal().trim())
+            .listaEnlacesExternos(createUserRequest.listaEnlacesExternos())
+            .paisNativo(paisRepository.findById(createUserRequest.paisNativoID())
+                .orElseThrow(() -> new PaisNotFoundException(createUserRequest.paisNativoID())))
+            .paisResidencia(paisRepository.findById(createUserRequest.paisResidenciaID())
+                .orElseThrow(() -> new PaisNotFoundException(createUserRequest.paisResidenciaID())))
+            .roles(Set.of(UserRole.USER))
+            .activationToken(generateRandomActivationCode())
+            .build();
         try {
             mailSender.sendMail(createUserRequest.email(), "Activación de cuenta", user.getActivationToken());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,"Error al enviar el email de activación");
         }
-
         return userRepository.save(user);
-    }*/
+    }
 
     public String generateRandomActivationCode() {
         return UUID.randomUUID().toString();

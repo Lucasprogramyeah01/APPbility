@@ -9,11 +9,13 @@ import com.example.APPbility.service.ValoracionService;
 import com.example.APPbility.user.dto.GetUserDTOConPaises;
 //import com.example.APPbility.user.dto.GetUserDTOCompleto;
 import com.example.APPbility.user.dto.seguridad.ActivateAccountRequest;
+import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.dto.seguridad.LoginRequest;
 import com.example.APPbility.user.dto.seguridad.UserResponse;
 import com.example.APPbility.user.model.User;
 import com.example.APPbility.user.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +29,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 import java.util.UUID;
@@ -130,12 +133,13 @@ public class UserController {
 
     //ENDPOINTS RELACIONADOS CON SEGURIDAD ---------------------------------------------------------------------
 
-    /*@PostMapping("/auth/register")
-    public ResponseEntity<UserResponse> register(@RequestBody CreateUserRequest createUserRequest) {
-        User user = userService.createUser(createUserRequest);
+    @PostMapping("/auth/register")
+    public ResponseEntity<UserResponse> register(@Valid @RequestPart("usuario") CreateUserRequest createUserRequest,
+        @RequestPart(value = "imagenPerfil", required = false) MultipartFile multipartFile) {
+        User user = userService.createUser(createUserRequest, multipartFile);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(UserResponse.of(user));
-    }*/
+    }
 
     @PostMapping("/auth/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
