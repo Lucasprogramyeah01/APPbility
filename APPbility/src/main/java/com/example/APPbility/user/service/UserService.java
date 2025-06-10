@@ -2,12 +2,14 @@ package com.example.APPbility.user.service;
 
 import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.entity.PaisNotFoundException;
+import com.example.APPbility.files.service.StorageService;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.model.Sexo;
 import com.example.APPbility.repository.PaisRepository;
 import com.example.APPbility.repository.TagPRUEBARepository;
 import com.example.APPbility.repository.TalentoPRUEBARepository;
 import com.example.APPbility.repository.ValoracionRepository;
+import com.example.APPbility.user.dto.EditUserCMD;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
 import com.example.APPbility.user.error.ActivationExpiredException;
 import com.example.APPbility.user.error.UserNotFoundException;
@@ -26,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -42,6 +45,8 @@ public class UserService {
 
     private final ValoracionRepository valoracionRepository;
     private final PaisRepository paisRepository;
+
+    private final StorageService storageService;
 
     @Value("${activation.duration}")
     private int activationDuration;
@@ -96,14 +101,44 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    //Buscar Usuario por ID.
-    /*public User findById(UUID id){
-        Optional<User> usuarioOptional = userRepository.findById(id);
+    //Editar Usuario.
+    @Transactional
+    public User edit(UUID usuarioID, EditUserCMD editUserCMD, MultipartFile multipartFile) {
+        User user = userRepository.findById(usuarioID).orElseThrow(() -> new UserNotFoundException(usuarioID));
 
-        if(usuarioOptional.isPresent())
-            return usuarioOptional.get();
-        throw new UserNotFoundException(id);
-    }*/
+        user.setNombre(editUserCMD.nombre().trim());
+        user.setApellidos(editUserCMD.apellidos().trim());
+        user.setFechaNacimiento(editUserCMD.fechaNacimiento());
+        user.setSexo(editUserCMD.sexo());
+        user.setModalidadPreferida(editUserCMD.modalidadPreferida());
+        user.setNumTelefono(editUserCMD.numTelefono().trim());
+        user.setMostrarNumTelefono(editUserCMD.mostrarNumTelefono());
+        user.setColor(editUserCMD.color() != null ? editUserCMD.color() : "#FF00CC");
+        user.setIdiomaNativo(editUserCMD.idiomaNativo().trim());
+        user.setListaOtrosIdiomas(editUserCMD.listaOtrosIdiomas());
+        user.setDescripcionProfesional(editUserCMD.descripcionProfesional().trim());
+        user.setPresentacionPersonal(editUserCMD.presentacionPersonal().trim());
+        user.setListaEnlacesExternos(editUserCMD.listaEnlacesExternos());
+
+        user.setPaisNativo(paisRepository.findById(editUserCMD.paisNativoID())
+            .orElseThrow(() -> new PaisNotFoundException(editUserCMD.paisNativoID())));
+        user.setPaisResidencia(paisRepository.findById(editUserCMD.paisResidenciaID())
+            .orElseThrow(() -> new PaisNotFoundException(editUserCMD.paisResidenciaID())));
+
+        if(multipartFile != null && !multipartFile.isEmpty()) {
+            String imagen = "/uploads/" + storageService.storeInFolder(multipartFile, "usuarios").getFilename();
+
+            if(user.getImagenPerfil() != null && user.getImagenPerfil().contains("uploads")) {
+                String antiguaImagenPerfil = Paths.get(user.getImagenPerfil()).getFileName().toString();
+                storageService.deleteFileInFolder("usuarios", antiguaImagenPerfil);
+                user.setImagenPerfil(imagen);
+            }else{
+                user.setImagenPerfil(imagen);
+            }
+        }
+
+        return userRepository.save(user);
+    }
 
     //Marcar Usuario como Favorito.
     public User addFavorito(User usuarioAutenticado, UUID id){
@@ -181,7 +216,7 @@ public class UserService {
             throw new IllegalMatchException("Ese email ya se encuentra registrado.");
         }
 
-        User user = User.builder()
+        User.UserBuilder builder = User.builder()
             .username(createUserRequest.username().trim())
             .password(passwordEncoder.encode(createUserRequest.password().trim()))
             .nombre(createUserRequest.nombre().trim())
@@ -193,13 +228,6 @@ public class UserService {
             .numTelefono(createUserRequest.numTelefono().trim())
             .mostrarNumTelefono(createUserRequest.mostrarNumTelefono())
             .color("#FF00CC")
-            .imagenPerfil(
-                (multipartFile != null)
-                    ? multipartFile.getOriginalFilename()
-                    : (createUserRequest.sexo() == Sexo.HOMBRE
-                        ? "https://cdn.vectorstock.com/i/500p/99/13/grey-profile-icon-placeholder-avatar-vector-38519913.jpg"
-                        : "https://phlebotomycareertraining.com/wp-content/uploads/2023/11/default-avatar-photo-placeholder-icon-grey-vector-38519922-e1699300466746.jpg")
-            )
             .idiomaNativo(createUserRequest.idiomaNativo().trim())
             .listaOtrosIdiomas(createUserRequest.listaOtrosIdiomas())
             .descripcionProfesional(createUserRequest.descripcionProfesional().trim())
@@ -210,14 +238,26 @@ public class UserService {
             .paisResidencia(paisRepository.findById(createUserRequest.paisResidenciaID())
                 .orElseThrow(() -> new PaisNotFoundException(createUserRequest.paisResidenciaID())))
             .roles(Set.of(UserRole.USER))
-            .activationToken(generateRandomActivationCode())
-            .build();
+            .activationToken(generateRandomActivationCode());
+
+            if (multipartFile != null && !multipartFile.isEmpty()) {
+                String imagen = "/uploads/" + storageService.storeInFolder(multipartFile, "usuarios").getFilename();
+                builder.imagenPerfil(imagen);
+            }else{
+                if(createUserRequest.sexo() == Sexo.HOMBRE){
+                    builder.imagenPerfil("https://cdn.vectorstock.com/i/500p/99/13/grey-profile-icon-placeholder-avatar-vector-38519913.jpg");
+                }else{
+                    builder.imagenPerfil("https://phlebotomycareertraining.com/wp-content/uploads/2023/11/default-avatar-photo-placeholder-icon-grey-vector-38519922-e1699300466746.jpg");
+                }
+            }
+
+            User user = builder.build();
         try {
             mailSender.sendMail(createUserRequest.email(), "Activación de cuenta", user.getActivationToken());
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,"Error al enviar el email de activación");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,"Error al enviar el email de activación.");
         }
-        return userRepository.save(user);
+        return userRepository.save(builder.build());
     }
 
     public String generateRandomActivationCode() {

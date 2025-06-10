@@ -1,0 +1,22 @@
+{
+    "nombre": "Godofredo",
+    "apellidos": "Martínez Segismundo",
+    "fechaNacimiento": "1990-01-01",
+    "sexo": "HOMBRE",
+    "modalidadPreferida": "AMBAS",
+    "numTelefono": "+34123456789",
+    "mostrarNumTelefono": true,
+    "color": null,
+    "idiomaNativo": "es",
+    "listaOtrosIdiomas": [
+        "en"
+    ],
+    "descripcionProfesional": "MÃ©dico licenciado: Experiencia laboral MÃ©dica adjunta del Servicio de Obstetricia y GinecologÃ­a, mayo 2020- noviembre 2021.",
+    "presentacionPersonal": "Médico a tiempo parcial y judoka con experiencia.",
+    "listaEnlacesExternos": [
+        "https://x.com/",
+        "https://www.linkedin.com/"
+    ],
+    "paisNativoID": 4,
+    "paisResidenciaID": 5
+}
