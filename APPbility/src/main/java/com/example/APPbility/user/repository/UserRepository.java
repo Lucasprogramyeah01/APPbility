@@ -39,6 +39,10 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     """)
     Pais findPaisResidenciaByUsuarioID(UUID id);
 
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
+
     /*@Query("""
         SELECT u.listaTalentos
         FROM User u

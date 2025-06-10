@@ -1,0 +1,19 @@
+{
+  "nombre": "Carlos",
+  "apellidos": "Ramírez Torres",
+  "username": "carlosrt89",
+  "password": "ArgentinoBoy",
+  "email": "carlos.ramirez@example.com",
+  "fechaNacimiento": "1990-05-15",
+  "sexo": "HOMBRE",
+  "modalidadPreferida": "PRESENCIAL",
+  "numTelefono": "+34123456789",
+  "mostrarNumTelefono": true,
+  "idiomaNativo": "es",
+  "listaOtrosIdiomas": ["en", "fr"],
+  "descripcionProfesional": "Desarrollador backend con más de 10 años de experiencia en Java y Spring Boot.",
+  "presentacionPersonal": "Me apasiona compartir conocimientos y aprender de los demás. Siempre en búsqueda de nuevos retos.",
+  "listaEnlacesExternos": ["https://linkedin.com/in/carlosrt", "https://github.com/carlosrt"],
+  "paisNativoID": 10,
+  "paisResidenciaID": 2
+}

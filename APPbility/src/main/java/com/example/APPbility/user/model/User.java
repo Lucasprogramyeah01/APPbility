@@ -31,7 +31,10 @@ public class User implements UserDetails{
     private String username;
 
     private String password;
+
+    @Column(unique = true)
     private String email;
+
     private String nombre;
     private String apellidos;
     private LocalDate fechaNacimiento;
