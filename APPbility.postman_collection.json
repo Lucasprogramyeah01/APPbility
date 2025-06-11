@@ -1,32 +1,494 @@
 {
 	"info": {
-		"_postman_id": "e8c03153-c927-4989-ba49-6ab307e47ea3",
-		"name": "APPbility",
+		"_postman_id": "59457101-aec0-42ae-bb36-98b3c7fe0f5f",
+		"name": "APPBility",
 		"description": "Colección de Postman relacionada al proyecto APPbility, plataforma de intercambio de talentos entre personas.\n\n**Colección creada por:** Lucas Falla Urtiaga, _alumno de 2ºDAM (2024 - 2025)._",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38690233"
 	},
 	"item": [
 		{
-			"name": "Tag",
+			"name": "User",
 			"item": [
 				{
 					"name": "findAll",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/tag/",
+							"raw": "http://localhost:8080/user/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"tag",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/123e4567-e89b-12d3-a456-426614174000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"123e4567-e89b-12d3-a456-426614174000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "khin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Khin90",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "usuario",
+									"type": "file",
+									"src": "/C:/Users/ikern/Desktop/APPbility/PostmanAPPblilty/User/edit/editUser.json"
+								},
+								{
+									"key": "imagenPerfil",
+									"type": "file",
+									"src": "/C:/Users/ikern/Desktop/APPbility/PostmanAPPblilty/User/edit/imagenPerfilEdit.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/editar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"editar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "marcarUsuarioComoFavorito",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "timihaki",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Arman",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/marcar/123e4567-e89b-12d3-a456-426614174000/favorito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"marcar",
+								"123e4567-e89b-12d3-a456-426614174000",
+								"favorito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarUsuariosFavoritos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/mis-favoritos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"mis-favoritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "desmarcarUsuarioDeFavoritos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/marcar/123e4567-e89b-12d3-a456-426614174000/favorito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"marcar",
+								"123e4567-e89b-12d3-a456-426614174000",
+								"favorito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarUsuariosSeguidores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/123e4567-e89b-12d3-a456-426614174000/lista-seguidores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"123e4567-e89b-12d3-a456-426614174000",
+								"lista-seguidores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "calcularMediaDePuntuacionesDeUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/123e4567-e89b-12d3-a456-426614174000/calcular-media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"123e4567-e89b-12d3-a456-426614174000",
+								"calcular-media"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"User\"**_."
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "usuario",
+									"type": "file",
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/User/create/createUser.json"
+								},
+								{
+									"key": "imagenPerfil",
+									"type": "file",
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/User/create/imagenPerfilCreate.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.collectionVariables.set(\"token_admin\", jsonData.token);\r",
+									"pm.collectionVariables.set(\"refreshToken_admin\", jsonData.refreshToken)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/refresh/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"refresh",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activateAccount",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"0b3ee4cc-42e0-48cb-afee-1022f670ed22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/activate/account/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activate",
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adminMe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/me/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"me",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta con las rutas relacionadas al apartado de **Seguridad** de la aplicación."
+		},
+		{
+			"name": "Pais",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pais/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pais",
 								""
 							]
 						}
@@ -36,20 +498,186 @@
 				{
 					"name": "findByID",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/tag/1",
+							"raw": "http://localhost:8080/pais/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"tag",
+								"pais",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/pais/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pais",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pais",
+									"type": "file",
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/Pais/edit/editPais.json"
+								},
+								{
+									"key": "bandera",
+									"type": "file",
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/Pais/edit/abjasiaBandera.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/pais/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pais",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pais/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pais",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Pais\"**_."
+		},
+		{
+			"name": "Continente",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/continente/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"continente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/continente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"continente",
 								"1"
 							]
 						}
@@ -64,7 +692,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token_admin}}",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiI1NTFlODQwMC1lMjJiLTQxZDQtYTcxNi00NDY2NTU0NDAwMTAiLCJpYXQiOjE3NDczMzIyNzgsImV4cCI6MTc0NzMzMjM5OH0.WsdjcmSnpLgDSzWxWqN2jlh6KfRSoKWpGi3nSk0CbljJK1DnpZ1Q6AgtSpUvliVX",
 									"type": "string"
 								}
 							]
@@ -73,7 +701,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"Vagoneta\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"Pangea\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -81,14 +709,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/tag/",
-							"protocol": "http",
+							"raw": "localhost:8080/continente/",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"tag",
+								"continente",
 								""
 							]
 						}
@@ -99,11 +726,16 @@
 					"name": "edit",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "{{token_admin}}",
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
 									"type": "string"
 								}
 							]
@@ -112,7 +744,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"Revoltoso/a\"\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Gondwana\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -120,34 +752,241 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/tag/2",
+							"raw": "http://localhost:8080/continente/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"tag",
-								"2"
+								"continente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/continente/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"continente",
+								"6"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Continente\"**_."
+		},
+		{
+			"name": "Nivel",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nivel/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nivel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Moderado\",\r\n    \"color\": \"#decb00\",\r\n    \"orden\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/nivel/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nivel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Principiante\",\r\n    \"color\": \"#ff69c1\",\r\n    \"orden\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/nivel/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nivel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/nivel/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"nivel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Nivel\"**_."
 		},
 		{
 			"name": "Talento",
 			"item": [
 				{
+					"name": "findTalentosfromUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/talento/123e4567-e89b-12d3-a456-426614174000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"talento",
+								"123e4567-e89b-12d3-a456-426614174000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "save",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "{{token_admin}}",
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
 									"type": "string"
 								}
 							]
@@ -158,18 +997,14 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "listaImagenes",
+									"key": "talento",
 									"type": "file",
-									"src": [
-										"/C:/Users/falla.urluc24_triana/Pictures/marketing1.jpg",
-										"/C:/Users/falla.urluc24_triana/Pictures/marketing2.jpg",
-										"/C:/Users/falla.urluc24_triana/Pictures/marketing3.jpg"
-									]
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/Talento/create/createTalento.json"
 								},
 								{
-									"key": "editTalentoCmd",
+									"key": "imagen",
 									"type": "file",
-									"src": "/C:/Users/falla.urluc24_triana/Desktop/APPbility/talento.json"
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/Talento/create/platoVegano.jpeg"
 								}
 							]
 						},
@@ -192,11 +1027,16 @@
 					"name": "edit",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "{{token_admin}}",
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
 									"type": "string"
 								}
 							]
@@ -207,23 +1047,19 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "listaImagenes",
+									"key": "talento",
 									"type": "file",
-									"src": [
-										"/C:/Users/falla.urluc24_triana/Pictures/pag1.PNG",
-										"/C:/Users/falla.urluc24_triana/Pictures/pag2.PNG",
-										"/C:/Users/falla.urluc24_triana/Pictures/LocalVistaExterior.PNG"
-									]
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/Talento/edit/editTalento.json"
 								},
 								{
-									"key": "editTalentoCmd",
+									"key": "imagen",
 									"type": "file",
-									"src": "/C:/Users/falla.urluc24_triana/Desktop/APPbility/talento.json"
+									"src": "/C:/Users/ikern/Desktop/PostmanAPPblilty/Talento/edit/platoCarnico.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/talento/1",
+							"raw": "http://localhost:8080/talento/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -231,273 +1067,698 @@
 							"port": "8080",
 							"path": [
 								"talento",
+								"6"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/talento/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"talento",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Talento\"**_."
+		},
+		{
+			"name": "Intercambio",
+			"item": [
+				{
+					"name": "proponerIntercambio",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioSolicitadoID\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"talentoSolicitadoID\": 1,\r\n    \"talentoSugeridoID\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/intercambio/proponer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"proponer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelarIntercambioPropuesto",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "D3SM3L3N4D4",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "MalenG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/intercambio/cancelar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"cancelar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aceptarIntercambio",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "khin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Khin90",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"talentoAceptadoID\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/intercambio/aceptar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"aceptar",
 								"1"
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "rechazarIntercambio",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "khin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Khin90",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/intercambio/rechazar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"rechazar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verDetallesDeIntercambio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "timihaki",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Arman",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/intercambio/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findIntercambiosfromUsuario",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "khin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Khin90",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/intercambio/mis-intercambios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"mis-intercambios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finalizarIntercambio",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "timihaki",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Arman",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/intercambio/finalizar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"finalizar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deshacerFinalizacionDeIntercambioPorUsuario",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "D3SM3L3N4D4",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "MalenG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/intercambio/deshacer-finalizacion/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"intercambio",
+								"deshacer-finalizacion",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
-			]
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Talento\"**_."
 		},
 		{
-			"name": "User",
+			"name": "Sesion",
 			"item": [
 				{
-					"name": "UserSecurity",
-					"item": [
-						{
-							"name": "register",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"Lucas01\",\r\n    \"password\": \"L1\",\r\n    \"email\": \"falla.urluc24@triana.salesianos.edu\",\r\n    \"nombre\": \"Lucas\",\r\n    \"apellidos\": \"Falla Urtiaga\",\r\n    \"sexo\": \"HOMBRE\",\r\n    \"numTelefono\": \"636889910\",\r\n    \"fechaNacimiento\": \"2005-03-18T00:00:00\",\r\n    \"lugarNacimiento\": \"VIZCAYA\",\r\n    \"lugarResidencia\": \"SEVILLA\",\r\n    \"idiomaNativo\": \"Español\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/auth/register",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"auth",
-										"register"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "login",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = pm.response.json();\r",
-											"\r",
-											"pm.collectionVariables.set(\"token_admin\", jsonData.token);\r",
-											"pm.collectionVariables.set(\"refreshToken_admin\", jsonData.refreshToken)"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/auth/login",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"auth",
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "refreshToken",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"refreshToken\": \"\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/auth/refresh/token",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"auth",
-										"refresh",
-										"token"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "activateAccount",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"token\": \"fa178b71-d16a-4c3b-baaf-b71896c2b5bb\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/activate/account/",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"activate",
-										"account",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "me",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token_admin}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/me",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"me"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "adminMe",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token_admin}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/me/admin",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"me",
-										"admin"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "findAll",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/user/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"user",
-								""
-							]
-						}
+					"name": "findSesionesFromIntercambio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
 					},
-					"response": []
-				},
-				{
-					"name": "findByID",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "timihaki",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Arman",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:8080/user/660e8400-e29b-41d4-a716-446655440001",
+							"raw": "http://localhost:8080/sesion/2/listar",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
-								"660e8400-e29b-41d4-a716-446655440001"
+								"sesion",
+								"2",
+								"listar"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Sesion\"**_."
+		},
+		{
+			"name": "Bloque",
+			"item": [
+				{
+					"name": "crearBloque",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "D3SM3L3N4D4",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "MalenG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Inglés - Past Tenses\",\r\n    \"descripcion\": \"Repasaremos los tiempos en pasado de inglés y realizaremos tanto una entrevista como un examen escrito para poner a prueba lo aprendido.\",\r\n    \"hora\": \"22:30\",\r\n    \"fechaSesion\": \"2025-06-25\",\r\n    \"intercambioID\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bloque/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bloque",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editarBloque",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "D3SM3L3N4D4",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "MalenG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Alemán - Futur I\",\r\n    \"descripcion\": \"Repasaremos los tiempos en futuro de alemán y realizaremos tanto una entrevista como un examen escrito para poner a prueba lo aprendido.\",\r\n    \"hora\": \"13:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bloque/1/editar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bloque",
+								"1",
+								"editar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarBloque",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "timihaki",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Arman",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/bloque/1/eliminar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bloque",
+								"1",
+								"eliminar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Bloque\"**_."
+		},
+		{
+			"name": "Valoracion",
+			"item": [
+				{
+					"name": "crearValoracion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"puntuacion\": 10,\r\n    \"titulo\": \"Muy buena persona\",\r\n    \"resenha\": \"Ha sido un intercambio muy agradable y es muy buena persona. :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/valoracion/3/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"valoracion",
+								"3",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findValoracionesFromUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/valoracion/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"valoracion",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editarValoracion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "elira123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Elirart",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"puntuacion\": 5,\r\n    \"titulo\": \"Mejorable...\",\r\n    \"resenha\": \"Ha faltado a algunas sesiones acordadas.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/valoracion/1/editar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"valoracion",
+								"1",
+								"editar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Carpeta que contiene todas las rutas relacionadas a la entidad _**\"Valoracion\"**_."
 		}
 	],
 	"variable": [
