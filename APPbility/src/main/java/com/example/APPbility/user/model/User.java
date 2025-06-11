@@ -147,19 +147,6 @@ public class User implements UserDetails{
     @ToString.Exclude
     private List<Valoracion> listaValoracionesRecibidas = new ArrayList<>();
 
-    //Con TAG (MU - MT).
-    /*@ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "se_etiqueta_con",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id"),
-            foreignKey = @ForeignKey(name = "fk_usuario_tag"),
-            inverseForeignKey = @ForeignKey(name = "fk_tag_usuario")
-    )
-    @Builder.Default
-    @ToString.Exclude
-    private Set<TagPRUEBA> listaTags = new HashSet<>();*/
-
     //MÉTODOS HELPER --------------------------------------------------------------------------------
 
     //Con USER
@@ -228,20 +215,6 @@ public class User implements UserDetails{
         this.getListaValoracionesRecibidas().remove(v);
         v.setUsuarioValorado(null);
     }
-
-    //Con TAG:
-
-    /*public void addTag(TagPRUEBA t){
-        this.listaTags.add(t);
-        t.getListaUsuarios().add(this);
-    }
-
-    public void removeTag(TagPRUEBA t){
-        t.getListaUsuarios().remove(this);
-        this.listaTags.remove(t);
-    }
-
-    */
 
     //EQUALS & HASHCODE ----------------------------------------------------------------------------------
 
