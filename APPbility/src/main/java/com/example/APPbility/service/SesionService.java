@@ -1,6 +1,5 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.custom.UnauthorizedAccessException;
 import com.example.APPbility.error.entity.IntercambioNotFoundException;
 import com.example.APPbility.error.entity.SesionNotFoundException;
@@ -11,10 +10,7 @@ import com.example.APPbility.repository.SesionRepository;
 import com.example.APPbility.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -50,40 +46,6 @@ public class SesionService {
         if(result.isEmpty())
             throw new SesionNotFoundException();
         return result;
-    }
-
-    //Eliminar Sesion.
-    @Transactional
-    public void eliminarSesion(Long sesionID, User usuarioAutenticado) {
-        Sesion sesion = sesionRepository.findById(sesionID).orElseThrow(() -> new SesionNotFoundException(sesionID));
-
-        Intercambio intercambio = sesion.getIntercambio();
-
-        // Validar que el usuario pertenece al intercambio
-        if (!intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId()) &&
-            !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
-            throw new UnauthorizedAccessException("No tiene permiso para eliminar esta sesión.");
-        }
-
-        // Validar que el intercambio está activo
-        if (!intercambio.getEstado().equals(Estado.ACTIVO)) {
-            throw new IllegalMatchException("Solo se pueden eliminar sesiones de intercambios activos.");
-        }
-
-        // Validar que la fecha no haya pasado
-        if (sesion.getFecha().isBefore(LocalDate.now())) {
-            throw new IllegalMatchException("No se puede eliminar una sesión cuya fecha ya ha pasado.");
-        }
-
-        // Validar si la sesión es hoy y algún bloque ya pasó su hora
-        if (sesion.getFecha().isEqual(LocalDate.now())) {
-            boolean bloqueYaRealizado = sesion.getListaBloques().stream().anyMatch(b -> b.getHora().isBefore(LocalTime.now()));
-            if (bloqueYaRealizado) {
-                throw new IllegalMatchException("No se puede eliminar una sesión con bloques cuya hora ya ha pasado.");
-            }
-        }
-
-        sesionRepository.delete(sesion);
     }
 
 }

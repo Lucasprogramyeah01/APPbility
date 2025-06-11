@@ -61,30 +61,6 @@ public class UserService {
         return userRepository.findPaisResidenciaByUsuarioID(id);
     }
 
-    /*public Set<GetTagDTO> getListaTagsByUsuarioID(UUID id){
-        return tagPRUEBARepository.findListaTagsByUsuarioID(id);
-    }
-
-    public List<GetTalentoDTO> getListaTalentosByUsuarioID(UUID id){
-        return talentoPRUEBARepository.findListaTalentosByUsuarioID(id);
-    }
-
-    public List<GetValoracionDTO> getListaValoracionesRealizadasByUsuarioID(UUID id){
-        return valoracionRepository.findListaValoracionesRealizadasByUsuarioID(id);
-    }
-
-    public List<GetValoracionDTO> getListaValoracionesRecibidasByUsuarioID(UUID id){
-        return valoracionRepository.findListaValoracionesRecibidasByUsuarioID(id);
-    }
-
-    public Set<GetUserDTO> getListaUsuariosFavoritosByUsuarioID(UUID id){
-        return userRepository.findListaUsuariosFavoritosByUsuarioID(id);
-    }
-
-    public Set<GetUserDTO> getListaUsuariosSeguidoresByUsuarioID(UUID id){
-        return userRepository.findListaUsuariosSeguidoresByUsuarioID(id);
-    }*/
-
     //MÉTODOS DEL SERVICIO -----------------------------------------------------------------------------------
 
     //Listar todos los Usuarios.

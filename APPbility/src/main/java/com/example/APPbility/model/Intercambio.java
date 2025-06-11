@@ -18,7 +18,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Entity
-//@IdClass(IntercambioPK.class)
 public class Intercambio {
 
     @Id
