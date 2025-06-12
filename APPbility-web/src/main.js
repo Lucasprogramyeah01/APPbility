@@ -1,21 +1,18 @@
-//Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router/router'
+import BootstrapVue3 from 'bootstrap-vue-3'
 
-// Vuetify
-import 'vuetify/styles'
-import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
+//BOOTSTRAP
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router/router.js';
-import vuetify from './plugins/vuetify';
+//BOOTSTRAP VUE 3
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(router);
-
-app.use(vuetify);
-
-app.mount('#app');
+app.use(router)
+app.use(BootstrapVue3)
+app.mount('#app')
