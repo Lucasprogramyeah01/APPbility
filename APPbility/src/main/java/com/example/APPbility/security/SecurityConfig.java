@@ -96,7 +96,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/talento/{id}", "/intercambio/cancelar/{id}",
                     "/bloque/{bloqueID}/eliminar").hasRole("USER")
 
-                .anyRequest().authenticated()).httpBasic(withDefaults()); // Habilita Basic Auth);
+                .anyRequest().authenticated());/*.httpBasic(withDefaults());*/ // Habilita Basic Auth);
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
