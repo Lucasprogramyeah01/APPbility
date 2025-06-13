@@ -7,11 +7,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PantallaLogin from '../components/PantallaLogin.vue';
 import FormRegistroUsuario from '../components/FormRegistroUsuario.vue';
 import PantallaContinentesAdmin from '../components/PantallaContinentesAdmin.vue';
+import PantallaPaisesAdmin from '../components/PantallaPaisesAdmin.vue';
 
 const routes = [
   { path: '/login', component: PantallaLogin },
   { path: '/formRegistroUsuario', component: FormRegistroUsuario },
   { path: '/continentesAdmin', component: PantallaContinentesAdmin },
+  { path: '/continente/:id', component: PantallaPaisesAdmin },
 ]
 
 const router = createRouter({

@@ -373,7 +373,7 @@ const value = ref([]);
 
 @font-face {
   font-family: 'carterOne';
-  src: url('../src/assets/fonts/CarterOne-Regular.ttf');
+  src: url('../assets/fonts/CarterOne-Regular.ttf');
 }
 .carterOne{
   font-family: 'carterOne';

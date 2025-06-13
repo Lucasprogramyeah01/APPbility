@@ -7903,3 +7903,7 @@ INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id
 org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'b2c3d4e5-f6g7-8901-2345-67890abcdef1' (INTERCAMBIO: ""USUARIO_DEMANDANTE_ID"" UUID)"
 Data conversion error converting "'b2c3d4e5-f6g7-8901-2345-67890abcdef1' (INTERCAMBIO: ""USUARIO_DEMANDANTE_ID"" UUID)"; SQL statement:
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (5, 'PROPUESTO', '2025-06-01T09:15:00', null, null, false, false, 'b2c3d4e5-f6g7-8901-2345-67890abcdef1', 'f13a2e98-70f5-4d61-93ab-349be7022025', 4, null, 13) [22018-232]
+2025-06-13 10:21:43.944316+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]I--NSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (10, 'Argentina', 'AR', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ar.png', 2)"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]I--NSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (10, 'Argentina', 'AR', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ar.png', 2)"; expected "INSERT"; SQL statement:
+I--NSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (10, 'Argentina', 'AR', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ar.png', 2) [42001-232]
