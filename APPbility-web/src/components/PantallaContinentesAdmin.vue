@@ -12,7 +12,7 @@ const listaContinentes = ref({
 
 //Pag
 const currentPage = ref(1);
-const pageSize = 6;
+const pageSize = 10;
 const totalElements = ref(0);
 
 const isLoading = ref(true);
@@ -125,16 +125,16 @@ watch(currentPage, (newPage) => {
                 </b-card>
             </div>
         </div>
-        <div v-if="!isEmpty && totalPages > 1" class="d-flex justify-content-center mt-3 mb-5">
-        <b-pagination
-          v-model="currentPage"
-          :total-rows="totalElements"
-          :per-page="pageSize"
-          @input="listarContinentes"
-          limit="5"
-          size="lg"
-          class=""
-        />
+        <div v-else-if="!isEmpty && totalPages > 1" class="d-flex justify-content-center mt-3 mb-5">
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="totalElements"
+            :per-page="pageSize"
+            @input="listarContinentes"
+            limit="5"
+            size="lg"
+            class=""
+          />
         </div>
         <div v-else>
             <div class="d-flex flex-column justify-content-center mb-5 mt-4 pt-2 text-center">
