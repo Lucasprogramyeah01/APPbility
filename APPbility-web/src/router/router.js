@@ -8,12 +8,14 @@ import PantallaLogin from '../components/PantallaLogin.vue';
 import FormRegistroUsuario from '../components/FormRegistroUsuario.vue';
 import PantallaContinentesAdmin from '../components/PantallaContinentesAdmin.vue';
 import PantallaPaisesAdmin from '../components/PantallaPaisesAdmin.vue';
+import FormRegistroContinente from '../components/FormRegistroContinente.vue';
 
 const routes = [
   { path: '/login', component: PantallaLogin },
-  { path: '/formRegistroUsuario', component: FormRegistroUsuario },
+  { path: '/registrarUsuario', component: FormRegistroUsuario },
   { path: '/continentesAdmin', component: PantallaContinentesAdmin },
   { path: '/continente/:id', component: PantallaPaisesAdmin },
+  { path: '/registrarContinente', component: FormRegistroContinente },
 ]
 
 const router = createRouter({

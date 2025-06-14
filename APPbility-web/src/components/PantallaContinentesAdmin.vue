@@ -21,6 +21,8 @@ onMounted(async () => {
     listaContinentes.value = await ContinenteService.findAll();
   } catch (err) {
     error.value = err.message;
+  } finally {
+    isLoading.value = false;
   }
 });
 
@@ -32,6 +34,8 @@ const isEmpty = computed(() => listaContinentes.value.empty);
 
 
 <template>
+    <LoadingComponent v-if="isLoading"></LoadingComponent>
+
     <div class="d-flex flex-column">
         <div class="container-fluid fondoDegradado">
             <p class="m-0" style="font-size: 15px; color: transparent">APPbility</p>
@@ -104,7 +108,7 @@ const isEmpty = computed(() => listaContinentes.value.empty);
         <div v-else>
             <div class="d-flex flex-column justify-content-center mb-5 mt-4 pt-2 text-center">
                 <div>
-                <img src="../assets/img/noResults.jpg" width="500px"/>
+                <img src="../assets/img/withoutContent.jpg" width="200px"/>
                 </div>
                 <div class="afacad mt-3">
                     <h1 class="fw-normal text-secondary" style="font-size: 25px;">

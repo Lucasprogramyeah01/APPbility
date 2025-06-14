@@ -3,6 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, watch, onMounted } from 'vue';
 import { ContinenteService } from '../services/continenteService';
 import { useRoute } from 'vue-router';
+import LoadingComponent from './loadingComponent.vue';
 
 // data() ---------------------------------------------------------------
 
@@ -26,6 +27,9 @@ const buscarContinentePorID = async () => {
     continente.value = await ContinenteService.findById(id);
   } catch (err) {
     error.value = err.message;
+    continente.value = null;
+  } finally {
+    isLoading.value = false;
   }
 };
 
@@ -33,18 +37,19 @@ const buscarContinentePorID = async () => {
 
 watch(
   () => id,
-  (newId) => {
-    if (newId) buscarContinentePorID(newId); // Mueve la lógica a una función reusable
+  (nuevoId) => {
+    if (nuevoId) buscarContinentePorID(nuevoId);
   },
-  { immediate: true } // Ejecuta al montar
+  { immediate: true }
 );
 
 </script>
 
 
 <template>
-    <div v-if="isLoading">Cargando...</div>
-    <div class="d-flex flex-column">
+    <LoadingComponent v-if="isLoading"></LoadingComponent>
+
+    <div v-else class="d-flex flex-column">
         <div class="container-fluid fondoDegradado">
             <p class="m-0" style="font-size: 15px; color: transparent">APPbility</p>
         </div>
@@ -68,9 +73,6 @@ watch(
         <!-- Botones -->
         <div class="d-flex flex-column justify-content-center mt-4 mb-5 mx-5 pt-2">
             <div class="afacad ms-5">
-                <!--b-button size="lg" class="border-0 a-button bg-primary" style="font-size: 22px;">
-                    <i class="bi bi-plus-lg"></i> Añadir Continente
-                </b-button-->
                 <b-button size="lg" class="ms-3 border-0 a-button bg-primary" style="font-size: 22px;">
                     <i class="bi bi-plus-lg"></i> Añadir País
                 </b-button>
@@ -82,7 +84,10 @@ watch(
         <div class="fondoGris rounded-5" style="margin-left: 85px; margin-right: 85px;">
             <p class="m-0" style="font-size: 1px; color: transparent">APPbility</p>
         </div>
-        <div class="d-flex flex-wrap justify-content-between mx-5 mt-4 px-5 pb-5 mb-5">
+        <div class="d-flex flex-wrap justify-content-around mx-5 mt-4 px-5 pb-5 mb-5"
+            v-if="continente.listaPaises?.length"
+        >
+            <!-- Lista de tarjetas-->
             <div class="col-md-2 col-12 p-2 my-2 mx-1 afacad" style="width: 20%"
                 v-for="pais in continente.listaPaises" 
                 :key="pais.id"
@@ -108,28 +113,17 @@ watch(
                     </div>
                 </b-card>
             </div>
-
-            <div class="col-md-2 col-12 p-2 my-2 mx-1 afacad" style="width: 20%">
-                <b-card id="tarjeta" bg-variant="dark" text-variant="white" class="rounded-4 shadow">
-                    <b-card-text>
-                        <div class="d-flex justify-content-between">
-                            <h1 class="amarillo madimiOne">2</h1>
-                            <div>
-                                <b-button href="#" class="h-auto ms-2 fondoNaranja border-0">
-                                    <i class="bi bi-pencil-fill" style="font-size: 25px;"></i>
-                                </b-button>
-                                <b-button href="#" class="h-auto ms-2 fondoRojo border-0">
-                                    <i class="bi bi-trash3-fill" style="font-size: 25px;"></i>
-                                </b-button>
-                            </div>
-                        </div>
-                        <h2 class="mt-2">Emiratos Árabes Unidos</h2>
-                    </b-card-text>
-                    <div class="d-flex align-items-center">
-                        <img src="https://flagpedia.net/data/flags/emoji/twitter/256x256/ae.png" width="200px" class="rounded-3 recortada" />
-                        <h1 class="mt-2 ms-4" style="font-size: 60px;">AE</h1>
-                    </div>
-                </b-card>
+        </div>
+        <div v-else>
+            <div class="d-flex flex-column justify-content-center mb-5 mt-4 pt-2 text-center">
+                <div>
+                  <img src="../assets/img/withoutContent.jpg" width="200px"/>
+                </div>
+                <div class="afacad mt-3">
+                    <h1 class="fw-normal text-secondary" style="font-size: 25px;">
+                        No hay países añadidos a este continente.
+                    </h1>
+                </div>
             </div>
         </div>
     </div>
@@ -206,16 +200,16 @@ watch(
 }
 
 #tarjeta{
-    transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 #tarjeta:hover{
-    transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .recortada {
-  object-fit: cover;  /* Recorta la imagen manteniendo la proporción */
-  width: 200px;       /* Ancho deseado */
-  height: 150px;      /* Alto deseado (ajusta según necesites) */
+  object-fit: cover;  /* Recorta la imagen manteniendo la proporción. */
+  width: 150px;       /* Ancho deseado. */
+  height: 110px;      /* Alto deseado. */
 }
 </style>
