@@ -1,34 +1,57 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { ContinenteService } from '../services/continenteService';
 
-// data() ---------------------------------------------------------------
+// DATA() ---------------------------------------------------------------
 
 const listaContinentes = ref({ 
     content: [], 
     empty: true 
 });
 
+//Pag
+const currentPage = ref(1);
+const pageSize = 6;
+const totalElements = ref(0);
+
 const isLoading = ref(true);
 const error = ref(null);
 
-// created() ---------------------------------------------------------------
+// CREATED() ---------------------------------------------------------------
+
+onMounted(() => listarContinentes());
+
+// METHODS ---------------------------------------------------------------
 
 //Listar todos los continentes.
-onMounted(async () => {
+async function listarContinentes(page = 1) {
+  isLoading.value = true;
   try {
-    listaContinentes.value = await ContinenteService.findAll();
+    const response = await ContinenteService.findAll(page - 1, pageSize);
+    listaContinentes.value = response;
+    totalElements.value = response.totalElements;
+    currentPage.value = page;
   } catch (err) {
     error.value = err.message;
   } finally {
     isLoading.value = false;
   }
-});
+}
 
-// computed ---------------------------------------------------------------
+// COMPUTED ---------------------------------------------------------------
 
 const isEmpty = computed(() => listaContinentes.value.empty);
+
+//Pag
+const totalPages = computed(() => Math.ceil(totalElements.value / pageSize));
+
+// WATCH ---------------------------------------------------------------
+
+//Pag
+watch(currentPage, (newPage) => {
+  listarContinentes(newPage);
+});
 
 </script>
 
@@ -63,9 +86,6 @@ const isEmpty = computed(() => listaContinentes.value.empty);
                 <b-button size="lg" class="border-0 a-button bg-primary" style="font-size: 22px;">
                     <i class="bi bi-plus-lg"></i> Añadir Continente
                 </b-button>
-                <!--b-button size="lg" class="ms-3 border-0 a-button bg-primary" style="font-size: 22px;">
-                    <i class="bi bi-plus-lg"></i> Añadir País
-                </b-button-->
             </div>
         </div>
         <div class="text-black madimiOne mx-5 px-5 mt-2">
@@ -75,7 +95,7 @@ const isEmpty = computed(() => listaContinentes.value.empty);
             <p class="m-0" style="font-size: 1px; color: transparent">APPbility</p>
         </div>
         <div 
-            class="d-flex flex-wrap justify-content-between mx-5 mt-4 px-3 pb-5 mb-5"
+            class="d-flex flex-wrap justify-content-around mx-5 mt-4 px-3 pb-5"
             v-if="!isEmpty"
         >
             <div class="col-12 p-2 my-2 mx-1 afacad" style="width: 30%;"
@@ -104,6 +124,17 @@ const isEmpty = computed(() => listaContinentes.value.empty);
                     </RouterLink>
                 </b-card>
             </div>
+        </div>
+        <div v-if="!isEmpty && totalPages > 1" class="d-flex justify-content-center mt-3 mb-5">
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="totalElements"
+          :per-page="pageSize"
+          @input="listarContinentes"
+          limit="5"
+          size="lg"
+          class=""
+        />
         </div>
         <div v-else>
             <div class="d-flex flex-column justify-content-center mb-5 mt-4 pt-2 text-center">

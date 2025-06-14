@@ -165,25 +165,25 @@ const value = ref([]);
             <div class="d-flex justify-content-between mx-5 px-3 mt-4">
                 <!-- Username -->
                 <b-input-group class="mt-2 mb-3 px-4">
-                    <b-input-group-prepend is-text class="bordeGris">
+                    <b-input-group-prepend is-text class="bordeGris border-2 border-end-0">
                         <i class="bi bi-person-fill"></i>
                     </b-input-group-prepend>
                     <b-form-input 
-                        class="bordeGris paddingParaInputs"
+                        class="bordeGris border-2 paddingParaInputs"
                         placeholder="Nombre de usuario *">
                     </b-form-input>
                 </b-input-group>
                 <!-- Password -->
                 <b-input-group class="mt-2 mb-3 px-4">
-                    <b-input-group-prepend is-text class="bordeGris">
+                    <b-input-group-prepend is-text class="bordeGris border-2 border-end-0">
                     <i class="bi bi-lock-fill"></i>
                     </b-input-group-prepend>
                     <b-form-input
-                    class="border-end-0 bordeGris paddingParaInputs"
+                    class="border-2 border-end-0 bordeGris paddingParaInputs"
                     :type="passwordVisible ? 'text' : 'password'"
                         placeholder="Contraseña *"
                     ></b-form-input>
-                    <b-input-group-append is-text class="bg-white bordeGris">
+                    <b-input-group-append is-text class="bg-white bordeGris border-2 border-start-0">
                     <b-button
                         class="p-0 border-0 bg-transparent" variant="link"
                         @click="passwordVisible = !passwordVisible"
@@ -197,11 +197,11 @@ const value = ref([]);
                 </b-input-group>
                 <!-- Email -->
                 <b-input-group class="mt-2 mb-3 px-4">
-                    <b-input-group-prepend is-text class="bordeGris">
+                    <b-input-group-prepend is-text class="bordeGris border-2 border-end-0">
                         <i class="bi bi-envelope-fill"></i>
                     </b-input-group-prepend>
                     <b-form-input 
-                        class="bordeGris paddingParaInputs"
+                        class="border-2 bordeGris paddingParaInputs"
                          type="email" placeholder="Correo electrónico *">
                     </b-form-input>
                 </b-input-group>

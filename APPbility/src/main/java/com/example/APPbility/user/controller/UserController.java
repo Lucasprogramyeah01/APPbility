@@ -169,6 +169,13 @@ public class UserController {
             .body(UserResponse.of(user, accessToken, refreshToken.getToken()));
     }
 
+    @PostMapping("/auth/logout")
+    public ResponseEntity<?> logout(@AuthenticationPrincipal User usuarioAutenticado) {
+        refreshTokenService.deleteAllByUser(usuarioAutenticado);
+        SecurityContextHolder.clearContext();
+        return ResponseEntity.ok("Sesión cerrada correctamente.");
+    }
+
     @PostMapping("/auth/refresh/token")
     public ResponseEntity<?> refreshToken(@RequestBody RefreshTokenRequest req) {
         String token = req.refreshToken();

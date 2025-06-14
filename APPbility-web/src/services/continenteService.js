@@ -47,10 +47,10 @@ export const ContinenteService = {
         if (error.response?.status === 400 && error.response.data?.['invalid-params']) {
             const validationErrors = error.response.data['invalid-params'].map((error) => error.message);
             throw new Error(validationErrors);
-        } /*else if (error.response?.status === 400){
+        } else if (error.response?.status === 400){
             throw new Error(error.response?.data?.message);
-        }*/ else {
-            throw new Error(error.response?.data?.message);
+        } else {
+            throw new Error("No se ha podido crear el continente.");
         }
     }
 }
