@@ -2,6 +2,7 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, computed, onMounted } from 'vue';
 import { ContinenteService } from '../services/continenteService';
+import { useRouter } from 'vue-router';
 import Swal from 'sweetalert2';
 import { useToast } from "vue-toastification";
 
@@ -10,6 +11,8 @@ import { useToast } from "vue-toastification";
 const datosContinente = ref({ 
     nombre: '' 
 });
+
+const router = useRouter();
 
 const error = ref(null);
 const success = ref(null);
@@ -24,12 +27,9 @@ const finalizarFormulario = async () => {
     /*success.value = `¡Continente "${response.nombre}" creado exitosamente!`;
     error.value = '';*/
     datosContinente.value.nombre = '';
+    router.replace('/continentes');
   } catch (err) {
-    toast.error(err.message, {
-        timeout: 5000,
-        closeOnClick: true,
-        pauseOnFocusLoss: true,
-    });
+    toast.error(err.message);
   }
 };
 
@@ -74,7 +74,7 @@ const finalizarFormulario = async () => {
                 <b-button 
                     class="w-25 b-button paddingParaInputs mx-4 fs-5 border-0 mt-4 fondoOscuro afacad"
                     type="submit"
-                >Iniciar sesión
+                >Añadir continente
                 </b-button>
             </div>
         </b-form>

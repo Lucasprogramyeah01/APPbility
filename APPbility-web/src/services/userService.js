@@ -34,8 +34,4 @@ export const UserService = {
     return apiForMFD.post('/auth/register', formData);
   },
 
-  login(){
-    return apiForJSON.post(`/auth/login`);
-  },
-
 };

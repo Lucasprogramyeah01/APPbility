@@ -83,9 +83,11 @@ watch(currentPage, (newPage) => {
         <!-- Botones -->
         <div class="d-flex flex-column justify-content-center mt-4 mb-5 mx-5 pt-2">
             <div class="afacad ms-5">
-                <b-button size="lg" class="border-0 a-button bg-primary" style="font-size: 22px;">
-                    <i class="bi bi-plus-lg"></i> Añadir Continente
-                </b-button>
+                <RouterLink :to="`/registrarContinente`" class="text-decoration-none">
+                    <b-button size="lg" class="border-0 a-button bg-primary" style="font-size: 22px;">
+                        <i class="bi bi-plus-lg"></i> Añadir Continente
+                    </b-button>
+                </RouterLink>
             </div>
         </div>
         <div class="text-black madimiOne mx-5 px-5 mt-2">

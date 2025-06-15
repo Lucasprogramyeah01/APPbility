@@ -3,7 +3,7 @@
 
 
 <template>
-  ¡Wenas!
+
 </template>
 
 

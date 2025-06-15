@@ -1,10 +1,52 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useAuthService } from '../security/authService';
+import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import Swal from 'sweetalert2';
+import { useToast } from "vue-toastification";
+
+// DATA() ---------------------------------------------------------------
+
+const datosParaLogin = ref({ 
+    username: '',
+    password: ''
+});
 
 const passwordVisible = ref(false);
+const isSubmitting = ref(false);
 
+const router = useRouter();
+const authService = useAuthService();
 
+const toast = useToast();
+
+// METHODS ---------------------------------------------------------------
+
+const iniciarSesion = async () => {
+  if (!datosParaLogin.value.username || !datosParaLogin.value.password) {
+    toast.error('Se deben rellenar los dos campos para iniciar sesión.');
+    return;
+  }
+
+  try {
+    isSubmitting.value = true;
+    const login = await authService.login({
+      username: datosParaLogin.value.username,
+      password: datosParaLogin.value.password
+    });
+    toast.success('Se ha iniciado sesión con éxito.');
+    if(login.rol[0] == 'USER'){
+      router.replace('/inicio');
+    }else if(login.rol[0] == 'ADMIN'){
+      router.replace('/inicioAdmin');
+    }
+  } catch (error) {
+    toast.error(error.response?.data?.message || 'Error al iniciar sesión.');
+  } finally {
+    isSubmitting.value = false;
+  }
+};
 
 </script>
 
@@ -23,7 +65,10 @@ const passwordVisible = ref(false);
           </div>
         </div>
         <div class="d-flex justify-content-center mt-5">
-          <b-form class="px-2 d-flex flex-column justify-content-center" style="width: 30%;">
+          <b-form @submit.prevent="iniciarSesion" 
+            class="px-2 d-flex flex-column justify-content-center" 
+            style="width: 30%;"
+          >
             <!-- Username -->
             <b-input-group class="mt-2 mb-3">
                 <b-input-group-prepend is-text class="bordeGris border-2 border-end-0">
@@ -31,7 +76,9 @@ const passwordVisible = ref(false);
                 </b-input-group-prepend>
                 <b-form-input 
                   class="bordeGris border-2"
-                  size="lg" placeholder="Nombre de usuario">
+                  size="lg" placeholder="Nombre de usuario"
+                  v-model="datosParaLogin.username"
+                  >
                 </b-form-input>
             </b-input-group>
             <!-- Password -->
@@ -43,6 +90,7 @@ const passwordVisible = ref(false);
                 class="border-end-0 bordeGris border-2"
                 :type="passwordVisible ? 'text' : 'password'"
                 size="lg" placeholder="Contraseña"
+                v-model="datosParaLogin.password"
               ></b-form-input>
               <b-input-group-append is-text class="bg-white bordeGris border-2 border-start-0">
                 <b-button
@@ -57,15 +105,20 @@ const passwordVisible = ref(false);
               </b-input-group-append>
             </b-input-group>
 
-            <RouterLink :to="`/inicio`" class="w-100 text-decoration-none">
-              <b-button size="lg" class="w-100 b-button fs-4 border-0 mt-5 fondoOscuro afacad">
-                Iniciar sesión
-              </b-button>
-            </RouterLink>
+            <b-button 
+              type="submit"
+              size="lg" 
+              class="w-100 b-button fs-4 border-0 mt-5 fondoOscuro afacad"
+              :disabled="isSubmitting"
+            >
+              {{ isSubmitting ? 'Iniciando sesión...' : 'Iniciar sesión' }}
+            </b-button>
 
             <div class="d-flex flex-column text-center text-white afacad mt-5 pt-5 mb-5">
               <h3 class="fw-normal" >¿Todavía no tienes cuenta? &nbsp;
-                <span class="fw-bold" style="text-decoration: underline;">Regístrate</span>
+                  <RouterLink :to="`/registrarUsuario`" class="w-100 text-decoration-none">
+                    <span class="fw-bold text-white" style="text-decoration: underline;">Regístrate</span>
+                  </RouterLink>
               </h3>
             </div>
           </b-form>

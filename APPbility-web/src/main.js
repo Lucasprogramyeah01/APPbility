@@ -27,7 +27,7 @@ import "vue-toastification/dist/index.css";
         closeButton: "button",
         showCloseButtonOnHover: false,
         hideProgressBar: false,
-        maxToasts: 5,
+        maxToasts: 3,
         newestOnTop: true,
         icon: true,
         rtl: false

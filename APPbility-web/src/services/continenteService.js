@@ -1,17 +1,18 @@
 import axios from 'axios';
+import api from '../security/api';
 
-const apiForJSON = axios.create({
-  baseURL: 'http://localhost:8080',
+/*const apiForJSON = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-});
+});*/
 
 export const ContinenteService = {
 
     async findAll(page = 0, size = 10, sort = 'id,asc') {
         try {
-            const response = await apiForJSON.get('/continente/', {
+            const response = await api.get('/continente/', {
                 params: {
                     page,
                     size,
@@ -30,7 +31,7 @@ export const ContinenteService = {
 
     async findById(id) {
         try {
-            const response = await apiForJSON.get(`/continente/${id}`);
+            const response = await api.get(`/continente/${id}`);
             return response.data;
         } catch (error) {
             if(error.response?.status === 404){
@@ -41,7 +42,7 @@ export const ContinenteService = {
 
     async createContinente(datosContinente) {
     try {
-        const response = await apiForJSON.post('/continente/', datosContinente);
+        const response = await api.post('/continente/', datosContinente);
         return response.data;
     } catch (error) {
         if (error.response?.status === 400 && error.response.data?.['invalid-params']) {
@@ -50,7 +51,7 @@ export const ContinenteService = {
         } else if (error.response?.status === 400){
             throw new Error(error.response?.data?.message);
         } else {
-            throw new Error("No se ha podido crear el continente.");
+            throw new Error(error.response?.data?.message);
         }
     }
 }

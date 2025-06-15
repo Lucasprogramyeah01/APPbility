@@ -1,5 +1,6 @@
 package com.example.APPbility.security.jwt.access;
 
+import com.example.APPbility.security.exceptionHandling.JwtException;
 import com.example.APPbility.user.model.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

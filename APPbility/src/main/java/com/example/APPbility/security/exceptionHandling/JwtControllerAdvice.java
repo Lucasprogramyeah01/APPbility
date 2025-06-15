@@ -1,5 +1,6 @@
 package com.example.APPbility.security.exceptionHandling;
 
+import com.example.APPbility.security.jwt.refresh.RefreshTokenException;
 import com.example.APPbility.user.error.ActivationExpiredException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -25,7 +26,7 @@ public class JwtControllerAdvice extends ResponseEntityExceptionHandler {
         return response;
     }
 
-    @ExceptionHandler(JwtException.class)
+    @ExceptionHandler({JwtException.class, RefreshTokenException.class})
     public ProblemDetail handleJwtException(JwtException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, ex.getMessage());
 
