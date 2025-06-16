@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.pais.create;
+package com.example.APPbility.validation.pais;
 
 import com.example.APPbility.repository.PaisRepository;
 import jakarta.validation.ConstraintValidator;

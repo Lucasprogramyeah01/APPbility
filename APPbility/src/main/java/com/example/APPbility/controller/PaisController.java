@@ -43,7 +43,7 @@ public class PaisController {
             "atributo 'nombre'.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200",
-            description = "Lista de países obtenida correctamente.",
+            description = "Lista de Países obtenida correctamente.",
             content = { @Content(mediaType = "application/json",
                 array = @ArraySchema(schema = @Schema(implementation = GetPaisDTO.class)),
                 examples = {@ExampleObject(
@@ -139,11 +139,8 @@ public class PaisController {
                                              "en",
                                              "it"
                                          ],
-                                         "descripcionProfesional": "Profesora de arte con enfoque en pintura abstracta.
-                                            Más de 7 aÃ±os de experiencia en talleres comunitarios y proyectos
-                                            escolares.",
-                                         "presentacionPersonal": "Me encanta ayudar a otros a descubrir su lado
-                                            artístico y expresarse a travéss de los colores.",
+                                         "descripcionProfesional": "Profesora de arte con enfoque en pintura abstracta. Más de 7 aÃ±os de experiencia en talleres comunitarios y proyectos escolares.",
+                                         "presentacionPersonal": "Me encanta ayudar a otros a descubrir su lado artístico y expresarse a través de los colores.",
                                          "listaEnlacesExternos": [
                                              "https://www.instagram.com/eliraart/",
                                              "https://www.behance.net/eliraqose"
@@ -182,7 +179,7 @@ public class PaisController {
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201",
             description = "Se ha creado el País correctamente.",
-            content = { @Content(mediaType = "application/json",
+            content = { @Content(mediaType = "multipart/form-data",
                 schema = @Schema(implementation = GetPaisDTOConContinente.class),
                 examples = {@ExampleObject(
                     value = """
@@ -214,7 +211,7 @@ public class PaisController {
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200",
             description = "Se ha editado el País correctamente.",
-            content = { @Content(mediaType = "application/json",
+            content = { @Content(mediaType = "multipart/form-data",
                 schema = @Schema(implementation = GetPaisDTOConContinente.class),
                 examples = {@ExampleObject(
                     value = """

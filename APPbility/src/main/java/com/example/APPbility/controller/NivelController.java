@@ -87,8 +87,8 @@ public class NivelController {
                 )}
             )}),
         @ApiResponse(responseCode = "204",
-                description = "No hay Niveles registrados.",
-                content = @Content)
+            description = "No hay Niveles registrados.",
+            content = @Content)
     })
     @GetMapping
     public Page<GetNivelDTO> findAll(@PageableDefault(sort = "orden", direction = Sort.Direction.ASC) Pageable pageable){

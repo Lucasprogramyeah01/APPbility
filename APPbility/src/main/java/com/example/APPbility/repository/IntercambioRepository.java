@@ -28,4 +28,5 @@ public interface IntercambioRepository extends JpaRepository<Intercambio, Long> 
             OR i.usuarioSolicitado.id = ?1
     """)
     Page<Intercambio> findByUsuarioDemandanteIdOrUsuarioSolicitadoId(UUID usuarioID, Pageable pageable);
+
 }

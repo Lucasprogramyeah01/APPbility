@@ -24,9 +24,8 @@ const toast = useToast();
 const finalizarFormulario = async () => {
   try {
     const response = await ContinenteService.createContinente(datosContinente.value);
-    /*success.value = `¡Continente "${response.nombre}" creado exitosamente!`;
-    error.value = '';*/
     datosContinente.value.nombre = '';
+    toast.success('Continente añadido con éxito.');
     router.replace('/continentes');
   } catch (err) {
     toast.error(err.message);

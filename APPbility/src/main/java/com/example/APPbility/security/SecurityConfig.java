@@ -55,7 +55,6 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http.csrf(csrf -> csrf.disable());
         http.cors(withDefaults());
         http.sessionManagement((session) -> session
@@ -74,7 +73,8 @@ public class SecurityConfig {
                     "/user/{usuarioID}/lista-favoritos", "/user/{usuarioID}/lista-seguidores",
                     "/user/{usuarioID}/calcular-media").permitAll()
                 .requestMatchers(HttpMethod.POST, "/user/auth/register", "/user/auth/login",
-                    "/user/auth/refresh/token", "/user/activate/account/","/error").permitAll()
+                    "/user/auth/refresh/token", "/user/activate/account/", "user/auth/logout",
+                    "/error").permitAll()
 
                 //ADMIN
                 .requestMatchers("/me/admin").hasRole("ADMIN")
@@ -96,7 +96,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/talento/{id}", "/intercambio/cancelar/{id}",
                     "/bloque/{bloqueID}/eliminar").hasRole("USER")
 
-                .anyRequest().authenticated());/*.httpBasic(withDefaults());*/ // Habilita Basic Auth);
+                .anyRequest().authenticated());
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

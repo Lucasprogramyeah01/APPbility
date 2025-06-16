@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.continente.create;
+package com.example.APPbility.validation.continente;
 
 import com.example.APPbility.repository.ContinenteRepository;
 import jakarta.validation.ConstraintValidator;

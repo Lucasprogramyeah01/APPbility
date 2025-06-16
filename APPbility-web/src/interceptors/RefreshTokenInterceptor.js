@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useAuthService } from '../security/authService';
 
 let isRefreshing = false;
@@ -17,10 +18,11 @@ export function setupRefreshTokenInterceptor(axiosInstance) {
     response => response,
     async error => {
       const originalRequest = error.config;
+
+      console.log('ORIGINAL REQUEST', originalRequest);
       
       if (error.response?.status === 401 && !originalRequest._retry) {
         if (originalRequest.url.includes('/user/auth/refresh/token')) {
-          // Fallo al refrescar el token - hacer logout
           await useAuthService.logout();
           return Promise.reject(error);
         }
@@ -28,8 +30,12 @@ export function setupRefreshTokenInterceptor(axiosInstance) {
         originalRequest._retry = true;
 
         if (!isRefreshing) {
+          console.log(isRefreshing)
+
           isRefreshing = true;
-          const refreshToken = useAuthService.getRefreshToken();
+          const refreshToken = useAuthService().getRefreshToken();
+
+          console.log("NUEVO RFTOK", refreshToken);
           
           if (!refreshToken) {
             await useAuthService.logout();
@@ -46,7 +52,7 @@ export function setupRefreshTokenInterceptor(axiosInstance) {
             isRefreshing = false;
             onRefreshed(response.data.token);
             
-            // Reintentar petición original
+            // Reintentar petición original.
             originalRequest.headers.Authorization = `Bearer ${response.data.token}`;
             return axiosInstance(originalRequest);
           } catch (refreshError) {
@@ -56,7 +62,6 @@ export function setupRefreshTokenInterceptor(axiosInstance) {
           }
         }
 
-        // Si ya está refrescando, encolar la petición
         return new Promise((resolve) => {
           subscribeTokenRefresh((token) => {
             originalRequest.headers.Authorization = `Bearer ${token}`;

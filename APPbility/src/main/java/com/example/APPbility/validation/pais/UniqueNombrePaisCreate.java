@@ -1,4 +1,4 @@
-package com.example.APPbility.validation.continente.create;
+package com.example.APPbility.validation.pais;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -7,11 +7,11 @@ import java.lang.annotation.*;
 
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UniqueNombreContinenteValidator.class)
+@Constraint(validatedBy = UniqueNombrePaisCreateValidator.class)
 @Documented
-public @interface UniqueNombreContinente {
+public @interface UniqueNombrePaisCreate {
 
-    String message() default "Ya existe un continente registrado con ese nombre.";
+    String message() default "Ya existe un pais registrado con ese nombre.";
 
     Class<?>[] groups() default {};
 

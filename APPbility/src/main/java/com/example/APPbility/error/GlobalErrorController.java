@@ -88,8 +88,8 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EntityWithRelationshipsException.class)
     public ResponseEntity<String> EntityWithRelationshipsException(EntityWithRelationshipsException ex) {
         return ResponseEntity
-                .status(HttpStatus.CONFLICT)
-                .body(ex.getMessage());
+            .status(HttpStatus.CONFLICT)
+            .body(ex.getMessage());
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -124,12 +124,12 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
 
     @Builder
     record ApiValidationSubError(
-            String object,
-            String message,
-            @JsonInclude(JsonInclude.Include.NON_NULL)
-            String field,
-            @JsonInclude(JsonInclude.Include.NON_NULL)
-            Object rejectedValue
+        String object,
+        String message,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        String field,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        Object rejectedValue
     ){
 
         public ApiValidationSubError(String object, String message) {
@@ -159,17 +159,17 @@ public class GlobalErrorController  extends ResponseEntityExceptionHandler {
 
         public static ApiValidationSubError from(ConstraintViolation v) {
             return ApiValidationSubError.builder()
-                    .message(v.getMessage())
-                    .rejectedValue(v.getInvalidValue())
-                    .object(v.getRootBean().getClass().getSimpleName())
-                    .field(
-                        Optional.ofNullable(v.getPropertyPath())
-                            .map(PathImpl.class::cast)
-                            .map(PathImpl::getLeafNode)
-                            .map(NodeImpl::asString)
-                            .orElse("unknown")
-                    )
-                    .build();
+                .message(v.getMessage())
+                .rejectedValue(v.getInvalidValue())
+                .object(v.getRootBean().getClass().getSimpleName())
+                .field(
+                    Optional.ofNullable(v.getPropertyPath())
+                        .map(PathImpl.class::cast)
+                        .map(PathImpl::getLeafNode)
+                        .map(NodeImpl::asString)
+                        .orElse("unknown")
+                )
+                .build();
         }
 
     }
