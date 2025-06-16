@@ -14,7 +14,8 @@ const rutasOcultas = [
   //ROL: Admin
   '/continentes', 
   /^\/continente\/\d+$/,
-  '/registrarContinente'
+  '/registrarContinente',
+  /^\/editarContinente\/\d+$/,
 ];
 
 // COMPUTED ---------------------------------------------------------------

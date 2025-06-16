@@ -1,26 +1,25 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, watch, onMounted } from 'vue';
-import { ContinenteService } from '../services/continenteService';
+import { ContinenteService } from '../../services/continenteService';
 import { useRoute } from 'vue-router';
-import LoadingComponent from './loadingComponent.vue';
+import LoadingComponent from '../loadingComponent.vue';
 
-// data() ---------------------------------------------------------------
+// DATA() ---------------------------------------------------------------
 
 const continente = ref(null);
-const isLoading = ref(true);
-const error = ref(null);
 
 const route = useRoute();
 const id = route.params.id;
 
-// created() ---------------------------------------------------------------
+const isLoading = ref(true);
+const error = ref(null);
 
-onMounted(() => {
-  buscarContinentePorID(id);
-});
+// CREATED() ---------------------------------------------------------------
 
-// methods ---------------------------------------------------------------
+onMounted(() => buscarContinentePorID(id));
+
+// METHODS ---------------------------------------------------------------
 
 const buscarContinentePorID = async () => {
   try {
@@ -33,7 +32,7 @@ const buscarContinentePorID = async () => {
   }
 };
 
-// watch ---------------------------------------------------------------
+// WATCH ---------------------------------------------------------------
 
 watch(
   () => id,
@@ -55,7 +54,7 @@ watch(
         </div>
         <div class="container-fluid d-flex flex-column fondoOscuro py-3 ps-5">
             <div class="w-auto d-flex">
-                <img src="../assets/img/APPbilityLogo.png" width="40px" height="40px" />
+                <img src="../../assets/img/APPbilityLogo.png" width="40px" height="40px" />
                 <span class="text-white madimiOne ms-2" style="font-size: 30px;">
                     APP<span class="amarillo">bility</span> <span style="color: aqua; font-size: 20px;">admin</span>
                 </span>

@@ -7,21 +7,29 @@ import { roleGuard } from '../guards/roleGuard';
 
 import PantallaLogin from '../components/PantallaLogin.vue';
 import FormRegistroUsuario from '../components/FormRegistroUsuario.vue';
-import PantallaContinentesAdmin from '../components/PantallaContinentesAdmin.vue';
-import PantallaPaisesAdmin from '../components/PantallaPaisesAdmin.vue';
+import PantallaContinentesAdmin from '../components/admin/PantallaContinentesAdmin.vue';
+import PantallaPaisesAdmin from '../components/admin/PantallaPaisesAdmin.vue';
 import FormRegistroContinente from '../components/FormRegistroContinente.vue';
 import PantallaInicio from '../components/PantallaInicio.vue';
 import PantallaInicioAdmin from '../components/PantallaInicioAdmin.vue';
 import PantallaAccesoNoAutorizado from '../components/PantallaAccesoNoAutorizado.vue';
+import PantallaPerfilUsuario from '../components/PantallaPerfilUsuario.vue';
+import FormProponerIntercambio from '../components/FormProponerIntercambio.vue';
 
 const routes = [
   { path: '/login', component: PantallaLogin },
   { path: '/registrarUsuario', component: FormRegistroUsuario },
+
+  { path: '/inicio', component: PantallaInicio, meta:{roles: ['USER']} },
+  { path: '/perfil/:id', component: PantallaPerfilUsuario, meta:{roles: ['USER']} },
+  { path: '/proponerIntercambio/:id', component: FormProponerIntercambio, meta:{roles: ['USER']} },
+
+  { path: '/inicioAdmin', component: PantallaInicioAdmin, meta:{roles: ['ADMIN']} },
   { path: '/continentes', component: PantallaContinentesAdmin, meta:{roles: ['ADMIN']} },
   { path: '/continente/:id', component: PantallaPaisesAdmin, meta:{roles: ['ADMIN']} },
   { path: '/registrarContinente', component: FormRegistroContinente, meta:{roles: ['ADMIN']} },
-  { path: '/inicio', component: PantallaInicio, meta:{roles: ['USER']} },
-  { path: '/inicioAdmin', component: PantallaInicioAdmin, meta:{roles: ['ADMIN']} },
+  { path: '/editarContinente/:id', component: FormRegistroContinente, meta:{roles: ['ADMIN']} },
+
   { path: '/accesoNoAutorizado', component: PantallaAccesoNoAutorizado },
 ]
 

@@ -52,7 +52,7 @@ const iniciarSesion = async () => {
 
 
 <template>
-    <div class="d-flex flex-column fondoDegradado">
+    <div class="d-flex flex-column fondoDegradado vh-100">
         <div class="container-fluid d-flex flex-column fondoOscuro mt-5 py-5">
           <div class="w-auto d-flex justify-content-center">
             <img src="../assets/img/APPbilityLogo.png" width="180px" height="180px" />

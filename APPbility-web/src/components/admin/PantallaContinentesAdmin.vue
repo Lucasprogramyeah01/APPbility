@@ -1,7 +1,9 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, computed, onMounted, watch } from 'vue';
-import { ContinenteService } from '../services/continenteService';
+import { ContinenteService } from '../../services/continenteService';
+import Swal from 'sweetalert2';
+import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------
 
@@ -12,11 +14,13 @@ const listaContinentes = ref({
 
 //Pag
 const currentPage = ref(1);
-const pageSize = 10;
+const pageSize = 9;
 const totalElements = ref(0);
 
 const isLoading = ref(true);
 const error = ref(null);
+
+const toast = useToast();
 
 // CREATED() ---------------------------------------------------------------
 
@@ -36,6 +40,32 @@ async function listarContinentes(page = 1) {
     error.value = err.message;
   } finally {
     isLoading.value = false;
+  }
+}
+
+async function eliminarContinente(id) {
+  const result = await Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Esta acción no se puede deshacer.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  });
+
+  if (result.isConfirmed) {
+    isLoading.value = true;
+    try {
+      await ContinenteService.deleteContinente(id);
+      await listarContinentes(currentPage.value);
+      toast.success('Continente eliminado con éxito.');
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      isLoading.value = false;
+    }
   }
 }
 
@@ -65,7 +95,7 @@ watch(currentPage, (newPage) => {
         </div>
         <div class="container-fluid d-flex flex-column fondoOscuro py-3 ps-5">
             <div class="w-auto d-flex">
-                <img src="../assets/img/APPbilityLogo.png" width="40px" height="40px" />
+                <img src="../../assets/img/APPbilityLogo.png" width="40px" height="40px" />
                 <span class="text-white madimiOne ms-2" style="font-size: 30px;">
                     APP<span class="amarillo">bility</span> <span style="color: aqua; font-size: 20px;">admin</span>
                 </span>
@@ -98,7 +128,6 @@ watch(currentPage, (newPage) => {
         </div>
         <div 
             class="d-flex flex-wrap justify-content-around mx-5 mt-4 px-3 pb-5"
-            v-if="!isEmpty"
         >
             <div class="col-12 p-2 my-2 mx-1 afacad" style="width: 30%;"
                 v-for="continente in listaContinentes.content" 
@@ -109,10 +138,16 @@ watch(currentPage, (newPage) => {
                         <div class="d-flex justify-content-between">
                             <h1 class="amarillo madimiOne">{{ continente.id }}</h1>
                             <div>
+                              <RouterLink :to="`/editarContinente/${continente.id}`" class="text-decoration-none">
                                 <b-button href="#" class="h-auto ms-2 fondoNaranja border-0">
                                     <i class="bi bi-pencil-fill" style="font-size: 25px;"></i>
                                 </b-button>
-                                <b-button href="#" class="h-auto ms-2 fondoRojo border-0">
+                              </RouterLink>
+
+                                <b-button 
+                                    class="h-auto ms-2 fondoRojo border-0"
+                                    @click="eliminarContinente(continente.id)"
+                                >
                                     <i class="bi bi-trash3-fill" style="font-size: 25px;"></i>
                                 </b-button>
                             </div>
@@ -127,7 +162,7 @@ watch(currentPage, (newPage) => {
                 </b-card>
             </div>
         </div>
-        <div v-else-if="!isEmpty && totalPages > 1" class="d-flex justify-content-center mt-3 mb-5">
+        <div v-if="!isEmpty && totalPages > 1" class="d-flex justify-content-center mt-3 mb-5">
           <b-pagination
             v-model="currentPage"
             :total-rows="totalElements"
@@ -138,7 +173,7 @@ watch(currentPage, (newPage) => {
             class=""
           />
         </div>
-        <div v-else>
+        <div v-else-if="isEmpty">
             <div class="d-flex flex-column justify-content-center mb-5 mt-4 pt-2 text-center">
                 <div>
                 <img src="../assets/img/withoutContent.jpg" width="200px"/>
@@ -230,4 +265,5 @@ watch(currentPage, (newPage) => {
 #tarjeta:hover{
     transform: scale(1.07);
 }
+
 </style>
