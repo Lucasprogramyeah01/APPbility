@@ -7,9 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface PaisRepository extends JpaRepository<Pais, Long> {
 
-    /*@Query("SELECT p FROM Pais p")
-    Page<Pais> findAllPaises(Pageable pageable);*/
-
     boolean existsByNombreIgnoreCase(String nombre);
     boolean existsByCodigoISOIgnoreCase(String codigoISO);
 
@@ -17,7 +14,7 @@ public interface PaisRepository extends JpaRepository<Pais, Long> {
     boolean existsByCodigoISOIgnoreCaseAndIdNot(String codigoISO, Long id);
 
     @Query("""
-        SELECT c 
+        SELECT c
         FROM Pais p JOIN p.continente c
         WHERE p.id = ?1
         """)

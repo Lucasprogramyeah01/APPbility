@@ -9,13 +9,12 @@ import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.repository.ContinenteRepository;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -46,6 +45,7 @@ public class ContinenteService {
     }
 
     //Crear Continente.
+    @Transactional
     public Continente save(CreateContinenteCMD nuevo){
         return continenteRepository.save(Continente.builder()
             .nombre(nuevo.nombre())
@@ -53,6 +53,7 @@ public class ContinenteService {
     }
 
     //Editar Continente.
+    @Transactional
     public Continente edit(EditContinenteCMD editContinenteCMD, Long id){
         Continente continente = continenteRepository.findById(id).orElseThrow(() ->
             new ContinenteNotFoundException(id));
@@ -69,6 +70,7 @@ public class ContinenteService {
     }
 
     //Borrar Continente.
+    @Transactional
     public void delete(Long id){
         Continente continente = continenteRepository.findById(id).orElseThrow(() ->
             new ContinenteNotFoundException(id));

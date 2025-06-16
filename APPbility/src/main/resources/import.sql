@@ -10,18 +10,32 @@ INSERT INTO continente (id, nombre) VALUES (7, 'Antártida');
 ALTER SEQUENCE continente_seq RESTART WITH 57;
 
 
+
 -- PAISES.
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (1, 'Andorra', 'AD', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ad.png', 3);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (2, 'Emiratos Árabes Unidos', 'AE', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ae.png', 5);
-INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (3, 'Afghanistan', 'AF', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/af.png', 5);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (3, 'Afganistán', 'AF', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/af.png', 5);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (4, 'Antigua y Barbuda', 'AG', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ag.png', 1);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (5, 'Albania', 'AL', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/al.png', 3);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (7, 'Armenia', 'AM', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/am.png', 3);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (8, 'Angola', 'AO', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ao.png', 4);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (9, 'Región Antártica', 'AQ', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/aq.png', 7);
 INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (10, 'Argentina', 'AR', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ar.png', 2);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (12, 'Austria', 'AT', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/at.png', 3);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (13, 'Australia', 'AU', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/au.png', 6);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (16, 'Azerbaiyán', 'AZ', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/az.png', 3);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (17, 'Bosnia y Herzegovina', 'BA', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/ba.png', 3);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (18, 'Barbados', 'BB', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bb.png', 1);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (19, 'Bangladesh', 'BD', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bd.png', 5);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (20, 'Bélgica', 'BE', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/be.png', 3);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (21, 'Burkina Faso', 'BF', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bf.png', 4);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (22, 'Bulgaria', 'BG', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bg.png', 3);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (23, 'Baréin', 'BH', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bh.png', 5);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (24, 'Burundi', 'BI', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bi.png', 4);
+INSERT INTO pais (id, nombre, codigoISO, bandera, continente_id) VALUES (25, 'Benín', 'BJ', 'https://flagpedia.net/data/flags/emoji/twitter/256x256/bj.png', 4);
 
-ALTER SEQUENCE pais_seq RESTART WITH 59;
+ALTER SEQUENCE pais_seq RESTART WITH 75;
+
 
 
 -- NIVELES.
@@ -32,6 +46,7 @@ INSERT INTO nivel (id, nombre, color, orden) VALUES (4, 'Avanzado', '#ff9500', '
 INSERT INTO nivel (id, nombre, color, orden) VALUES (5, 'Experto', '#e80044', '5');
 
 ALTER SEQUENCE nivel_seq RESTART WITH 55;
+
 
 
 -- USUARIOS.
@@ -109,6 +124,8 @@ INSERT INTO user_entity (id, username, password, email, nombre, apellidos, fecha
 
 ALTER SEQUENCE talento_seq RESTART WITH 64;
 
+
+
 --INTERCAMBIOS.
 -- [UD: Khin90, US: Arman] PROPUESTO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (1,'PROPUESTO', '2025-04-22T10:45:00', null, null, false, false, '123e4567-e89b-12d3-a456-426614174000', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 7, null, 3);
@@ -132,6 +149,7 @@ INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo,
     INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (1, 10, 'La mejor maestra', 'Aprender manicura con ella ha sido una experiencia increíble. Es paciente, detallista y transmite su pasión por el cuidado de las uñas con cada explicación. Gracias a su guía, he ganado confianza y técnica. ¡Una excelente maestra y profesional!', 'f13a2e98-70f5-4d61-93ab-349be7022025', 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', 3);
     INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (2, 8, null, 'Su enfoque para enseñar pintura abstracta es muy interesante y me ha ayudado a soltarme creativamente. Aunque a veces me costaba seguir el ritmo, aprendí nuevas formas de expresarme y explorar el color. Una experiencia enriquecedora.', 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', 'f13a2e98-70f5-4d61-93ab-349be7022025', 3);
 
+
 -- [UD: SofiaML, US: RajTech] ACTIVO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (4, 'ACTIVO', '2025-05-15T14:20:00', '2025-05-18T10:00:00', null, false, false, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 14, 11, 12);
     INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (5, '2025-06-10', 4);
@@ -140,17 +158,16 @@ INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo,
     INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (6, '2025-06-17', 4);
         INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (9, 'Decoración de cupcakes', 'Uso de manga pastelera y fondant para diseños sencillos.', '16:00', 6, '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91');
 
--- [UD: RajTech, US: Elirart] PROPUESTO (Arte por Seguridad)
+-- [UD: RajTech, US: Elirart] PROPUESTO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (5, 'PROPUESTO', '2025-06-01T09:15:00', null, null, false, false, 'd29c9b83-eec2-445f-9aa3-b49e2f3f70a7', 'f13a2e98-70f5-4d61-93ab-349be7022025', 4, null, 13);
 
--- [UD: Khin90, US: SofiaML] FINALIZADO (Karate por Repostería)
+-- [UD: Khin90, US: SofiaML] FINALIZADO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (6, 'FINALIZADO', '2025-04-10T11:30:00', '2025-04-12T16:45:00', '2025-05-20T12:00:00', true, true, '123e4567-e89b-12d3-a456-426614174000', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 12, 1, 3);
     INSERT INTO sesion (id, fecha, intercambio_id_asociado_a_sesion) VALUES (7, '2025-04-20', 6);
         INSERT INTO bloque (id, titulo, descripcion, hora, sesion_id, usuario_creador_id) VALUES (10, 'Posturas básicas de karate', 'Kihon: posiciones, bloqueos y golpes fundamentales.', '18:00', 7, '123e4567-e89b-12d3-a456-426614174000');
     -----
     INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (3, 9, '¡Increíble maestro!', 'Khin tiene una paciencia infinita y explica cada movimiento con claridad. Ahora me siento más segura al caminar de noche.', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', '123e4567-e89b-12d3-a456-426614174000', 6);
     INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (4, 7, null, 'Sofia es muy creativa, aunque a veces iba demasiado rápido para mi nivel. ¡Mis cupcakes mejoraron mucho!', '123e4567-e89b-12d3-a456-426614174000', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 6);
-
 
 ALTER SEQUENCE intercambio_seq RESTART WITH 56;
 ALTER SEQUENCE sesion_seq RESTART WITH 57;

@@ -86,8 +86,8 @@ public class ContinenteController {
                 )}
             )}),
         @ApiResponse(responseCode = "204",
-                description = "No hay Continentes registrados.",
-                content = @Content)
+            description = "No hay Continentes registrados.",
+            content = @Content)
     })
     @GetMapping
     public Page<GetContinenteDTO> findAll(@PageableDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
@@ -131,8 +131,8 @@ public class ContinenteController {
                 )}
             )}),
         @ApiResponse(responseCode = "404",
-                description = "Continente no encontrado.",
-                content = @Content)
+            description = "Continente no encontrado.",
+            content = @Content)
     })
     @GetMapping("{id}")
     public GetContinenteDTOCompleto findByID(@PathVariable Long id){
@@ -158,8 +158,8 @@ public class ContinenteController {
                 )}
             )}),
         @ApiResponse(responseCode = "400",
-                description = "Datos de entrada incorrectos.",
-                content = @Content)
+            description = "Datos de entrada incorrectos.",
+            content = @Content)
     })
     @PostMapping
     public ResponseEntity<Continente> save(@Valid @RequestBody CreateContinenteCMD nuevo){
@@ -181,11 +181,11 @@ public class ContinenteController {
                 )}
             )}),
         @ApiResponse(responseCode = "400",
-                description = "Datos de entrada incorrectos.",
-                content = @Content),
+            description = "Datos de entrada incorrectos.",
+            content = @Content),
         @ApiResponse(responseCode = "404",
-                description = "Continente no encontrado.",
-                content = @Content)
+            description = "Continente no encontrado.",
+            content = @Content)
     })
     @PutMapping("{id}")
     public GetContinenteDTO edit(@Valid @RequestBody EditContinenteCMD editContinenteCMD, @PathVariable Long id){

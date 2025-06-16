@@ -13,9 +13,10 @@ public interface ContinenteRepository extends JpaRepository<Continente, Long> {
     boolean existsByNombreIgnoreCaseAndIdNot(String nombre, Long id);
 
     @Query("""
-        SELECT c.listaPaises 
-        FROM Continente c
-        WHERE c.id = ?1
+        SELECT p
+        FROM Pais p
+        WHERE p.continente.id = ?1
+        ORDER BY p.nombre ASC
         """)
     List<Pais> findListaPaisesByContinenteID(Long id);
 

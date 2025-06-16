@@ -1,13 +1,12 @@
 package com.example.APPbility.user.dto.seguridad;
 
 import com.example.APPbility.model.Modalidad;
-import com.example.APPbility.model.Pais;
 import com.example.APPbility.model.Sexo;
+import com.example.APPbility.validation.user.UserAgeOfMajority;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 public record CreateUserRequest(
         @NotBlank(message = "{user.username.notBlank}")
@@ -26,6 +25,7 @@ public record CreateUserRequest(
         @NotBlank(message = "{user.email.notBlank}")
         String email,
 
+        @UserAgeOfMajority
         @Past(message = "{user.fechaNacimiento.past}")
         @NotNull(message = "{user.fechaNacimiento.notNull}")
         LocalDate fechaNacimiento,

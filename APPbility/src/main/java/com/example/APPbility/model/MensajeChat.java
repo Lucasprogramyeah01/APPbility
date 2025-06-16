@@ -29,11 +29,6 @@ public class MensajeChat {
 
     //Con INTERCAMBIO [<-->] (M-1).
     @ManyToOne
-    /*@JoinColumns({
-            @JoinColumn(name = "usuario_demandante_id_asociado_a_mensaje", referencedColumnName = "usuarioDemandante_id"),
-            @JoinColumn(name = "usuario_solicitado_id_asociado_a_mensaje", referencedColumnName = "usuarioSolicitado_id"),
-            @JoinColumn(name = "fechaSolicitud_asociada_a_mensaje", referencedColumnName = "fechaSolicitud")
-    })*/
     @JoinColumn(
             name="intercambio_id_asociado_a_mensaje",
             foreignKey = @ForeignKey(name="fk_mensajeChat_intercambio")

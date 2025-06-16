@@ -47,8 +47,7 @@ public class SesionController {
                                         {
                                             "id": 1,
                                             "titulo": "Cepillado",
-                                            "descripcion": "Hoy le enseñaré a cepillar el pelo de un perro regularmente
-                                                para mantenerlo limpio y prevenir problemas de piel.",
+                                            "descripcion": "Hoy le enseñaré a cepillar el pelo de un perro regularmente para mantenerlo limpio y prevenir problemas de piel.",
                                             "hora": "12:30:00",
                                             "usuarioID": "d19b3b6e-8f7a-43f1-a8f4-92e3d5a40007",
                                             "username": "MalenG"
@@ -56,8 +55,7 @@ public class SesionController {
                                         {
                                             "id": 2,
                                             "titulo": "Estudio de células y tejidos",
-                                            "descripcion": "Toca preparar muestras de células humanas, vegetales o
-                                                animales para observar su estructura y funcionamiento.",
+                                            "descripcion": "Toca preparar muestras de células humanas, vegetales o animales para observar su estructura y funcionamiento.",
                                             "hora": "18:00:00",
                                             "usuarioID": "9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00",
                                             "username": "Arman"
@@ -71,9 +69,7 @@ public class SesionController {
                                         {
                                             "id": 3,
                                             "titulo": "Identificación de microorganismos",
-                                            "descripcion": "Utilizaremos los microscopios para
-                                                identificar bacterias, virus y otros microorganismos
-                                                en muestras de agua, suelo o aire.",
+                                            "descripcion": "Utilizaremos los microscopios para identificar bacterias, virus y otros microorganismos en muestras de agua, suelo o aire.",
                                             "hora": "20:10:00",
                                             "usuarioID": "9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00",
                                             "username": "Arman"

@@ -1,6 +1,8 @@
 package com.example.APPbility.security.jwt.refresh;
 
-public class RefreshTokenException extends RuntimeException {
+import com.example.APPbility.security.exceptionHandling.JwtException;
+
+public class RefreshTokenException extends JwtException {
     public RefreshTokenException(String message) {
         super(message);
     }

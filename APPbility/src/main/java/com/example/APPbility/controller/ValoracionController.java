@@ -107,7 +107,7 @@ public class ValoracionController {
 
     @Operation(summary = "Devuelve una lista paginada de todas las Valoraciones de un Usuario.",
         description = "Devuelve una lista paginada de todas las Valoraciones relacionadas con un Usuario (como " +
-        "   escritor o valorado).")
+            "escritor o valorado).")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200",
             description = "Lista de valoraciones obtenida correctamente.",
@@ -140,11 +140,8 @@ public class ValoracionController {
                                              "color": "#FF00CC",
                                              "imagenPerfil": "https://medias.artmajeur.com/mini/17840476_1.jpg",
                                              "idiomaNativo": "sq",
-                                             "descripcionProfesional": "Profesora de arte con enfoque en pintura
-                                                abstracta. Más de 7 aÃ±os de experiencia en talleres comunitarios y
-                                                proyectos escolares.",
-                                             "presentacionPersonal": "Me encanta ayudar a otros a descubrir su lado 
-                                                artístico y expresarse a través de los colores."
+                                             "descripcionProfesional": "Profesora de arte con enfoque en pintura abstracta. Más de 7 aÃ±os de experiencia en talleres comunitarios y proyectos escolares.",
+                                             "presentacionPersonal": "Me encanta ayudar a otros a descubrir su lado artístico y expresarse a través de los colores."
                                          },
                                          "usuarioValorado": {
                                              "id": "d19b3b6e-8f7a-43f1-a8f4-92e3d5a40007",
@@ -161,11 +158,8 @@ public class ValoracionController {
                                              "color": "#FF0F57",
                                              "imagenPerfil": "https://plus.unsplash.com/premium_photo-1661892088256-0a17130b3d0d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVycml0b3xlbnwwfHwwfHx8MA%3D%3D",
                                              "idiomaNativo": "es",
-                                             "descripcionProfesional": "Graduada en Veterinaria, con especializaciones 
-                                                en dermatología animal y comportamiento felino. También cuenta con 
-                                                estudios de estética y cuidado personal.",
-                                             "presentacionPersonal": "Soy una persona optimista, amante de los animales 
-                                                y la belleza. Disfruto enseñando lo que sé y aprendiendo de los demás."
+                                             "descripcionProfesional": "Graduada en Veterinaria, con especializaciones en dermatología animal y comportamiento felino. También cuenta con estudios de estética y cuidado personal.",
+                                             "presentacionPersonal": "Soy una persona optimista, amante de los animales y la belleza. Disfruto enseñando lo que sé y aprendiendo de los demás."
                                          },
                                          "intercambio": {
                                              "intercambioID": 3,
@@ -178,8 +172,7 @@ public class ValoracionController {
                                              "talentoSolicitado": {
                                                  "id": 10,
                                                  "titulo": "Manicura y nail art profesional",
-                                                 "descripcion": "Aprende técnicas de manicura moderna, cuidado de uñas 
-                                                    y decoración creativa. Incluye consejos de higiene y estética.",
+                                                 "descripcion": "Aprende técnicas de manicura moderna, cuidado de uñas y decoración creativa. Incluye consejos de higiene y estética.",
                                                  "imagen": null,
                                                  "nivel": {
                                                      "id": 4,
@@ -191,8 +184,7 @@ public class ValoracionController {
                                              "talentoAceptado": {
                                                  "id": 4,
                                                  "titulo": "Pintura abstracta",
-                                                 "descripcion": "Exploro formas, colores y emociones. Enseño técnicas 
-                                                    modernas y expresión libre.",
+                                                 "descripcion": "Exploro formas, colores y emociones. Enseño técnicas modernas y expresión libre.",
                                                  "imagen": "https://i.pinimg.com/736x/61/98/79/619879c242922d0f7f317d63095d1920.jpg",
                                                  "nivel": {
                                                      "id": 4,
@@ -204,9 +196,7 @@ public class ValoracionController {
                                              "talentoSugerido": {
                                                  "id": 5,
                                                  "titulo": "Introducción al bordado",
-                                                 "descripcion": "Curso básico de técnicas de bordado tradicional, 
-                                                    ideal para principiantes que quieren aprender a crear sus primeros 
-                                                    diseños a mano.",
+                                                 "descripcion": "Curso básico de técnicas de bordado tradicional, ideal para principiantes que quieren aprender a crear sus primeros diseños a mano.",
                                                  "imagen": null,
                                                  "nivel": {
                                                      "id": 2,
@@ -221,10 +211,7 @@ public class ValoracionController {
                                          "id": 2,
                                          "puntuacion": 8,
                                          "titulo": null,
-                                         "resenha": "Su enfoque para enseñar pintura abstracta es muy interesante y me 
-                                            ha ayudado a soltarme creativamente. Aunque a veces me costaba seguir el 
-                                            ritmo, aprendí nuevas formas de expresarme y explorar el color. Una 
-                                            experiencia enriquecedora.",
+                                         "resenha": "Su enfoque para enseñar pintura abstracta es muy interesante y me ha ayudado a soltarme creativamente. Aunque a veces me costaba seguir el ritmo, aprendí nuevas formas de expresarme y explorar el color. Una experiencia enriquecedora.",
                                          "usuarioEscritor": {
                                              "id": "d19b3b6e-8f7a-43f1-a8f4-92e3d5a40007",
                                              "username": "MalenG",
@@ -240,11 +227,8 @@ public class ValoracionController {
                                              "color": "#FF0F57",
                                              "imagenPerfil": "https://plus.unsplash.com/premium_photo-1661892088256-0a17130b3d0d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVycml0b3xlbnwwfHwwfHx8MA%3D%3D",
                                              "idiomaNativo": "es",
-                                             "descripcionProfesional": "Graduada en Veterinaria, con especializaciones 
-                                                en dermatología animal y comportamiento felino. También cuenta con 
-                                                estudios de estética y cuidado personal.",
-                                             "presentacionPersonal": "Soy una persona optimista, amante de los animales 
-                                                y la belleza. Disfruto enseñando lo que sé y aprendiendo de los demás."
+                                             "descripcionProfesional": "Graduada en Veterinaria, con especializaciones en dermatología animal y comportamiento felino. También cuenta con estudios de estética y cuidado personal.",
+                                             "presentacionPersonal": "Soy una persona optimista, amante de los animales y la belleza. Disfruto enseñando lo que sé y aprendiendo de los demás."
                                          },
                                          "usuarioValorado": {
                                              "id": "f13a2e98-70f5-4d61-93ab-349be7022025",
@@ -261,11 +245,8 @@ public class ValoracionController {
                                              "color": "#FF00CC",
                                              "imagenPerfil": "https://medias.artmajeur.com/mini/17840476_1.jpg",
                                              "idiomaNativo": "sq",
-                                             "descripcionProfesional": "Profesora de arte con enfoque en pintura 
-                                                abstracta. Más de 7 años de experiencia en talleres comunitarios y 
-                                                proyectos escolares.",
-                                             "presentacionPersonal": "Me encanta ayudar a otros a descubrir su lado 
-                                                artístico y expresarse a través de los colores."
+                                             "descripcionProfesional": "Profesora de arte con enfoque en pintura abstracta. Más de 7 años de experiencia en talleres comunitarios y proyectos escolares.",
+                                             "presentacionPersonal": "Me encanta ayudar a otros a descubrir su lado artístico y expresarse a través de los colores."
                                          },
                                          "intercambio": {
                                              "intercambioID": 3,
@@ -278,8 +259,7 @@ public class ValoracionController {
                                              "talentoSolicitado": {
                                                  "id": 10,
                                                  "titulo": "Manicura y nail art profesional",
-                                                 "descripcion": "Aprende técnicas de manicura moderna, cuidado de uñas 
-                                                    y decoración creativa. Incluye consejos de higiene y estética.",
+                                                 "descripcion": "Aprende técnicas de manicura moderna, cuidado de uñas y decoración creativa. Incluye consejos de higiene y estética.",
                                                  "imagen": null,
                                                  "nivel": {
                                                      "id": 4,
@@ -291,8 +271,7 @@ public class ValoracionController {
                                              "talentoAceptado": {
                                                  "id": 4,
                                                  "titulo": "Pintura abstracta",
-                                                 "descripcion": "Exploro formas, colores y emociones. Enseño técnicas 
-                                                    modernas y expresión libre.",
+                                                 "descripcion": "Exploro formas, colores y emociones. Enseño técnicas modernas y expresión libre.",
                                                  "imagen": "https://i.pinimg.com/736x/61/98/79/619879c242922d0f7f317d63095d1920.jpg",
                                                  "nivel": {
                                                      "id": 4,
@@ -304,9 +283,7 @@ public class ValoracionController {
                                              "talentoSugerido": {
                                                  "id": 5,
                                                  "titulo": "Introducción al bordado",
-                                                 "descripcion": "Curso básico de técnicas de bordado tradicional, ideal 
-                                                    para principiantes que quieren aprender a crear sus primeros 
-                                                    diseños a mano.",
+                                                 "descripcion": "Curso básico de técnicas de bordado tradicional, ideal para principiantes que quieren aprender a crear sus primeros diseños a mano.",
                                                  "imagen": null,
                                                  "nivel": {
                                                      "id": 2,

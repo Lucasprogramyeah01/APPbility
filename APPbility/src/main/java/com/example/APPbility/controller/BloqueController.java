@@ -40,8 +40,7 @@ public class BloqueController {
                     value = """
                             {
                                 "titulo": "Inglés - Past Tenses",
-                                "descripcion": "Repasaremos los tiempos en pasado de inglés y realizaremos tanto una
-                                    entrevista como un examen escrito para poner a prueba lo aprendido.",
+                                "descripcion": "Repasaremos los tiempos en pasado de inglés y realizaremos tanto una entrevista como un examen escrito para poner a prueba lo aprendido.",
                                 "hora": "22:30",
                                 "fechaSesion": "2025-06-25",
                                 "intercambioID": "4"
@@ -74,22 +73,21 @@ public class BloqueController {
                     value = """
                             {
                                 "titulo": "Alemán - Futur I",
-                                "descripcion": "Repasaremos los tiempos en futuro de alemán y realizaremos tanto una
-                                    entrevista como un examen escrito para poner a prueba lo aprendido.",
+                                "descripcion": "Repasaremos los tiempos en futuro de alemán y realizaremos tanto una entrevista como un examen escrito para poner a prueba lo aprendido.",
                                 "hora": "13:30"
                             }
                             """
                 )}
             )}),
         @ApiResponse(responseCode = "400",
-                description = "Datos de entrada incorrectos.",
-                content = @Content),
+            description = "Datos de entrada incorrectos.",
+            content = @Content),
         @ApiResponse(responseCode = "401",
-                description = "Usuario no autenticado o no autorizado.",
-                content = @Content),
+            description = "Usuario no autenticado o no autorizado.",
+            content = @Content),
         @ApiResponse(responseCode = "404",
-                description = "Bloque no encontrado.",
-                content = @Content)
+            description = "Bloque no encontrado.",
+            content = @Content)
     })
     @PutMapping("/{bloqueID}/editar")
     public ResponseEntity<GetBloqueDTOConUserID> editarBloque(@AuthenticationPrincipal User usuarioAutenticado,

@@ -1,6 +1,5 @@
 package com.example.APPbility.repository;
 
-import com.example.APPbility.model.Intercambio;
 import com.example.APPbility.model.Sesion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

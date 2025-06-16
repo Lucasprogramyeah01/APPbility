@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Paths;
@@ -64,6 +65,7 @@ public class PaisService {
     }
 
     //Crear Pais.
+    @Transactional
     public Pais save(CreatePaisCMD nuevo, MultipartFile multipartFile){
         Continente continente = continenteRepository.findById(nuevo.continenteID())
             .orElseThrow(() -> new ContinenteNotFoundException("No se ha encontrado ningún continente con ese ID: "
@@ -82,6 +84,7 @@ public class PaisService {
     }
 
     //Editar Pais.
+    @Transactional
     public Pais edit(EditPaisCMD editPaisCMD, MultipartFile multipartFile, Long id){
         Pais pais = paisRepository.findById(id).orElseThrow(() -> new PaisNotFoundException(id));
 
@@ -125,6 +128,7 @@ public class PaisService {
     }
 
     //Borrar País.
+    @Transactional
     public void delete(Long id){
         Pais pais = paisRepository.findById(id).orElseThrow(() -> new PaisNotFoundException(id));
 

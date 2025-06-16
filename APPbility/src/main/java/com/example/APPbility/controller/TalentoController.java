@@ -43,7 +43,7 @@ public class TalentoController {
     private final TalentoService talentoService;
 
     @Operation(summary = "Devuelve una lista paginada de todos los Talentos de un Usuario.",
-            description = "Devuelve una lista paginada de todos Talentos asociados a un Usuario específico, ordenados " +
+        description = "Devuelve una lista paginada de todos Talentos asociados a un Usuario específico, ordenados " +
             "por su atributo 'titulo'.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200",
@@ -57,10 +57,7 @@ public class TalentoController {
                                     {
                                          "id": 1,
                                          "titulo": "Karate",
-                                         "descripcion": "Tal y como se muestra en mi perfil, soy karateka profesional
-                                            desde hace años y dispongo de cinturón negro, además también enseño trucos
-                                            de defensa personal contra armas de fuego y llaves de otras artes 
-                                            marciales.",
+                                         "descripcion": "Tal y como se muestra en mi perfil, soy karateka profesional desde hace años y dispongo de cinturón negro, además también enseño trucos de defensa personal contra armas de fuego y llaves de otras artes marciales.",
                                          "imagen": "https://m.media-amazon.com/images/I/61WraYc6DoL._AC_UF1000,1000_QL80_.jpg",
                                          "nivel": {
                                              "id": 5,
@@ -72,8 +69,7 @@ public class TalentoController {
                                      {
                                          "id": 2,
                                          "titulo": "Inglés para conversar",
-                                         "descripcion": "He vivido 3 años en Reino Unido y puedo ayudar a mejorar la 
-                                            fluidez, pronunciación y vocabulario en inglés.",
+                                         "descripcion": "He vivido 3 años en Reino Unido y puedo ayudar a mejorar la fluidez, pronunciación y vocabulario en inglés.",
                                          "imagen": null,
                                          "nivel": {
                                              "id": 3,
@@ -113,8 +109,8 @@ public class TalentoController {
                 )}
             )}),
         @ApiResponse(responseCode = "404",
-                description = "Usuario (del que se intenta obtener la lista de talentos) no encontrado.",
-                content = @Content)
+            description = "Usuario (del que se intenta obtener la lista de talentos) no encontrado.",
+            content = @Content)
     })
     @GetMapping("{id}")
     public Page<GetTalentoDTOConNivel> findTalentosfromUsuario(@PageableDefault(sort = "titulo",
@@ -132,15 +128,13 @@ public class TalentoController {
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201",
             description = "Se ha creado el Talento correctamente.",
-            content = { @Content(mediaType = "application/json",
+            content = { @Content(mediaType = "multipart/form-data",
                 schema = @Schema(implementation = GetTalentoDTOCompleto.class),
                 examples = {@ExampleObject(
                     value = """
                             {
                                 "titulo": "Cocina vegetariana casera",
-                                "descripcion": "Aprende a preparar recetas vegetarianas sencillas y sabrosas con
-                                    ingredientes naturales. Ideal para quienes quieren mejorar su alimentación sin 
-                                    complicaciones.",
+                                "descripcion": "Aprende a preparar recetas vegetarianas sencillas y sabrosas con ingredientes naturales. Ideal para quienes quieren mejorar su alimentación sin complicaciones.",
                                 "nivelID": 3
                             }
                             """
@@ -171,16 +165,13 @@ public class TalentoController {
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200",
             description = "Se ha editado el Talento correctamente.",
-            content = { @Content(mediaType = "application/json",
+            content = { @Content(mediaType = "multipart/form-data",
                 schema = @Schema(implementation = GetTalentoDTOCompleto.class),
                 examples = {@ExampleObject(
                     value = """
                             {
                               "titulo": "Cocina cárnica gourmet",
-                              "descripcion": "Domina técnicas avanzadas para preparar cortes premium de carne,
-                                marinados intensos y métodos de cocción como sous-vide y braseado. Perfecto para
-                                sorprender en cenas especiales o llevar tus habilidades culinarias al siguiente
-                                nivel.",
+                              "descripcion": "Domina técnicas avanzadas para preparar cortes premium de carne, marinados intensos y métodos de cocción como sous-vide y braseado. Perfecto para sorprender en cenas especiales o llevar tus habilidades culinarias al siguiente nivel.",
                               "nivelID": 4
                             }
                             """

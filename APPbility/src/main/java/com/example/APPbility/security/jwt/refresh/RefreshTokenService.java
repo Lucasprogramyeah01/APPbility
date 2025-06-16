@@ -51,4 +51,8 @@ public class RefreshTokenService {
             .orElseThrow(() -> new RefreshTokenException("No se ha podido refrescar el token. Por favor, vuelva a iniciar sesión."));
     }
 
+    public void deleteAllByUser(User usuario){
+        refreshTokenRepository.deleteByUser(usuario);
+    }
+
 }

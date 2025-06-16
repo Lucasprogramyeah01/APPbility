@@ -4,11 +4,9 @@ import com.example.APPbility.dto.valoracion.CreateValoracionCMD;
 import com.example.APPbility.error.custom.IllegalMatchException;
 import com.example.APPbility.error.custom.UnauthorizedAccessException;
 import com.example.APPbility.error.entity.IntercambioNotFoundException;
-import com.example.APPbility.error.entity.TalentoNotFoundException;
 import com.example.APPbility.error.entity.ValoracionNotFoundException;
 import com.example.APPbility.model.Estado;
 import com.example.APPbility.model.Intercambio;
-import com.example.APPbility.model.Talento;
 import com.example.APPbility.model.Valoracion;
 import com.example.APPbility.repository.IntercambioRepository;
 import com.example.APPbility.repository.ValoracionRepository;
@@ -39,13 +37,13 @@ public class ValoracionService {
         //Validación para comprobar que una valoración sólo se puede asociar a un intercambio con estado FINALIZADO.
         if (!intercambio.getEstado().equals(Estado.FINALIZADO)) {
             throw new IllegalMatchException("Solamente se pueden realizar valoraciones en un intercambio si su " +
-                    "estado es FINALIZADO.");
+                "estado es FINALIZADO.");
         }
 
         /*Validación para comprobar si aquel que valora a otro usuario en el intercambio es o el usuarioDemandante
         o el usuarioSolicitado.*/
         if (!intercambio.getUsuarioDemandante().getId().equals(usuarioAutenticado.getId()) &&
-                !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
+            !intercambio.getUsuarioSolicitado().getId().equals(usuarioAutenticado.getId())) {
             throw new UnauthorizedAccessException("No tiene permiso para realizar una valoración en este intercambio.");
         }
 

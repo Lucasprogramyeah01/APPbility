@@ -6,8 +6,6 @@ import com.example.APPbility.files.service.StorageService;
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.model.Sexo;
 import com.example.APPbility.repository.PaisRepository;
-import com.example.APPbility.repository.TagPRUEBARepository;
-import com.example.APPbility.repository.TalentoPRUEBARepository;
 import com.example.APPbility.repository.ValoracionRepository;
 import com.example.APPbility.user.dto.EditUserCMD;
 import com.example.APPbility.user.dto.seguridad.CreateUserRequest;
@@ -31,7 +29,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -117,6 +114,7 @@ public class UserService {
     }
 
     //Marcar Usuario como Favorito.
+    @Transactional
     public User addFavorito(User usuarioAutenticado, UUID id){
         User usuario = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
 

@@ -1,6 +1,5 @@
 package com.example.APPbility.validation.nivel;
 
-import com.example.APPbility.validation.continente.create.UniqueNombreContinenteValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

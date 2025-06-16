@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Paths;
@@ -47,6 +48,7 @@ public class TalentoService {
     }
 
     //Crear Talento.
+    @Transactional
     public Talento save(CreateTalentoCMD nuevo, MultipartFile multipartFile, User user){
         //Alternativa de la validación "UniqueTituloTalento".
         boolean nombreDuplicado = talentoRepository.existsByUsuarioIdAndTituloIgnoreCase(nuevo.titulo().trim(), user.getId());
@@ -75,6 +77,7 @@ public class TalentoService {
     //Editar Talento.
     /*En este métod0 se utiliza el CreateTalentoCMD como si fuera un "EditTalentoCMD" porque ambos serían el mismo
     DTO, por lo que CreateTalentoCMD vale tanto para una cosa como para otra.*/
+    @Transactional
     public Talento edit(CreateTalentoCMD editTalentoCMD, MultipartFile multipartFile, User user, Long id){
         Talento talento = talentoRepository.findById(id).orElseThrow(() -> new TalentoNotFoundException(id));
 
@@ -113,6 +116,7 @@ public class TalentoService {
     }
 
     //Borrar Talento.
+    @Transactional
     public void delete(Long id, User user){
         Talento talento = talentoRepository.findById(id).orElseThrow(() -> new TalentoNotFoundException(id));
 

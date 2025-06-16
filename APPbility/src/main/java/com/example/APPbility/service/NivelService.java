@@ -1,15 +1,11 @@
 package com.example.APPbility.service;
 
-import com.example.APPbility.dto.continente.CreateContinenteCMD;
 import com.example.APPbility.dto.nivel.CreateNivelCMD;
 import com.example.APPbility.dto.nivel.EditNivelCMD;
 import com.example.APPbility.error.custom.DuplicatedAttributeException;
 import com.example.APPbility.error.custom.EntityWithRelationshipsException;
 import com.example.APPbility.error.custom.IncorrectPatternException;
-import com.example.APPbility.error.custom.IncorrectSizeException;
-import com.example.APPbility.error.entity.ContinenteNotFoundException;
 import com.example.APPbility.error.entity.NivelNotFoundException;
-import com.example.APPbility.model.Continente;
 import com.example.APPbility.model.Nivel;
 import com.example.APPbility.repository.NivelRepository;
 import lombok.RequiredArgsConstructor;
@@ -186,6 +182,7 @@ public class NivelService {
     }
 
     //Borrar Nivel.
+    @Transactional
     public void delete(Long id){
         Nivel nivel = nivelRepository.findById(id).orElseThrow(() -> new NivelNotFoundException(id));
 
