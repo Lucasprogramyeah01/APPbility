@@ -127,8 +127,8 @@ ALTER SEQUENCE talento_seq RESTART WITH 64;
 
 
 --INTERCAMBIOS.
--- [UD: Khin90, US: Arman] PROPUESTO
-INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (1,'PROPUESTO', '2025-04-22T10:45:00', null, null, false, false, '123e4567-e89b-12d3-a456-426614174000', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 7, null, 3);
+-- [UD: Khin90, US: Arman] RECHAZADO
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (1,'RECHAZADO', '2025-04-22T10:45:00', null, null, false, false, '123e4567-e89b-12d3-a456-426614174000', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 7, null, 3);
 
 -- [UD: MalenG, US: Arman] ACTIVO
 INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (2,'ACTIVO', '2025-05-22T17:30:00', '2025-05-24T11:20:00', null, false, false, 'd19b3b6e-8f7a-43f1-a8f4-92e3d5a40007', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 6, 9, 9);
@@ -169,6 +169,9 @@ INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo,
     INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (3, 9, '¡Increíble maestro!', 'Khin tiene una paciencia infinita y explica cada movimiento con claridad. Ahora me siento más segura al caminar de noche.', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', '123e4567-e89b-12d3-a456-426614174000', 6);
     INSERT INTO valoracion (id, puntuacion, titulo, resenha, usuario_escritor_id, usuario_valorado_id, intercambio_id_asociado_a_valoracion) VALUES (4, 7, null, 'Sofia es muy creativa, aunque a veces iba demasiado rápido para mi nivel. ¡Mis cupcakes mejoraron mucho!', '123e4567-e89b-12d3-a456-426614174000', '3a5e3f0c-4d99-47d7-b4c5-3c2a6b142b91', 6);
 
-ALTER SEQUENCE intercambio_seq RESTART WITH 56;
+-- [UD: Khin90, US: Arman] PROPUESTO
+INSERT INTO intercambio (intercambioid, estado, fecha_solicitud, fecha_comienzo, fecha_fin, finalizado_por_demandante, finalizado_por_solicitado, usuario_demandante_id, usuario_solicitado_id, talento_solicitado_id, talento_aceptado_id, talento_sugerido_id) VALUES (7,'PROPUESTO', '2025-03-14T08:20:00', null, null, false, false, '123e4567-e89b-12d3-a456-426614174000', '9f3c5a28-92d4-4e77-b8c0-55a6b7c1ea00', 7, null, 3);
+
+ALTER SEQUENCE intercambio_seq RESTART WITH 57;
 ALTER SEQUENCE sesion_seq RESTART WITH 57;
 ALTER SEQUENCE bloque_seq RESTART WITH 60;

@@ -15,6 +15,7 @@ import PantallaInicioAdmin from '../components/PantallaInicioAdmin.vue';
 import PantallaAccesoNoAutorizado from '../components/PantallaAccesoNoAutorizado.vue';
 import PantallaPerfilUsuario from '../components/PantallaPerfilUsuario.vue';
 import FormProponerIntercambio from '../components/FormProponerIntercambio.vue';
+import PantallaIntercambios from '../components/PantallaIntercambios.vue';
 
 const routes = [
   { path: '/login', component: PantallaLogin },
@@ -23,6 +24,7 @@ const routes = [
   { path: '/inicio', component: PantallaInicio, meta:{roles: ['USER']} },
   { path: '/perfil/:id', component: PantallaPerfilUsuario, meta:{roles: ['USER']} },
   { path: '/proponerIntercambio/:id', component: FormProponerIntercambio, meta:{roles: ['USER']} },
+  { path: '/intercambios', component: PantallaIntercambios, meta:{roles: ['USER']} },
 
   { path: '/inicioAdmin', component: PantallaInicioAdmin, meta:{roles: ['ADMIN']} },
   { path: '/continentes', component: PantallaContinentesAdmin, meta:{roles: ['ADMIN']} },

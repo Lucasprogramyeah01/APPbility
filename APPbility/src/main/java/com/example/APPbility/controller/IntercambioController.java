@@ -731,8 +731,8 @@ public class IntercambioController {
             content = @Content)
     })
     @GetMapping("mis-intercambios")
-    public Page<GetIntercambioDTOConUsersYTalentos> findIntercambiosfromUsuario(@PageableDefault(sort = "id",
-        direction = Sort.Direction.ASC) Pageable pageable, @AuthenticationPrincipal User usuarioAutenticado) {
+    public Page<GetIntercambioDTOConUsersYTalentos> findIntercambiosfromUsuario(@PageableDefault(sort = "fechaSolicitud",
+        direction = Sort.Direction.DESC) Pageable pageable, @AuthenticationPrincipal User usuarioAutenticado) {
         Page<Intercambio> listaIntercambios = intercambioService.findIntercambiosFromUsuario(usuarioAutenticado, pageable);
 
         List<GetIntercambioDTOConUsersYTalentos> listaIntercambiosConDTO = listaIntercambios.stream()

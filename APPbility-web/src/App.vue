@@ -28,11 +28,13 @@ const mostrarNavBar = computed(() => {
   )
 });
 
+const userId = computed(() => localStorage.getItem('id'));
+
 </script>
 
 
 <template>
-  <NavBar v-if="mostrarNavBar"></NavBar>
+  <NavBar v-if="mostrarNavBar" :userID="userId"></NavBar>
   <router-view></router-view>
 </template>
 

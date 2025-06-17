@@ -28,7 +28,6 @@ onMounted(() => listarContinentes());
 
 // METHODS ---------------------------------------------------------------
 
-//Listar todos los continentes.
 async function listarContinentes(page = 1) {
   isLoading.value = true;
   try {

@@ -18,8 +18,6 @@ const currentPage = ref(1);
 const pageSize = 20;
 const totalElements = ref(0);
 
-const usuarioAutenticadoActual = ref(null);
-
 const isLoading = ref(true);
 const error = ref(null);
 
@@ -28,7 +26,6 @@ const toast = useToast();
 // CREATED() ---------------------------------------------------------------
 
 onMounted(() => listarUsuarios());
-onMounted(() => obtenerUsuarioAutenticado());
 
 // METHODS ---------------------------------------------------------------
 
@@ -47,29 +44,16 @@ async function listarUsuarios(page = 1) {
   }
 }
 
-async function obtenerUsuarioAutenticado() {
-  const user = localStorage.getItem('token');
-  if (user) {
-    usuarioAutenticadoActual.value = JSON.parse(user);
-  }
-  listarUsuarios();
-}
-
-async function obtenerListaUsuariosFiltrados() {
-  if (!usuarioAutenticadoActual.value) return listaUsuarios.value.content;
-    return listaUsuarios.value.content.filter(
-      usuario => usuario.id !== usuarioAutenticadoActual.value.id
-    );
-}
-
 // COMPUTED ---------------------------------------------------------------
 
 const isEmpty = computed(() => listaUsuarios.value.empty);
 
+const userID = computed(() => localStorage.getItem('id'));
+
 const usuariosFiltrados = computed(() => {
-  if (!usuarioAutenticadoActual.value) return listaUsuarios.value.content;
+  if (!listaUsuarios.value.content.length) return [];
   return listaUsuarios.value.content.filter(
-    usuario => usuario.id !== usuarioAutenticadoActual.value.id
+    usuario => String(usuario.id) !== userID.value
   );
 });
 
@@ -82,7 +66,6 @@ const totalPages = computed(() => Math.ceil(totalElements.value / pageSize));
 watch(currentPage, (newPage) => {
   listarContinentes(newPage);
 });
-
 </script>
 
 
