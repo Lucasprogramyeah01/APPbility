@@ -12,6 +12,7 @@ const rutasOcultas = [
   '/login', 
   '/registrarUsuario', 
   //ROL: Admin
+  '/inicioAdmin',
   '/continentes', 
   /^\/continente\/\d+$/,
   '/registrarContinente',

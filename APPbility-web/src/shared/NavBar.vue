@@ -1,12 +1,22 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { UserService } from '@/services/userService';
 
 // PROPS() ---------------------------------------------------------------
 
 defineProps({
   userID: String
 });
+
+// DATA() ---------------------------------------------------------------
+
+const router = useRouter();
+
+const handleLogout = async () => {
+  await UserService.logout(router);
+};
 
 </script>
 
@@ -35,6 +45,13 @@ defineProps({
               </RouterLink>
               <b-nav-item href="#" class="nav-item-Textsize px-4"><i class="bi bi-chat-fill"></i> Valoraciones</b-nav-item>
           </b-navbar-nav>
+          <b-button 
+            class="btn fondoRojo text-white ms-4 w-25 afacad"
+            style="height: 60px; font-size: 22px;"
+            @click="handleLogout"
+          >
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </b-button>
         </b-collapse>
     </b-navbar>
   <div class="container-fluid fondoDegradado">

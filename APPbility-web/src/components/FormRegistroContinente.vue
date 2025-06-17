@@ -3,7 +3,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, onMounted } from 'vue';
 import { ContinenteService } from '../services/continenteService';
 import { useRouter, useRoute } from 'vue-router';
-import Swal from 'sweetalert2';
 import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------

@@ -104,9 +104,11 @@ watch(currentPage, (newPage) => {
                     <i class="bi bi-globe-americas carterOne" style="font-size: 42px;"></i>
                     <span class="fw-normal m-0 pt-1 ps-3 carterOne w-auto" style="font-size: 42px;">Continentes y Países</span>
                 </div>
-                <div class="d-flex align-items-center me-3 afacad" style="cursor: pointer;">
-                    <h3 href="#" class="nav-item-Textsize px-4 m-0 texto"><i class="bi bi-house-fill"></i> Volver al inicio</h3>
-                </div>
+                <RouterLink :to="`/inicioAdmin`" class="text-decoration-none">
+                  <div class="d-flex align-items-center me-3 afacad text-white">
+                      <h3 href="#" class="nav-item-Textsize px-4 m-0 texto"><i class="bi bi-house-fill"></i> Volver al inicio</h3>
+                  </div>
+                </RouterLink>
             </div>
         </div>
         <!-- Botones -->

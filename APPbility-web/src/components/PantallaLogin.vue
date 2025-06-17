@@ -3,7 +3,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useAuthService } from '../security/authService';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-import Swal from 'sweetalert2';
 import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------

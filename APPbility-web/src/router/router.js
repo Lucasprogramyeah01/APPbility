@@ -11,7 +11,7 @@ import PantallaContinentesAdmin from '../components/admin/PantallaContinentesAdm
 import PantallaPaisesAdmin from '../components/admin/PantallaPaisesAdmin.vue';
 import FormRegistroContinente from '../components/FormRegistroContinente.vue';
 import PantallaInicio from '../components/PantallaInicio.vue';
-import PantallaInicioAdmin from '../components/PantallaInicioAdmin.vue';
+import PantallaInicioAdmin from '../components/admin/PantallaInicioAdmin.vue';
 import PantallaAccesoNoAutorizado from '../components/PantallaAccesoNoAutorizado.vue';
 import PantallaPerfilUsuario from '../components/PantallaPerfilUsuario.vue';
 import FormProponerIntercambio from '../components/FormProponerIntercambio.vue';

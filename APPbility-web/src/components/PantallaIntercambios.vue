@@ -3,17 +3,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, watch, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import LoadingComponent from './loadingComponent.vue';
-import { UserService } from '../services/userService';
 import { IntercambioService } from '../services/intercambioService';
 import Swal from 'sweetalert2';
 import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------
-
-//const usuario = ref(null);
-
-/*const route = useRoute();
-const id = route.params.id;*/
 
 const router = useRouter();
 
@@ -39,23 +33,9 @@ const error = ref(null);
 
 // CREATED() ---------------------------------------------------------------
 
-//onMounted(() => buscarUsuarioPorID(id));
 onMounted(() => listarIntercambios());
 
 // METHODS ---------------------------------------------------------------
-
-/*const buscarUsuarioPorID = async () => {
-  try {
-    usuario.value = await UserService.findById(id);
-    console.log(id);
-    console.log(usuario.value);
-  } catch (err) {
-    error.value = err.message;
-    usuario.value = null;
-  } finally {
-    isLoading.value = false;
-  }
-};*/
 
 async function listarIntercambios(page = 1) {
   isLoading.value = true;
@@ -138,14 +118,6 @@ async function rechazarIntercambio(intercambioID, usuarioDemandanteUsername) {
         }
     }
 }
-
-/*const esUsuarioDemandante = (intercambio) => {
-  return String(intercambio.usuarioDemandante.id) === userID;
-};
-
-const esUsuarioSolicitado = (intercambio) => {
-  return String(intercambio.usuarioSolicitado.id) === userID;
-};*/
 
 // COMPUTED ---------------------------------------------------------------
 

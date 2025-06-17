@@ -398,12 +398,6 @@ watch(currentPageUD, (newPage) => {
                         <i class="bi bi-caret-left-fill"></i> &nbsp;Volver atrás
                       </h4>
                   </b-button>
-                <!--div style="width: 40%;"></div>
-                <b-button class="float-right" variant="primary" @click="onClickNext" :disabled="!selectedTalentoSugeridoId">
-                    <h4 class="m-0">
-                      Siguiente &nbsp;<i class="bi bi-caret-right-fill"></i>
-                    </h4>
-                </b-button-->
               </div>
           </div>
           <div class="d-flex justify-content-center mt-5 pt-3 afacad">

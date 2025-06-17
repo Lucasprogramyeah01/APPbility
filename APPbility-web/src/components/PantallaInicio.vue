@@ -1,7 +1,6 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, watch, computed, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
 import LoadingComponent from './loadingComponent.vue';
 import { UserService } from '../services/userService';
 import { useToast } from "vue-toastification";
@@ -79,31 +78,6 @@ watch(currentPage, (newPage) => {
       >
         <RouterLink :to="`/perfil/${usuario.id}`" class="text-decoration-none">
           <b-card id="tarjeta" bg-variant="dark" text-variant="white" class="rounded-3 shadow">
-              <!--b-card-text>
-                  <div class="d-flex justify-content-between">
-                      <h1 class="amarillo madimiOne">{{ continente.id }}</h1>
-                      <div>
-                        <RouterLink :to="`/editarContinente/${continente.id}`" class="text-decoration-none">
-                          <b-button href="#" class="h-auto ms-2 fondoNaranja border-0">
-                              <i class="bi bi-pencil-fill" style="font-size: 25px;"></i>
-                          </b-button>
-                        </RouterLink>
-
-                          <b-button 
-                              class="h-auto ms-2 fondoRojo border-0"
-                              @click="eliminarContinente(continente.id)"
-                          >
-                              <i class="bi bi-trash3-fill" style="font-size: 25px;"></i>
-                          </b-button>
-                      </div>
-                  </div>
-                  <h2 class="mt-2">{{ continente.nombre }}</h2>
-              </b-card-text>
-              <RouterLink :to="`/continente/${continente.id}`" class="text-decoration-none">
-                  <b-button href="#" variant="primary" class="border-0 w-100">
-                      <h5 class="m-0">Ver países</h5>
-                  </b-button>
-              </RouterLink-->
               <b-card-text ><h3 class="m-0 afacad">{{ usuario.username }}</h3></b-card-text>
           </b-card>
         </RouterLink>

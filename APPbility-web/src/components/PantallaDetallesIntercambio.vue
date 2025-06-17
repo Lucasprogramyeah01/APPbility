@@ -29,7 +29,7 @@ import { IntercambioService } from '../services/intercambioService';
 
 <template>
   <LoadingComponent v-if="isLoading"></LoadingComponent>
-    <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+    <p>Calendario de sesiones.</p>
     <div>
         <b-calendar block locale="en-US"></b-calendar>
         <b-calendar></b-calendar>

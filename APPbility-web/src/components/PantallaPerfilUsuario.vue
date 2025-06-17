@@ -5,7 +5,6 @@ import { useRoute } from 'vue-router';
 import LoadingComponent from './loadingComponent.vue';
 import { UserService } from '../services/userService';
 import { TalentoService } from '../services/talentoService';
-import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------
 
