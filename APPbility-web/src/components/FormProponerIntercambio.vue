@@ -155,7 +155,7 @@ const proponerIntercambio = async () => {
     try {
       datosNuevoIntercambio.value.usuarioSolicitadoID = usuarioSolicitadoID;
       await IntercambioService.proponerIntercambio(datosNuevoIntercambio.value);
-      toast.success(`Se ha le enviado la propuesta de intercambio a ${usuarioSolicitadoUsername} correctamente.`);
+      toast.success(`Se le ha enviado la propuesta de intercambio a ${usuarioSolicitadoUsername} correctamente.`);
       router.replace(`/perfil/${usuarioSolicitadoID}`);
     } catch (err) {
       toast.error(err.message);

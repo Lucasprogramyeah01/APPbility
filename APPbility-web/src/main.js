@@ -38,5 +38,6 @@ const app = createApp(App)
 app.use(router)
 app.use(BootstrapVue3)
 app.use(Toast, options)
+app.use(BootstrapVue)
 
 app.mount('#app')

@@ -1,10 +1,11 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ref, watch, computed, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 import LoadingComponent from './loadingComponent.vue';
 import { UserService } from '../services/userService';
 import { IntercambioService } from '../services/intercambioService';
+import Swal from 'sweetalert2';
 import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------
@@ -13,6 +14,8 @@ import { useToast } from "vue-toastification";
 
 /*const route = useRoute();
 const id = route.params.id;*/
+
+const router = useRouter();
 
 const listaIntercambios = ref({ 
     content: [], 
@@ -23,7 +26,13 @@ const currentPage = ref(1);
 const pageSize = 10;
 const totalElements = ref(0);
 
+const datosTalentoAceptado = ref({ 
+    talentoAceptadoID: null 
+});
+
 const userID = localStorage.getItem('id');
+
+const toast = useToast();
 
 const isLoading = ref(true);
 const error = ref(null);
@@ -62,6 +71,73 @@ async function listarIntercambios(page = 1) {
     isLoading.value = false;
   }
 };
+
+async function cancelarIntercambio(intercambioID, usuarioSolicitadoUsername) {
+    const result = await Swal.fire({
+        title: '¿Estás seguro de quieres cancelar la propuesta de este intercambio?',
+        text: `Se retirará dicha oferta de intercambio de la pestaña de "Propuestas recibidas" de ${usuarioSolicitadoUsername}.`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#cd0000',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Cancelar intercambio',
+        cancelButtonText: 'Volver atrás'
+    });
+    if (result.isConfirmed) {
+        try {
+            await IntercambioService.cancelarIntercambioPropuesto(intercambioID);
+            toast.success('Se ha cancelado la propuesta de intercambio correctamente.');
+            listarIntercambios(currentPage.value);
+        } catch (err) {
+            toast.error(err.message);
+        }
+    }
+}
+
+async function aceptarIntercambio(intercambioID, talentoAceptadoID, usuarioDemandanteUsername) {
+    const result = await Swal.fire({
+        title: '¿Estás seguro de quieres aceptar la propuesta de este intercambio?',
+        text: `El intercambio pasará a ser ACTIVO y tanto tú como ${usuarioDemandanteUsername} podréis encontrarlo y configurarlo en la pestaña "Activos".`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#0cad00',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Aceptar intercambio',
+        cancelButtonText: 'Cancelar'
+    });
+    if (result.isConfirmed) {
+        try {
+            datosTalentoAceptado.value.talentoAceptadoID = talentoAceptadoID;
+            await IntercambioService.aceptarIntercambio(intercambioID, datosTalentoAceptado.value);
+            toast.success('Se ha aceptado la propuesta de intercambio correctamente.');
+            listarIntercambios(currentPage.value);
+        } catch (err) {
+            toast.error(err.message);
+        }
+    }
+}
+
+async function rechazarIntercambio(intercambioID, usuarioDemandanteUsername) {
+    const result = await Swal.fire({
+        title: '¿Estás seguro de quieres rechazar este intercambio?',
+        text: `Se le hará saber a ${usuarioDemandanteUsername} en su pestaña de "Rechazados".`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#cd0000',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Rechazar intercambio',
+        cancelButtonText: 'Cancelar'
+    });
+    if (result.isConfirmed) {
+        try {
+            await IntercambioService.rechazarIntercambio(intercambioID);
+            toast.success('Se ha rechazado el intercambio correctamente.');
+            listarIntercambios(currentPage.value);
+        } catch (err) {
+            toast.error(err.message);
+        }
+    }
+}
 
 /*const esUsuarioDemandante = (intercambio) => {
   return String(intercambio.usuarioDemandante.id) === userID;
@@ -166,7 +242,10 @@ watch(currentPage, (newPage) => {
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <b-button href="#" class="border-0 w-100 fondoRojo">
+                                <b-button 
+                                    class="border-0 w-100 fondoRojo"
+                                    @click="cancelarIntercambio(intercambio.intercambioID, intercambio.usuarioSolicitado.username)"
+                                >
                                     <h5 class="m-0">
                                         <i class="bi bi-x-circle-fill"></i>
                                         &nbsp; Cancelar propuesta
@@ -245,20 +324,31 @@ watch(currentPage, (newPage) => {
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <b-button href="#" class="border-0 w-100 fondoNaranja">
-                                    <h5 class="m-0">
-                                        <i class="bi bi-pencil-fill"></i>
-                                        &nbsp; Elegir otro talento de {{ intercambio.usuarioDemandante.username }}
-                                    </h5>
-                                </b-button>
-                                <div class="d-flex justify-content-between mt-3">
-                                    <b-button href="#" class="border-0 w-100 fondoVerde">
+                                <RouterLink :to="`/elegirTalentoDeIntercambio/${intercambio.intercambioID}/${intercambio.usuarioDemandante.id}`" class="text-decoration-none">
+                                    <b-button class="border-0 w-100 fondoNaranja">
                                         <h5 class="m-0">
-                                            <i class="bi bi-check-circle-fill"></i>
-                                            &nbsp; Aceptar Intercambio
+                                            <i class="bi bi-pencil-fill"></i>
+                                            &nbsp; Elegir otro talento de {{ intercambio.usuarioDemandante.username }}
                                         </h5>
                                     </b-button>
-                                    <b-button href="#" class="border-0 w-100 ms-3 fondoRojo">
+                                </RouterLink>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <b-form class="w-100" 
+                                        @submit.prevent="aceptarIntercambio(intercambio.intercambioID, intercambio.talentoSugerido.id, intercambio.usuarioDemandante.username)">
+                                        <b-button 
+                                            class="border-0 w-100 fondoVerde"
+                                            type="submit"
+                                        >
+                                            <h5 class="m-0">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                &nbsp; Aceptar Intercambio
+                                            </h5>
+                                        </b-button>
+                                    </b-form>
+                                    <b-button 
+                                        class="border-0 w-100 ms-3 fondoRojo"
+                                        @click="rechazarIntercambio(intercambio.intercambioID, intercambio.usuarioDemandante.username)"
+                                    >
                                         <h5 class="m-0">
                                             <i class="bi bi-x-circle-fill"></i>
                                             &nbsp; Rechazar Intercambio
@@ -340,11 +430,13 @@ watch(currentPage, (newPage) => {
                                 </div>
                             </div>
                             <div class="mt-4">
-                                <b-button href="#" variant="primary" class="border-0 w-100">
-                                    <h5 class="m-0">
-                                        Ver detalles
-                                    </h5>
-                                </b-button>
+                                <RouterLink :to="`/intercambio/${intercambio.intercambioID}`" class="text-decoration-none">
+                                    <b-button href="#" variant="primary" class="border-0 w-100">
+                                        <h5 class="m-0">
+                                            Ver detalles
+                                        </h5>
+                                    </b-button>
+                                </RouterLink>
                             </div>
                         </b-card-text>
                     </b-card>
