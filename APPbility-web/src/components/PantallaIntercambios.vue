@@ -621,7 +621,6 @@ watch(currentPage, (newPage) => {
             </div>
         </b-tab>
     </b-tabs>
-
 </template>
 
 

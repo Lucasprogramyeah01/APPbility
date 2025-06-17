@@ -90,7 +90,7 @@ watch(currentPage, (newPage) => {
         <b-tab title="Perfil" active>
             <p>{{ usuario?.username }}</p>
             <RouterLink :to="`/proponerIntercambio/${usuario?.id}`" class="text-decoration-none">
-                <b-button href="#" variant="primary" class="border-0 w-100">
+                <b-button variant="primary" class="border-0 w-100">
                     <h5 class="m-0">Ofrecer Intercambio</h5>
                 </b-button>
             </RouterLink>  
