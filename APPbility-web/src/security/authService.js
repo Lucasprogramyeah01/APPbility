@@ -25,6 +25,7 @@ export function useAuthService() {
         console.log('RESPONSE', response);
 
         //Almacenar los datos en el localStorage.
+        localStorage.setItem('id', response.data.id);
         localStorage.setItem('color', response.data.color);
         localStorage.setItem('role', response.data.rol[0]);
         localStorage.setItem('token', response.data.token);

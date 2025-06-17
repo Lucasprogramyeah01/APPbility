@@ -2,6 +2,9 @@ package com.example.APPbility.user.repository;
 
 import com.example.APPbility.model.Pais;
 import com.example.APPbility.user.model.User;
+import com.example.APPbility.user.model.UserRole;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -10,6 +13,15 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
+
+    /*@Query("""
+        SELECT u
+        FROM User u
+        WHERE u.roles = com.example.APPbility.user.model.UserRole.USER
+    """)
+    Page<User> findListaUsuariosConRolUser(Pageable pageable);*/
+
+    Page<User> findByRoles(UserRole rol, Pageable pageable);
 
     @Query("""
         SELECT u

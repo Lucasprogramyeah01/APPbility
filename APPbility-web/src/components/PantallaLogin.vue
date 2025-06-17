@@ -3,7 +3,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useAuthService } from '../security/authService';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-import Swal from 'sweetalert2';
 import { useToast } from "vue-toastification";
 
 // DATA() ---------------------------------------------------------------
@@ -52,7 +51,7 @@ const iniciarSesion = async () => {
 
 
 <template>
-    <div class="d-flex flex-column fondoDegradado">
+    <div class="d-flex flex-column fondoDegradado vh-100">
         <div class="container-fluid d-flex flex-column fondoOscuro mt-5 py-5">
           <div class="w-auto d-flex justify-content-center">
             <img src="../assets/img/APPbilityLogo.png" width="180px" height="180px" />

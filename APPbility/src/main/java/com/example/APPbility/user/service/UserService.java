@@ -62,7 +62,7 @@ public class UserService {
 
     //Listar todos los Usuarios.
     public Page<User> findAll(Pageable pageable){
-        Page<User> result = userRepository.findAll(pageable);
+        Page<User> result = userRepository.findByRoles(UserRole.USER, pageable);
 
         if(result.isEmpty())
             throw new UserNotFoundException();
